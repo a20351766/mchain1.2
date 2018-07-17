@@ -2,7 +2,7 @@
 Glossary
 ===========================
 
-Terminology is important, so that all Hyperledger Fabric users and developers
+Terminology is important, so that all Hyperledger Mchain users and developers
 agree on what we mean by each specific term. What is a smart contract for
 example. The documentation will reference the glossary as needed, but feel free
 to read the entire thing in one sitting if you like; it's pretty enlightening!
@@ -152,7 +152,7 @@ See World-State_.
 Dynamic Membership
 ------------------
 
-Hyperledger Fabric supports the addition/removal of members, peers, and ordering service
+Hyperledger Mchain supports the addition/removal of members, peers, and ordering service
 nodes, without compromising the operationality of the overall network. Dynamic
 membership is critical when business relationships adjust and entities need to
 be added/removed for various reasons.
@@ -184,12 +184,12 @@ misbehavior (deliberate or not) by the endorsing peers. A transaction that is su
 must satisfy the endorsement policy before being marked as valid by committing peers.
 A distinct endorsement policy for install and instantiate transactions is also required.
 
-.. _Fabric-ca:
+.. _Mchain-ca:
 
-Hyperledger Fabric CA
+Hyperledger Mchain CA
 ---------------------
 
-Hyperledger Fabric CA is the default Certificate Authority component, which
+Hyperledger Mchain CA is the default Certificate Authority component, which
 issues PKI-based certificates to network member organizations and their users.
 The CA issues one root certificate (rootCert) to each member and one enrollment
 certificate (ECert) to each authorized user.
@@ -296,7 +296,7 @@ Membership Service Provider
 
 The Membership Service Provider (MSP) refers to an abstract component of the
 system that provides credentials to clients, and peers for them to participate
-in a Hyperledger Fabric network. Clients use these credentials to authenticate
+in a Hyperledger Mchain network. Clients use these credentials to authenticate
 their transactions, and peers use these credentials to authenticate transaction
 processing results (endorsements). While strongly connected to the transaction
 processing components of the systems, this interface aims to have membership
@@ -415,7 +415,7 @@ state at a certain point in time.
 Software Development Kit (SDK)
 ------------------------------
 
-The Hyperledger Fabric client SDK provides a structured environment of libraries
+The Hyperledger Mchain client SDK provides a structured environment of libraries
 for developers to write and test chaincode applications. The SDK is fully
 configurable and extensible through a standard interface. Components, including
 cryptographic algorithms for signatures, logging frameworks and state stores,
@@ -433,7 +433,7 @@ Smart Contract
 
 A smart contract is code -- invoked by a client application external to the
 blockchain network -- that manages access and modifications to a set of
-key-value pairs in the :ref:`World-State`. In Hyperledger Fabric, smart
+key-value pairs in the :ref:`World-State`. In Hyperledger Mchain, smart
 contracts are referred to as chaincode. Smart contract chaincode is installed
 onto peer nodes and instantiated to one or more channels.
 
@@ -479,7 +479,7 @@ World State
 -----------
 
 Also known as the “current state”, the world state is a component of the
-HyperLedger Fabric :ref:`Ledger`. The world state represents the latest values
+HyperLedger Mchain :ref:`Ledger`. The world state represents the latest values
 for all keys included in the chain transaction log. Chaincode executes
 transaction proposals against world state data because the world state provides
 direct access to the latest value of these keys rather than having to calculate

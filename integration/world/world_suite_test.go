@@ -8,7 +8,7 @@ package world_test
 import (
 	"encoding/json"
 
-	"github.com/hyperledger/fabric/integration/world"
+	"github.com/hyperledger/mchain/integration/world"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 

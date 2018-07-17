@@ -10,14 +10,14 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/hyperledger/fabric/common/flogging"
+	"github.com/hyperledger/mchain/common/flogging"
 
-	"github.com/hyperledger/fabric/core/aclmgmt"
-	"github.com/hyperledger/fabric/core/chaincode/shim"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/peer"
-	pb "github.com/hyperledger/fabric/protos/peer"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/core/aclmgmt"
+	"github.com/hyperledger/mchain/core/chaincode/shim"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/peer"
+	pb "github.com/hyperledger/mchain/protos/peer"
+	"github.com/hyperledger/mchain/protos/utils"
 )
 
 // New returns an instance of QSCC.

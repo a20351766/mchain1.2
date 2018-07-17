@@ -12,10 +12,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric/core/comm"
-	"github.com/hyperledger/fabric/protos/peer"
-	ehpb "github.com/hyperledger/fabric/protos/peer"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/core/comm"
+	"github.com/hyperledger/mchain/protos/peer"
+	ehpb "github.com/hyperledger/mchain/protos/peer"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/stretchr/testify/assert"
 	"google.golang.org/grpc"
 )

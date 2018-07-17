@@ -46,7 +46,7 @@ General:
     TimeWindow: 15m
 FileLedger:
   Location: {{ .OrdererDir Orderer }}/system
-  Prefix: hyperledger-fabric-ordererledger
+  Prefix: hyperledger-mchain-ordererledger
 RAMLedger:
   HistorySize: 1000
 {{ if eq .Consensus.Type "kafka" -}}

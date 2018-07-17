@@ -38,7 +38,7 @@ General:
         ClientRootCAs:
 
     # Log Level: The level at which to log. This accepts logging specifications
-    # per: fabric/docs/Setup/logging-control.md
+    # per: mchain/docs/Setup/logging-control.md
     LogLevel: debug
 
     # Genesis method: The method by which the genesis block for the orderer
@@ -112,11 +112,11 @@ FileLedger:
     # Location: The directory to store the blocks in.
     # NOTE: If this is unset, a new temporary location will be chosen every time
     # the orderer is restarted, using the prefix specified by Prefix.
-    Location: /var/hyperledger/fabric/orderer
+    Location: /var/hyperledger/mchain/orderer
 
     # The prefix to use when generating a ledger directory in temporary space.
     # Otherwise, this value is ignored.
-    Prefix: hyperledger-fabric-ordererledger
+    Prefix: hyperledger-mchain-ordererledger
 
 ################################################################################
 #

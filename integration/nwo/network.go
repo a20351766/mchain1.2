@@ -20,9 +20,9 @@ import (
 	"time"
 
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/integration/helpers"
-	"github.com/hyperledger/fabric/integration/nwo/commands"
-	"github.com/hyperledger/fabric/integration/runner"
+	"github.com/hyperledger/mchain/integration/helpers"
+	"github.com/hyperledger/mchain/integration/nwo/commands"
+	"github.com/hyperledger/mchain/integration/runner"
 	"github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
@@ -124,7 +124,7 @@ type Profile struct {
 	Organizations []string `yaml:"organizations,omitempty"`
 }
 
-// Network holds information about a fabric network.
+// Network holds information about a mchain network.
 type Network struct {
 	RootDir      string
 	StartPort    uint16
@@ -326,7 +326,7 @@ func (n *Network) OrdererLocalMSPDir(o *Orderer) string {
 }
 
 // GenerateConfigTree generates the configuration documents required to
-// bootstrap a fabric network. A configuration file will be generated for
+// bootstrap a mchain network. A configuration file will be generated for
 // cryptogen, configtxgen, and for each peer and orderer. The contents of the
 // documents will be based on the Config used to create the Network.
 //
@@ -353,7 +353,7 @@ func (n *Network) GenerateConfigTree() {
 }
 
 // Bootstrap generates the cryptographic material, orderer system channel
-// genesis block, and create channel transactions needed to run a fabric
+// genesis block, and create channel transactions needed to run a mchain
 // network.
 //
 // The cryptogen tool is used to create crypto material from the contents of
@@ -632,7 +632,7 @@ func (n *Network) BrokerRunner(id int, zookeepers []string) *runner.Kafka {
 }
 
 // BrokerGroupRunner returns a runner that manages the processes that make up
-// the kafka broker network for fabric.
+// the kafka broker network for mchain.
 func (n *Network) BrokerGroupRunner() ifrit.Runner {
 	members := grouper.Members{}
 	zookeepers := []string{}
@@ -711,7 +711,7 @@ func (n *Network) PeerGroupRunner() ifrit.Runner {
 }
 
 // NetworkGroupRunner returns a runner that can be used to start and stop an
-// entire fabric network.
+// entire mchain network.
 func (n *Network) NetworkGroupRunner() ifrit.Runner {
 	members := grouper.Members{
 		{Name: "brokers", Runner: n.BrokerGroupRunner()},

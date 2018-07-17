@@ -9,11 +9,11 @@ package broadcast
 import (
 	"io"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/orderer/common/msgprocessor"
-	cb "github.com/hyperledger/fabric/protos/common"
-	ab "github.com/hyperledger/fabric/protos/orderer"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/orderer/common/msgprocessor"
+	cb "github.com/hyperledger/mchain/protos/common"
+	ab "github.com/hyperledger/mchain/protos/orderer"
 	"github.com/op/go-logging"
 	"github.com/pkg/errors"
 )

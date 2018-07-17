@@ -20,15 +20,15 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb/commontests"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/version"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/statedb"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/statedb/commontests"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/version"
 	"github.com/spf13/viper"
 )
 
 func TestMain(m *testing.M) {
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/ledgertests/kvledger/txmgmt/statedb/stateleveldb")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/ledgertests/kvledger/txmgmt/statedb/stateleveldb")
 	os.Exit(m.Run())
 }
 

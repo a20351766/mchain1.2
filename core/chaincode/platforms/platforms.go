@@ -17,16 +17,16 @@ import (
 
 	"io/ioutil"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/metadata"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/car"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/ccmetadata"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/golang"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/java"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/node"
-	"github.com/hyperledger/fabric/core/config"
-	cutil "github.com/hyperledger/fabric/core/container/util"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/common/metadata"
+	"github.com/hyperledger/mchain/core/chaincode/platforms/car"
+	"github.com/hyperledger/mchain/core/chaincode/platforms/ccmetadata"
+	"github.com/hyperledger/mchain/core/chaincode/platforms/golang"
+	"github.com/hyperledger/mchain/core/chaincode/platforms/java"
+	"github.com/hyperledger/mchain/core/chaincode/platforms/node"
+	"github.com/hyperledger/mchain/core/config"
+	cutil "github.com/hyperledger/mchain/core/container/util"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"github.com/spf13/viper"
 )
 

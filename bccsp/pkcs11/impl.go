@@ -24,10 +24,10 @@ import (
 	"math/big"
 	"os"
 
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/bccsp/utils"
-	"github.com/hyperledger/fabric/common/flogging"
+	"github.com/hyperledger/mchain/bccsp"
+	"github.com/hyperledger/mchain/bccsp/sw"
+	"github.com/hyperledger/mchain/bccsp/utils"
+	"github.com/hyperledger/mchain/common/flogging"
 	"github.com/miekg/pkcs11"
 	"github.com/pkg/errors"
 )
@@ -494,7 +494,7 @@ func (csp *impl) Verify(k bccsp.Key, signature, digest []byte, opts bccsp.Signer
 // Encrypt encrypts plaintext using key k.
 // The opts argument should be appropriate for the primitive used.
 func (csp *impl) Encrypt(k bccsp.Key, plaintext []byte, opts bccsp.EncrypterOpts) (ciphertext []byte, err error) {
-	// TODO: Add PKCS11 support for encryption, when fabric starts requiring it
+	// TODO: Add PKCS11 support for encryption, when mchain starts requiring it
 	return csp.BCCSP.Encrypt(k, plaintext, opts)
 }
 

@@ -12,7 +12,7 @@ import (
 
 	"golang.org/x/net/context"
 
-	"github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/protos/peer"
 	"github.com/stretchr/testify/assert"
 )
 

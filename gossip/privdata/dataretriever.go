@@ -10,12 +10,12 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/transientstore"
-	"github.com/hyperledger/fabric/gossip/util"
-	"github.com/hyperledger/fabric/protos/common"
-	gossip2 "github.com/hyperledger/fabric/protos/gossip"
-	"github.com/hyperledger/fabric/protos/ledger/rwset"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/transientstore"
+	"github.com/hyperledger/mchain/gossip/util"
+	"github.com/hyperledger/mchain/protos/common"
+	gossip2 "github.com/hyperledger/mchain/protos/gossip"
+	"github.com/hyperledger/mchain/protos/ledger/rwset"
 )
 
 // StorageDataRetriever defines an API to retrieve private date from the storage

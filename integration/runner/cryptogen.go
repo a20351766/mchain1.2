@@ -22,7 +22,7 @@ type Cryptogen struct {
 	Output string
 }
 
-// Generate uses cryptogen to generate cryptographic material for fabric.
+// Generate uses cryptogen to generate cryptographic material for mchain.
 func (c *Cryptogen) Generate(extraArgs ...string) *ginkgomon.Runner {
 	return ginkgomon.New(ginkgomon.Config{
 		Name:          "cryptogen generate",

@@ -12,10 +12,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric/common/cauthdsl"
-	"github.com/hyperledger/fabric/msp"
-	pb "github.com/hyperledger/fabric/protos/common"
-	mb "github.com/hyperledger/fabric/protos/msp"
+	"github.com/hyperledger/mchain/common/cauthdsl"
+	"github.com/hyperledger/mchain/msp"
+	pb "github.com/hyperledger/mchain/protos/common"
+	mb "github.com/hyperledger/mchain/protos/msp"
 	"github.com/stretchr/testify/assert"
 )
 

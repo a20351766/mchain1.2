@@ -42,7 +42,7 @@ logging:
     #
     # 4. Otherwise, the specifications below apply.
     #
-    # Developers: Please see fabric/docs/Setup/logging-control.md for more
+    # Developers: Please see mchain/docs/Setup/logging-control.md for more
     # options.
     peer:       warning
     node:       warning
@@ -227,7 +227,7 @@ peer:
         serverhostoverride:
 
     # Path on the file system where peer will store data (eg ledger)
-    fileSystemPath: /var/hyperledger/fabric/peer
+    fileSystemPath: /var/hyperledger/mchain/peer
 
     # BCCSP (Blockchain crypto provider): Select which crypto implementation or
     # library to use
@@ -242,7 +242,7 @@ peer:
             # Location of Key Store
             FileKeyStore:
                 # If "", defaults to 'mspConfigPath'/keystore
-                # TODO: Ensure this is read with fabric/core/config.GetPath() once ready
+                # TODO: Ensure this is read with mchain/core/config.GetPath() once ready
                 KeyStore:
 
     # Path on the file system where peer will find MSP local configurations
@@ -327,16 +327,16 @@ chaincode:
         name:
 
     # Generic builder environment, suitable for most chaincode types
-    builder: $(DOCKER_NS)/fabric-ccenv:$(ARCH)-$(PROJECT_VERSION)
+    builder: $(DOCKER_NS)/mchain-ccenv:$(ARCH)-$(PROJECT_VERSION)
 
     golang:
         # golang will never need more than baseos
-        runtime: $(BASE_DOCKER_NS)/fabric-baseos:$(ARCH)-$(BASE_VERSION)
+        runtime: docker.m-chain.com/$(BASE_DOCKER_NS)/mchain-baseos:$(ARCH)-$(BASE_VERSION)
 
     car:
         # car may need more facilities (JVM, etc) in the future as the catalog
         # of platforms are expanded.  For now, we can just use baseos
-        runtime: $(BASE_DOCKER_NS)/fabric-baseos:$(ARCH)-$(BASE_VERSION)
+        runtime: docker.m-chain.com/$(BASE_DOCKER_NS)/mchain-baseos:$(ARCH)-$(BASE_VERSION)
 
     java:
         # This is an image based on java:openjdk-8 with addition compiler
@@ -344,7 +344,7 @@ chaincode:
         # This image is packed with shim layer libraries that are necessary
         # for Java chaincode runtime.
         Dockerfile:  |
-            from $(DOCKER_NS)/fabric-javaenv:$(ARCH)-$(PROJECT_VERSION)
+            from $(DOCKER_NS)/mchain-javaenv:$(ARCH)-$(PROJECT_VERSION)
 
     # timeout in millisecs for starting up a container and waiting for Register
     # to come through. 1sec should be plenty for chaincode unit tests

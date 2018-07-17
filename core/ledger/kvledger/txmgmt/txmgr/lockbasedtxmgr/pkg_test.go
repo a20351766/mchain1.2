@@ -20,16 +20,16 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/bookkeeping"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/privacyenabledstate"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/txmgr"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/version"
-	"github.com/hyperledger/fabric/core/ledger/pvtdatapolicy"
-	"github.com/hyperledger/fabric/core/ledger/util"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/ledger/rwset"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/bookkeeping"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/privacyenabledstate"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/txmgr"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/version"
+	"github.com/hyperledger/mchain/core/ledger/pvtdatapolicy"
+	"github.com/hyperledger/mchain/core/ledger/util"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/ledger/rwset"
 )
 
 type testEnv interface {

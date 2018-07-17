@@ -60,14 +60,14 @@ Organizations:
 #
 #   CAPABILITIES
 #
-#   This section defines the capabilities of fabric network. This is a new
+#   This section defines the capabilities of mchain network. This is a new
 #   concept as of v1.1.0 and should not be utilized in mixed networks with
 #   v1.0.x peers and orderers.  Capabilities define features which must be
-#   present in a fabric binary for that binary to safely participate in the
-#   fabric network.  For instance, if a new MSP type is added, newer binaries
+#   present in a mchain binary for that binary to safely participate in the
+#   mchain network.  For instance, if a new MSP type is added, newer binaries
 #   might recognize and validate the signatures from this type, while older
 #   binaries without this support would be unable to validate those
-#   transactions.  This could lead to different versions of the fabric binaries
+#   transactions.  This could lead to different versions of the mchain binaries
 #   having different world states.  Instead, defining a capability for a channel
 #   informs those binaries without this capability that they must cease
 #   processing transactions until they have been upgraded.  For v1.0.x if any
@@ -100,10 +100,10 @@ Capabilities:
     # of the capability to true to require it.
     Application: &ApplicationCapabilities
         # V1.2 for Application enables the new non-backwards compatible
-        # features and fixes of fabric v1.2, it implies V1_1.
+        # features and fixes of mchain v1.2, it implies V1_1.
         V1_2: true
         # V1.1 for Application enables the new non-backwards compatible
-        # features and fixes of fabric v1.1 (note, this need not be set if
+        # features and fixes of mchain v1.1 (note, this need not be set if
         # V1_2 is set).
         V1_1: false
 

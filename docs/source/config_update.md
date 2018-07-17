@@ -951,7 +951,7 @@ application. In general, you may always collect more signatures than are
 required.*
 
 The actual process of getting these signatures will depend on how you’ve set up
-your system, but there are two main implementations. Currently, the Fabric
+your system, but there are two main implementations. Currently, the Mchain
 command line defaults to a “pass it along” system. That is, the Admin of the Org
 proposing a config update sends the update to someone else (another Admin,
 typically) who needs to sign it. This Admin signs it (or doesn’t) and passes it
@@ -959,7 +959,7 @@ along to the next Admin, and so on, until there are enough signatures for the
 config to be submitted.
 
 This has the virtue of simplicity -- when there are enough signatures, the last
-Admin can simply submit the config transaction (in Fabric, the `peer channel update`
+Admin can simply submit the config transaction (in Mchain, the `peer channel update`
 command includes a signature by default). However, this process will only be
 practical in smaller channels, since the “pass it along” method can be time
 consuming.
@@ -968,7 +968,7 @@ The other option is to submit the update to every Admin on a channel and wait
 for enough signatures to come back. These signatures can then be stitched
 together and submitted. This makes life a bit more difficult for the Admin who
 created the config update (forcing them to deal with a file per signer) but is
-the recommended workflow for users which are developing Fabric management
+the recommended workflow for users which are developing Mchain management
 applications.
 
 Once the config has been added to the ledger, it will be a best practice to

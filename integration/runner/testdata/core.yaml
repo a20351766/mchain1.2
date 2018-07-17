@@ -153,18 +153,18 @@ chaincode:
     id:
         path:
         name:
-    builder: $(DOCKER_NS)/fabric-ccenv:$(ARCH)-$(PROJECT_VERSION)
+    builder: $(DOCKER_NS)/mchain-ccenv:$(ARCH)-$(PROJECT_VERSION)
     pull: false
     golang:
-        runtime: $(BASE_DOCKER_NS)/fabric-baseos:$(ARCH)-$(BASE_VERSION)
+        runtime: $(BASE_DOCKER_NS)/mchain-baseos:$(ARCH)-$(BASE_VERSION)
         dynamicLink: false
     car:
-        runtime: $(BASE_DOCKER_NS)/fabric-baseos:$(ARCH)-$(BASE_VERSION)
+        runtime: $(BASE_DOCKER_NS)/mchain-baseos:$(ARCH)-$(BASE_VERSION)
     java:
         Dockerfile:  |
-            from $(DOCKER_NS)/fabric-javaenv:$(ARCH)-1.1.0
+            from $(DOCKER_NS)/mchain-javaenv:$(ARCH)-1.1.0
     node:
-        runtime: $(BASE_DOCKER_NS)/fabric-baseimage:$(ARCH)-$(BASE_VERSION)
+        runtime: $(BASE_DOCKER_NS)/mchain-baseimage:$(ARCH)-$(BASE_VERSION)
     startuptimeout: 300s
     executetimeout: 30s
     mode: net

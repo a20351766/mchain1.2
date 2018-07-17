@@ -9,13 +9,13 @@ package aclmgmt
 import (
 	"fmt"
 
-	"github.com/hyperledger/fabric/common/policies"
-	"github.com/hyperledger/fabric/core/aclmgmt/resources"
-	"github.com/hyperledger/fabric/core/peer"
-	"github.com/hyperledger/fabric/core/policy"
-	"github.com/hyperledger/fabric/msp/mgmt"
-	"github.com/hyperledger/fabric/protos/common"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/policies"
+	"github.com/hyperledger/mchain/core/aclmgmt/resources"
+	"github.com/hyperledger/mchain/core/peer"
+	"github.com/hyperledger/mchain/core/policy"
+	"github.com/hyperledger/mchain/msp/mgmt"
+	"github.com/hyperledger/mchain/protos/common"
+	pb "github.com/hyperledger/mchain/protos/peer"
 )
 
 const (

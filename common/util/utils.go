@@ -26,9 +26,9 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/ptypes/timestamp"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/common/metadata"
+	"github.com/hyperledger/mchain/bccsp"
+	"github.com/hyperledger/mchain/bccsp/factory"
+	"github.com/hyperledger/mchain/common/metadata"
 )
 
 type alg struct {
@@ -171,8 +171,8 @@ func GetTestOrgID() string {
 
 //GetSysCCVersion returns the version of all system chaincodes
 //This needs to be revisited on policies around system chaincode
-//"upgrades" from user and relationship with "fabric" upgrade. For
-//now keep it simple and use the fabric's version stamp
+//"upgrades" from user and relationship with "mchain" upgrade. For
+//now keep it simple and use the mchain's version stamp
 func GetSysCCVersion() string {
 	return metadata.Version
 }

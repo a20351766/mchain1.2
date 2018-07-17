@@ -25,9 +25,9 @@ import (
 
 	"io"
 
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/mocks"
-	"github.com/hyperledger/fabric/bccsp/utils"
+	"github.com/hyperledger/mchain/bccsp"
+	"github.com/hyperledger/mchain/bccsp/mocks"
+	"github.com/hyperledger/mchain/bccsp/utils"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -475,7 +475,7 @@ func TestCBCEncryptWithIVCBCDecrypt(t *testing.T) {
 	}
 }
 
-// TestAESRelatedUtilFunctions tests various functions commonly used in fabric wrt AES
+// TestAESRelatedUtilFunctions tests various functions commonly used in mchain wrt AES
 func TestAESRelatedUtilFunctions(t *testing.T) {
 	t.Parallel()
 

@@ -4,9 +4,9 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/peer/common/api"
-	cb "github.com/hyperledger/fabric/protos/common"
-	ab "github.com/hyperledger/fabric/protos/orderer"
+	"github.com/hyperledger/mchain/peer/common/api"
+	cb "github.com/hyperledger/mchain/protos/common"
+	ab "github.com/hyperledger/mchain/protos/orderer"
 )
 
 type DeliverService struct {

@@ -35,14 +35,14 @@ For enterprise use, we need to consider the following requirements:
   transactions
 
 While many early blockchain platforms are currently being _adapted_ for
-enterprise use, Hyperledger Fabric has been _designed_ for enterprise use from
-the outset. The following sections describe how Hyperledger Fabric (Fabric)
+enterprise use, Hyperledger Mchain has been _designed_ for enterprise use from
+the outset. The following sections describe how Hyperledger Mchain (Mchain)
 differentiates itself from other blockchain platforms and describes some of the
 motivation for its architectural decisions.
 
-## Hyperledger Fabric
+## Hyperledger Mchain
 
-Hyperledger Fabric is an open source enterprise-grade permissioned distributed
+Hyperledger Mchain is an open source enterprise-grade permissioned distributed
 ledger technology (DLT) platform, designed for use in enterprise contexts,
 that delivers some key differentiating capabilities over other popular
 distributed ledger or blockchain platforms.
@@ -51,23 +51,23 @@ One key point of differentiation is that Hyperledger was established under the
 Linux Foundation, which itself has a long and very successful history of
 nurturing open source projects under **open governance** that grow strong
 sustaining communities and thriving ecosystems. Hyperledger is governed by a
-diverse technical steering committee, and the Hyperledger Fabric project by a
+diverse technical steering committee, and the Hyperledger Mchain project by a
 diverse set of maintainers from multiple organizations. It has a development
 community that has grown to over 35 organizations and nearly 200 developers
 since its earliest commits.
 
-Fabric has a highly **modular** and **configurable** architecture, enabling
+Mchain has a highly **modular** and **configurable** architecture, enabling
 innovation, versatility and optimization for a broad range of industry use cases
 including banking, finance, insurance, healthcare, human resources, supply
 chain and even digital music delivery.
 
-Fabric is the first distributed ledger platform to support **smart contracts
+Mchain is the first distributed ledger platform to support **smart contracts
 authored in general-purpose programming languages** such as Java, Go and
 Node.js, rather than constrained domain-specific languages (DSL). This means
 that most enterprises already have the skill set needed to develop smart
 contracts, and no additional training to learn a new language or DSL is needed.
 
-The Fabric platform is also **permissioned**, meaning that, unlike with a public
+The Mchain platform is also **permissioned**, meaning that, unlike with a public
 permissionless network, the participants are known to each other, rather than
 anonymous and therefore fully untrusted. This means that while the participants
 may not _fully_ trust one another (they may, for example, be competitors in the
@@ -88,28 +88,28 @@ decentralized use case, a more traditional
 [byzantine fault tolerant](https://en.wikipedia.org/wiki/Byzantine_fault_tolerance)
 (BFT) consensus protocol might be required.
 
-Fabric can leverage consensus protocols that **do not require a native
+Mchain can leverage consensus protocols that **do not require a native
 cryptocurrency** to incent costly mining or to fuel smart contract execution.
 Avoidance of a cryptocurrency reduces some significant risk/attack vectors,
 and absence of cryptographic mining operations means that the platform can be
 deployed with roughly the same operational cost as any other distributed system.
 
-The combination of these differentiating design features makes Fabric one of
+The combination of these differentiating design features makes Mchain one of
 the **better performing platforms** available today both in terms of transaction
-processing and transaction confirmation latency, and it enables **privacy and confidentiality** of transactions and the smart contracts (what Fabric calls
+processing and transaction confirmation latency, and it enables **privacy and confidentiality** of transactions and the smart contracts (what Mchain calls
   "chaincode") that implement them.
 
 Let's explore these differentiating features in more detail.
 
 ## Modularity
 
-Hyperledger Fabric has been specifically architected to have a modular
+Hyperledger Mchain has been specifically architected to have a modular
 architecture. Whether it is pluggable consensus, pluggable identity management
 protocols such as LDAP or OpenID Connect, key management protocols or
 cryptographic libraries, the platform has been designed at its core to be
 configured to meet the diversity of enterprise use case requirements.
 
-At a high level, Fabric is comprised of the following modular components:
+At a high level, Mchain is comprised of the following modular components:
 
 - A pluggable _ordering service_ establishes consensus on the order of
 transactions and then broadcasts blocks to peers.
@@ -125,7 +125,7 @@ have direct access to the ledger state.
 independently configured per application.
 
 There is fair agreement in the industry that there is no "one blockchain to
-rule them all". Hyperledger Fabric can be configured in multiple ways to
+rule them all". Hyperledger Mchain can be configured in multiple ways to
 satisfy the diverse solution requirements for multiple industry use cases.
 
 ## Permissioned vs Permissionless Blockchains
@@ -159,7 +159,7 @@ governance model.
 
 ## Smart Contracts
 
-A smart contract, or what Fabric calls "chaincode", functions as a trusted
+A smart contract, or what Mchain calls "chaincode", functions as a trusted
 distributed application that gains its security/trust from the blockchain and
 the underlying consensus among the peers. It is the business logic of a
 blockchain application.
@@ -201,7 +201,7 @@ resiliency of the overall system.
 
 ## A New Approach
 
-Fabric introduces a new architecture for transactions that we call
+Mchain introduces a new architecture for transactions that we call
 **execute-order-validate**. It addresses the resiliency, flexibility,
 scalability, performance and confidentiality challenges faced by the
 order-execute model by separating the transaction flow into three steps:
@@ -211,10 +211,10 @@ order-execute model by separating the transaction flow into three steps:
 - _validate_ transactions against an application-specific endorsement policy
 before committing them to the ledger
 
-This design departs radically from the order-execute paradigm in that Fabric
+This design departs radically from the order-execute paradigm in that Mchain
 executes transactions before reaching final agreement on their order.
 
-In Fabric, an application-specific endorsement policy specifies which peer
+In Mchain, an application-specific endorsement policy specifies which peer
 nodes, or how many of them, need to vouch for the correct execution of a given
 smart contract. Thus, each transaction need only be executed (endorsed) by the
 subset of the peer nodes necessary to satisfy the transaction's endorsement
@@ -222,7 +222,7 @@ policy. This allows for parallel execution increasing overall performance and
 scale of the system. This first phase also **eliminates any non-determinism**,
 as inconsistent results can be filtered out before ordering.
 
-Because we have eliminated non-determinism, Fabric is the first blockchain
+Because we have eliminated non-determinism, Mchain is the first blockchain
 technology that **enables use of standard programming languages**. In the 1.1.0
 release, smart contracts can be written in either Go or Node.js, while there are
 plans to support other popular languages including Java in subsequent releases.
@@ -267,15 +267,15 @@ In a permissioned context that can leverage alternate forms of consensus, one
 might explore approaches that restrict the distribution of confidential
 information exclusively to authorized nodes.
 
-Hyperledger Fabric, being a permissioned platform, enables confidentiality
-through its channel architecture. Basically, participants on a Fabric network
+Hyperledger Mchain, being a permissioned platform, enables confidentiality
+through its channel architecture. Basically, participants on a Mchain network
 can establish a "channel" between the subset of participants that should be
 granted visibility to a particular set of transactions. Think of this as a
 network overlay. Thus, only those nodes that participate in a channel have
 access to the smart contract (chaincode) and data transacted, preserving the
 privacy and confidentiality of both.
 
-To improve upon its privacy and confidentiality capabilities, Fabric has
+To improve upon its privacy and confidentiality capabilities, Mchain has
 added support for [private data](./private-data/private-data.html) and is working
 on zero knowledge proofs (ZKP) available in the future. More on this as it
 becomes available.
@@ -290,13 +290,13 @@ particular deployment or solution. This modular architecture allows the platform
 to rely on well-established toolkits for CFT (crash fault-tolerant) or BFT
 (byzantine fault-tolerant) ordering.
 
-In the currently available releases, Fabric offers a CFT ordering service
+In the currently available releases, Mchain offers a CFT ordering service
 implemented with [Kafka](https://kafka.apache.org/) and
-[Zookeeper](https://zookeeper.apache.org/). In subsequent releases, Fabric will
+[Zookeeper](https://zookeeper.apache.org/). In subsequent releases, Mchain will
 deliver a [Raft consensus ordering service](https://raft.github.io/) implemented
 with etcd/Raft and a fully decentralized BFT ordering service.
 
-Note also that these are not mutually exclusive. A Fabric network can have
+Note also that these are not mutually exclusive. A Mchain network can have
 multiple ordering services supporting different applications or application
 requirements.
 
@@ -312,27 +312,27 @@ While that work continues to be developed and should be seen as a definitive
 measure of blockchain platform performance and scale characteristics, a team
 from IBM Research has published a
 [peer reviewed paper](https://arxiv.org/abs/1801.10228v1) that evaluated the
-architecture and performance of Hyperledger Fabric. The paper offers an in-depth
-discussion of the architecture of Fabric and then reports on the team's
+architecture and performance of Hyperledger Mchain. The paper offers an in-depth
+discussion of the architecture of Mchain and then reports on the team's
 performance evaluation of the platform using a preliminary release of
-Hyperledger Fabric v1.1.
+Hyperledger Mchain v1.1.
 
 The benchmarking efforts that the research team did yielded a significant
-number of performance improvements for the Fabric v1.1.0 release that more than
+number of performance improvements for the Mchain v1.1.0 release that more than
 doubled the overall performance of the platform from the v1.0.0 release levels.
 
 ## Conclusion
 
-Any serious evaluation of blockchain platforms should include Hyperledger Fabric
+Any serious evaluation of blockchain platforms should include Hyperledger Mchain
 in its short list.
 
-Combined, the differentiating capabilities of Fabric make it a highly scalable
+Combined, the differentiating capabilities of Mchain make it a highly scalable
 system for permissioned blockchains supporting flexible trust assumptions that
 enable the platform to support a wide range of industry use cases ranging from
 government, to finance, to supply-chain logistics, to healthcare and so much
 more.
 
-More importantly, Hyperledger Fabric is the most active of the (currently) ten
+More importantly, Hyperledger Mchain is the most active of the (currently) ten
 Hyperledger projects. The community building around the platform is growing
 steadily, and the innovation delivered with each successive release far
 out-paces any of the other enterprise blockchain platforms.
@@ -340,7 +340,7 @@ out-paces any of the other enterprise blockchain platforms.
 ## Acknowledgement
 
 The preceding is derived from the peer reviewed
-["Hyperledger Fabric: A Distributed Operating System for Permissioned Blockchains"](https://arxiv.org/abs/1801.10228v1) - Elli Androulaki, Artem
+["Hyperledger Mchain: A Distributed Operating System for Permissioned Blockchains"](https://arxiv.org/abs/1801.10228v1) - Elli Androulaki, Artem
 Barger, Vita Bortnikov, Christian Cachin, Konstantinos Christidis, Angelo De
 Caro, David Enyeart, Christopher Ferris, Gennady Laventman, Yacov Manevich,
 Srinivasan Muralidharan, Chet Murthy, Binh Nguyen, Manish Sethi, Gari Singh,

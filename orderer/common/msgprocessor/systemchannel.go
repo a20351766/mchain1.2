@@ -9,12 +9,12 @@ package msgprocessor
 import (
 	"fmt"
 
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/configtx"
-	"github.com/hyperledger/fabric/common/crypto"
-	"github.com/hyperledger/fabric/common/policies"
-	cb "github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/common/channelconfig"
+	"github.com/hyperledger/mchain/common/configtx"
+	"github.com/hyperledger/mchain/common/crypto"
+	"github.com/hyperledger/mchain/common/policies"
+	cb "github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/utils"
 
 	"github.com/golang/protobuf/proto"
 )

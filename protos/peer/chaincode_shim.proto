@@ -7,8 +7,8 @@ SPDX-License-Identifier: Apache-2.0
 syntax = "proto3";
 
 package protos;
-option java_package = "org.hyperledger.fabric.protos.peer";
-option go_package = "github.com/hyperledger/fabric/protos/peer";
+option java_package = "org.hyperledger.mchain.protos.peer";
+option go_package = "github.com/hyperledger/mchain/protos/peer";
 import "peer/chaincode_event.proto";
 import "peer/proposal.proto";
 import "google/protobuf/timestamp.proto";

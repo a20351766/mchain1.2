@@ -20,12 +20,12 @@ import (
 	"fmt"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger"
 
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/protos/common"
-	pb "github.com/hyperledger/fabric/protos/peer"
-	ptestutils "github.com/hyperledger/fabric/protos/testutils"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/protos/common"
+	pb "github.com/hyperledger/mchain/protos/peer"
+	ptestutils "github.com/hyperledger/mchain/protos/testutils"
 )
 
 // App - a sample fund transfer app

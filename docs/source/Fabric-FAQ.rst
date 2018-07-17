@@ -114,7 +114,7 @@ Chaincode (Smart Contracts and Digital Assets)
 ----------------------------------------------
 
 :Question:
-  Does Hyperledger Fabric support smart contract logic?
+  Does Hyperledger Mchain support smart contract logic?
 
 :Answer:
   Yes. We call this feature :ref:`chaincode`. It is our interpretation of the
@@ -163,11 +163,11 @@ Chaincode (Smart Contracts and Digital Assets)
   Support for additional languages and the development of a templating language
   have been discussed, and more details will be released in the near future.
 
-  It is also possible to build Hyperledger Fabric applications using
+  It is also possible to build Hyperledger Mchain applications using
   `Hyperledger Composer <https://hyperledger.github.io/composer/>`__.
 
 :Question:
-  Does the Hyperledger Fabric have native currency?
+  Does the Hyperledger Mchain have native currency?
 
 :Answer:
   No. However, if you really need a native currency for your chain network,
@@ -245,7 +245,7 @@ Ordering Service
 ..
 
 :Question:
-  **I want to write a consensus implementation for Fabric. Where do I begin?**
+  **I want to write a consensus implementation for Mchain. Where do I begin?**
 
 :Answer:
   A consensus plugin needs to implement the ``Consenter`` and ``Chain``
@@ -254,10 +254,10 @@ Ordering Service
   cues for your own implementation. The ordering service code can be found under
   the `orderer package`_.
 
-.. _consensus package: https://github.com/hyperledger/fabric/blob/master/orderer/consensus/consensus.go
-.. _solo: https://github.com/hyperledger/fabric/tree/master/orderer/consensus/solo
-.. _kafka: https://github.com/hyperledger/fabric/tree/master/orderer/consensus/kafka
-.. _orderer package: https://github.com/hyperledger/fabric/tree/master/orderer
+.. _consensus package: https://github.com/hyperledger/mchain/blob/master/orderer/consensus/consensus.go
+.. _solo: https://github.com/hyperledger/mchain/tree/master/orderer/consensus/solo
+.. _kafka: https://github.com/hyperledger/mchain/tree/master/orderer/consensus/kafka
+.. _orderer package: https://github.com/hyperledger/mchain/tree/master/orderer
 
 ..
 
@@ -298,7 +298,7 @@ Kafka
   Kafka-based ordering service. How do I proceed?**
 
 :Answer:
-  The Hyperledger Fabric documentation assumes the reader generally has the
+  The Hyperledger Mchain documentation assumes the reader generally has the
   operational expertise to setup, configure, and manage a Kafka cluster
   (see :ref:`kafka-caveat`). If you insist on proceeding without such expertise,
   you should complete, *at a minimum*, the first 6 steps of the
@@ -316,7 +316,7 @@ Kafka
 :Answer:
   Consult `the end-to-end CLI example`_.
 
-.. _the end-to-end CLI example: https://github.com/hyperledger/fabric/blob/master/examples/e2e_cli/docker-compose-e2e.yaml
+.. _the end-to-end CLI example: https://github.com/hyperledger/mchain/blob/master/examples/e2e_cli/docker-compose-e2e.yaml
 
 ..
 
@@ -346,7 +346,7 @@ BFT
 
 :Answer:
   No date has been set. We are working towards a release during the 1.x cycle,
-  i.e. it will come with a minor version upgrade in Fabric. Track FAB-33_ for
+  i.e. it will come with a minor version upgrade in Mchain. Track FAB-33_ for
   updates.
 
 .. _FAB-33: https://jira.hyperledger.org/browse/FAB-33

@@ -17,8 +17,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/core/config"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/core/config"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"

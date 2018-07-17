@@ -10,16 +10,16 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/ledger/blkstorage"
-	"github.com/hyperledger/fabric/common/ledger/blkstorage/fsblkstorage"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/ledgerconfig"
-	"github.com/hyperledger/fabric/core/ledger/pvtdatapolicy"
-	btltestutil "github.com/hyperledger/fabric/core/ledger/pvtdatapolicy/testutil"
-	"github.com/hyperledger/fabric/core/ledger/pvtdatastorage"
-	"github.com/hyperledger/fabric/protos/ledger/rwset"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/common/ledger/blkstorage"
+	"github.com/hyperledger/mchain/common/ledger/blkstorage/fsblkstorage"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/ledgerconfig"
+	"github.com/hyperledger/mchain/core/ledger/pvtdatapolicy"
+	btltestutil "github.com/hyperledger/mchain/core/ledger/pvtdatapolicy/testutil"
+	"github.com/hyperledger/mchain/core/ledger/pvtdatastorage"
+	"github.com/hyperledger/mchain/protos/ledger/rwset"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 )
@@ -27,7 +27,7 @@ import (
 func TestMain(m *testing.M) {
 	flogging.SetModuleLevel("ledgerstorage", "debug")
 	flogging.SetModuleLevel("pvtdatastorage", "debug")
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/core/ledger/ledgerstorage")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/core/ledger/ledgerstorage")
 	os.Exit(m.Run())
 }
 

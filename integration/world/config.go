@@ -19,9 +19,9 @@ import (
 
 	"github.com/alecthomas/template"
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/common/tools/configtxgen/localconfig"
-	"github.com/hyperledger/fabric/integration/helpers"
-	"github.com/hyperledger/fabric/integration/runner"
+	"github.com/hyperledger/mchain/common/tools/configtxgen/localconfig"
+	"github.com/hyperledger/mchain/integration/helpers"
+	"github.com/hyperledger/mchain/integration/runner"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
@@ -516,7 +516,7 @@ func (w *World) cleanupDeployment(d Deployment) {
 	images, err := w.DockerClient.ListImages(docker.ListImagesOptions{
 		All: true,
 		Filters: map[string][]string{
-			"label": []string{fmt.Sprintf("org.hyperledger.fabric.chaincode.id.name=%s", d.Chaincode.Name)},
+			"label": []string{fmt.Sprintf("org.hyperledger.mchain.chaincode.id.name=%s", d.Chaincode.Name)},
 		},
 	})
 	ExpectWithOffset(2, err).NotTo(HaveOccurred())

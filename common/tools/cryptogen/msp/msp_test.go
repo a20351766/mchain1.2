@@ -14,9 +14,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"gopkg.in/yaml.v2"
 
-	"github.com/hyperledger/fabric/common/tools/cryptogen/ca"
-	"github.com/hyperledger/fabric/common/tools/cryptogen/msp"
-	fabricmsp "github.com/hyperledger/fabric/msp"
+	"github.com/hyperledger/mchain/common/tools/cryptogen/ca"
+	"github.com/hyperledger/mchain/common/tools/cryptogen/msp"
+	mchainmsp "github.com/hyperledger/mchain/msp"
 )
 
 const (
@@ -109,9 +109,9 @@ func TestGenerateLocalMSP(t *testing.T) {
 	}
 
 	// finally check to see if we can load this as a local MSP config
-	testMSPConfig, err := fabricmsp.GetLocalMspConfig(mspDir, nil, testName)
+	testMSPConfig, err := mchainmsp.GetLocalMspConfig(mspDir, nil, testName)
 	assert.NoError(t, err, "Error parsing local MSP config")
-	testMSP, err := fabricmsp.New(&fabricmsp.BCCSPNewOpts{NewBaseOpts: fabricmsp.NewBaseOpts{Version: fabricmsp.MSPv1_0}})
+	testMSP, err := mchainmsp.New(&mchainmsp.BCCSPNewOpts{NewBaseOpts: mchainmsp.NewBaseOpts{Version: mchainmsp.MSPv1_0}})
 	assert.NoError(t, err, "Error creating new BCCSP MSP")
 	err = testMSP.Setup(testMSPConfig)
 	assert.NoError(t, err, "Error setting up local MSP")
@@ -155,9 +155,9 @@ func TestGenerateVerifyingMSP(t *testing.T) {
 			"Expected to find file "+file)
 	}
 	// finally check to see if we can load this as a verifying MSP config
-	testMSPConfig, err := fabricmsp.GetVerifyingMspConfig(mspDir, testName, fabricmsp.ProviderTypeToString(fabricmsp.FABRIC))
+	testMSPConfig, err := mchainmsp.GetVerifyingMspConfig(mspDir, testName, mchainmsp.ProviderTypeToString(mchainmsp.FABRIC))
 	assert.NoError(t, err, "Error parsing verifying MSP config")
-	testMSP, err := fabricmsp.New(&fabricmsp.BCCSPNewOpts{NewBaseOpts: fabricmsp.NewBaseOpts{Version: fabricmsp.MSPv1_0}})
+	testMSP, err := mchainmsp.New(&mchainmsp.BCCSPNewOpts{NewBaseOpts: mchainmsp.NewBaseOpts{Version: mchainmsp.MSPv1_0}})
 	assert.NoError(t, err, "Error creating new BCCSP MSP")
 	err = testMSP.Setup(testMSPConfig)
 	assert.NoError(t, err, "Error setting up verifying MSP")
@@ -190,7 +190,7 @@ func TestExportConfig(t *testing.T) {
 		t.Fatalf("failed to read config file: [%s]", err)
 	}
 
-	config := &fabricmsp.Configuration{}
+	config := &mchainmsp.Configuration{}
 	err = yaml.Unmarshal(configBytes, config)
 	if err != nil {
 		t.Fatalf("failed to unmarshal config: [%s]", err)

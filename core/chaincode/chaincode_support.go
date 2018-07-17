@@ -11,12 +11,12 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/common/sysccprovider"
-	"github.com/hyperledger/fabric/core/container/ccintf"
-	"github.com/hyperledger/fabric/core/peer"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/core/common/sysccprovider"
+	"github.com/hyperledger/mchain/core/container/ccintf"
+	"github.com/hyperledger/mchain/core/peer"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"github.com/pkg/errors"
 	"golang.org/x/net/context"
 )

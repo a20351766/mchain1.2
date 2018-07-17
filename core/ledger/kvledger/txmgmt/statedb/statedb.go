@@ -8,9 +8,9 @@ package statedb
 import (
 	"sort"
 
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/version"
-	"github.com/hyperledger/fabric/core/ledger/util"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/version"
+	"github.com/hyperledger/mchain/core/ledger/util"
 )
 
 // VersionedDBProvider provides an instance of an versioned DB

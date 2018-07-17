@@ -20,10 +20,10 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/ledger/testutil"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
 )
 
-const testDBPath = "/tmp/fabric/ledgertests/util/leveldbhelper"
+const testDBPath = "/tmp/mchain/ledgertests/util/leveldbhelper"
 
 type testDBEnv struct {
 	t    *testing.T

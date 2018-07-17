@@ -21,7 +21,7 @@ import (
 	"github.com/tedsuo/ifrit"
 )
 
-const KafkaDefaultImage = "hyperledger/fabric-kafka:latest"
+const KafkaDefaultImage = "hyperledger/mchain-kafka:latest"
 
 // Kafka manages the execution of an instance of a dockerized CounchDB
 // for tests.

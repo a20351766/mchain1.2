@@ -19,7 +19,7 @@ package fsblkstorage
 import (
 	"testing"
 
-	"github.com/hyperledger/fabric/common/ledger/testutil"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
 )
 
 func TestWrongBlockNumber(t *testing.T) {

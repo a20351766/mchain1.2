@@ -8,8 +8,8 @@ package chaincode
 
 import (
 	"github.com/golang/protobuf/proto"
-	commonledger "github.com/hyperledger/fabric/common/ledger"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	commonledger "github.com/hyperledger/mchain/common/ledger"
+	pb "github.com/hyperledger/mchain/protos/peer"
 )
 
 type PendingQueryResult struct {

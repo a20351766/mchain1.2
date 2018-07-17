@@ -11,8 +11,8 @@ package msgprocessor
 import (
 	"errors"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	cb "github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/common/flogging"
+	cb "github.com/hyperledger/mchain/protos/common"
 	logging "github.com/op/go-logging"
 )
 

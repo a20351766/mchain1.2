@@ -96,7 +96,7 @@ Here's some examples using the different available flags on the `peer` command.
     -o, --orderer string                      Ordering service endpoint
         --ordererTLSHostnameOverride string   The hostname override to use when validating the TLS connection to the orderer.
         --tls                                 Use TLS when communicating with the orderer endpoint
-    -v, --version                             Display the build version for this fabric peer
+    -v, --version                             Display the build version for this mchain peer
 
   ```
   This shows brief help syntax for the `peer channel join` command.
@@ -114,11 +114,11 @@ Here's some examples using the different available flags on the `peer` command.
    Chaincode:
     Base Image Version: 0.4.5
     Base Docker Namespace: hyperledger
-    Base Docker Label: org.hyperledger.fabric
+    Base Docker Label: org.hyperledger.mchain
     Docker Namespace: hyperledger
 
   ```
 
-  This shows that this peer was built using an alpha of Hyperledger Fabric
+  This shows that this peer was built using an alpha of Hyperledger Mchain
   version 1.1.0, compiled with GOLANG 1.9.2. It can be used on Linux operating
   systems with AMD64 compatible instruction sets.

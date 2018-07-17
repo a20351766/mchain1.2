@@ -12,18 +12,18 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/ledger/cceventmgmt"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/version"
-	"github.com/hyperledger/fabric/core/ledger/util"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/core/ledger/cceventmgmt"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/statedb"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/version"
+	"github.com/hyperledger/mchain/core/ledger/util"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestMain(m *testing.M) {
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/ledgertests/kvledger/txmgmt/privacyenabledstate")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/ledgertests/kvledger/txmgmt/privacyenabledstate")
 	os.Exit(m.Run())
 }
 

@@ -15,9 +15,9 @@ import (
 	"crypto/elliptic"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-amcl/amcl"
-	"github.com/hyperledger/fabric-amcl/amcl/FP256BN"
-	"github.com/hyperledger/fabric/bccsp/utils"
+	"github.com/hyperledger/mchain-amcl/amcl"
+	"github.com/hyperledger/mchain-amcl/amcl/FP256BN"
+	"github.com/hyperledger/mchain/bccsp/utils"
 	"github.com/pkg/errors"
 )
 

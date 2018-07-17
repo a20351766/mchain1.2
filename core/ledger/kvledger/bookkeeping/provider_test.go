@@ -15,7 +15,7 @@ import (
 )
 
 func TestMain(m *testing.M) {
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/ledgertests/kvledger/bookkeeping")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/ledgertests/kvledger/bookkeeping")
 	os.Exit(m.Run())
 }
 

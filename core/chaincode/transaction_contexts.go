@@ -9,9 +9,9 @@ package chaincode
 import (
 	"sync"
 
-	commonledger "github.com/hyperledger/fabric/common/ledger"
-	"github.com/hyperledger/fabric/core/ledger"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	commonledger "github.com/hyperledger/mchain/common/ledger"
+	"github.com/hyperledger/mchain/core/ledger"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"github.com/pkg/errors"
 	"golang.org/x/net/context"
 )

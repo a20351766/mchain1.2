@@ -9,8 +9,8 @@ package chaincode
 import (
 	"time"
 
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"github.com/pkg/errors"
 	"golang.org/x/net/context"
 )

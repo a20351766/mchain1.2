@@ -38,11 +38,11 @@ case "$1" in
           --publish 5984:5984    `# publish port`   \
           --detach               `# run as daemon`  \
           --name couchdb         `# name container` \
-          hyperledger/fabric-couchdb
+          hyperledger/mchain-couchdb
         rc=$?
         if [[ $rc != 0 ]]
           then
-            echo "Run 'make couchdb' from 'fabric' directory to build fabric-couchdb docker image locally."
+            echo "Run 'make couchdb' from 'mchain' directory to build mchain-couchdb docker image locally."
         fi
         ;;
     esac

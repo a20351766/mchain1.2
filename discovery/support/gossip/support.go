@@ -7,9 +7,9 @@ SPDX-License-Identifier: Apache-2.0
 package gossip
 
 import (
-	"github.com/hyperledger/fabric/gossip/common"
-	"github.com/hyperledger/fabric/gossip/discovery"
-	gossip2 "github.com/hyperledger/fabric/gossip/gossip"
+	"github.com/hyperledger/mchain/gossip/common"
+	"github.com/hyperledger/mchain/gossip/discovery"
+	gossip2 "github.com/hyperledger/mchain/gossip/gossip"
 )
 
 // DiscoverySupport implements support that is used for service discovery

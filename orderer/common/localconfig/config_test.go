@@ -11,7 +11,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric/core/config/configtest"
+	"github.com/hyperledger/mchain/core/config/configtest"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -25,7 +25,7 @@ func TestLoadGoodConfig(t *testing.T) {
 
 func TestLoadMissingConfigFile(t *testing.T) {
 	envVar1 := "FABRIC_CFG_PATH"
-	envVal1 := "invalid fabric cfg path"
+	envVal1 := "invalid mchain cfg path"
 	os.Setenv(envVar1, envVal1)
 	defer os.Unsetenv(envVar1)
 
@@ -35,7 +35,7 @@ func TestLoadMissingConfigFile(t *testing.T) {
 }
 
 func TestLoadMalformedConfigFile(t *testing.T) {
-	name, err := ioutil.TempDir("", "hyperledger_fabric")
+	name, err := ioutil.TempDir("", "hyperledger_mchain")
 	assert.Nil(t, err, "Error creating temp dir: %s", err)
 	defer func() {
 		err = os.RemoveAll(name)

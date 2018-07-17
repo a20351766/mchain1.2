@@ -7,10 +7,10 @@ SPDX-License-Identifier: Apache-2.0
 package blockcutter
 
 import (
-	"github.com/hyperledger/fabric/common/channelconfig"
-	cb "github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/common/channelconfig"
+	cb "github.com/hyperledger/mchain/protos/common"
 
-	"github.com/hyperledger/fabric/common/flogging"
+	"github.com/hyperledger/mchain/common/flogging"
 	"github.com/op/go-logging"
 )
 

@@ -12,7 +12,7 @@ import (
 
 	"google.golang.org/grpc/credentials"
 
-	"github.com/hyperledger/fabric/core/comm"
+	"github.com/hyperledger/mchain/core/comm"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -19,8 +19,8 @@ package orderer
 import (
 	"fmt"
 
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/msp"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/msp"
 
 	"github.com/golang/protobuf/proto"
 )

@@ -23,9 +23,9 @@ import (
 	"github.com/tedsuo/ifrit"
 	yaml "gopkg.in/yaml.v2"
 
-	"github.com/hyperledger/fabric/integration/nwo"
-	"github.com/hyperledger/fabric/integration/nwo/commands"
-	"github.com/hyperledger/fabric/integration/nwo/fabricconfig"
+	"github.com/hyperledger/mchain/integration/nwo"
+	"github.com/hyperledger/mchain/integration/nwo/commands"
+	"github.com/hyperledger/mchain/integration/nwo/mchainconfig"
 )
 
 var _ = Describe("EndToEnd", func() {
@@ -86,7 +86,7 @@ var _ = Describe("EndToEnd", func() {
 		chaincode = nwo.Chaincode{
 			Name:    "mycc",
 			Version: "0.0",
-			Path:    "github.com/hyperledger/fabric/integration/chaincode/simple/cmd",
+			Path:    "github.com/hyperledger/mchain/integration/chaincode/simple/cmd",
 			Ctor:    `{"Args":["init","a","100","b","200"]}`,
 			Policy:  `OR ('Org1MSP.member','Org2MSP.member')`,
 		}
@@ -127,7 +127,7 @@ func compilePlugin(pluginType string) string {
 	cmd := exec.Command(
 		"go", "build", "-buildmode=plugin",
 		"-o", pluginFilePath,
-		fmt.Sprintf("github.com/hyperledger/fabric/integration/pluggable/testdata/plugins/%s", pluginType),
+		fmt.Sprintf("github.com/hyperledger/mchain/integration/pluggable/testdata/plugins/%s", pluginType),
 	)
 	sess, err := gexec.Start(cmd, GinkgoWriter, GinkgoWriter)
 	Expect(err).NotTo(HaveOccurred())
@@ -139,17 +139,17 @@ func compilePlugin(pluginType string) string {
 
 func configurePlugins(network *nwo.Network, endorsement, validation string) {
 	for _, p := range network.Peers {
-		var core fabricconfig.Core
+		var core mchainconfig.Core
 		coreBytes, err := ioutil.ReadFile(network.PeerConfigPath(p))
 		Expect(err).NotTo(HaveOccurred())
 
 		err = yaml.Unmarshal(coreBytes, &core)
 		Expect(err).NotTo(HaveOccurred())
-		core.Peer.Handlers.Endorsers = fabricconfig.HandlerMap{
-			"escc": fabricconfig.Handler{Name: "plugin-escc", Library: endorsement},
+		core.Peer.Handlers.Endorsers = mchainconfig.HandlerMap{
+			"escc": mchainconfig.Handler{Name: "plugin-escc", Library: endorsement},
 		}
-		core.Peer.Handlers.Validators = fabricconfig.HandlerMap{
-			"vscc": fabricconfig.Handler{Name: "plugin-vscc", Library: validation},
+		core.Peer.Handlers.Validators = mchainconfig.HandlerMap{
+			"vscc": mchainconfig.Handler{Name: "plugin-vscc", Library: validation},
 		}
 
 		coreBytes, err = yaml.Marshal(core)

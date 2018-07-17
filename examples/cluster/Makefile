@@ -42,7 +42,7 @@ TLS ?= true
 CRYPTOGEN=build/bin/cryptogen
 CONFIGTXGEN=build/bin/configtxgen
 
-FABRICPKG=github.com/hyperledger/fabric
+FABRICPKG=github.com/hyperledger/mchain
 pkgmap.cryptogen      := $(FABRICPKG)/common/tools/cryptogen
 pkgmap.configtxgen    := $(FABRICPKG)/common/tools/configtxgen
 

@@ -14,25 +14,25 @@ excluded_packages=(
 
 # regexes for packages that must be run serially
 serial_packages=(
-    "github.com/hyperledger/fabric/gossip"
+    "github.com/hyperledger/mchain/gossip"
 )
 
 # packages which need to be tested with build tag pluginsenabled
 plugin_packages=(
-    "github.com/hyperledger/fabric/core/scc"
+    "github.com/hyperledger/mchain/core/scc"
 )
 
 # packages which need to be tested with build tag pkcs11
 pkcs11_packages=(
-    "github.com/hyperledger/fabric/bccsp"
+    "github.com/hyperledger/mchain/bccsp"
 )
 
 # obtain packages changed since some git refspec
 packages_diff() {
-    git -C "${GOPATH}/src/github.com/hyperledger/fabric" diff --no-commit-id --name-only -r "${1:-HEAD}" |
+    git -C "${GOPATH}/src/github.com/hyperledger/mchain" diff --no-commit-id --name-only -r "${1:-HEAD}" |
         grep '.go$' | grep -Ev '^vendor/|^build/' | \
         sed 's%/[^/]*$%/%' | sort -u | \
-        awk '{print "github.com/hyperledger/fabric/"$1"..."}'
+        awk '{print "github.com/hyperledger/mchain/"$1"..."}'
 }
 
 # "go list" packages and filter out excluded packages
@@ -97,17 +97,17 @@ run_tests_with_coverage() {
 
 main() {
     # place the cache directory into the default build tree if it exists
-    if [ -d "${GOPATH}/src/github.com/hyperledger/fabric/.build" ]; then
-        export GOCACHE="${GOPATH}/src/github.com/hyperledger/fabric/.build/go-cache"
+    if [ -d "${GOPATH}/src/github.com/hyperledger/mchain/.build" ]; then
+        export GOCACHE="${GOPATH}/src/github.com/hyperledger/mchain/.build/go-cache"
     fi
 
     # default behavior is to run all tests
-    local package_spec=${TEST_PKGS:-github.com/hyperledger/fabric/...}
+    local package_spec=${TEST_PKGS:-github.com/hyperledger/mchain/...}
 
     # extra exclusions for ppc and s390x
     local arch=`uname -m`
     if [ x${arch} == xppc64le -o x${arch} == xs390x ]; then
-        excluded_packages+=("github.com/hyperledger/fabric/core/chaincode/platforms/java")
+        excluded_packages+=("github.com/hyperledger/mchain/core/chaincode/platforms/java")
     fi
 
     # when running a "verify" job, only test packages that have changed

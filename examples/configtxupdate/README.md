@@ -64,7 +64,7 @@ First build and start the `configtxlator`.
 ```
 $ make configtxlator
 build/bin/configtxlator
-CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/fabric/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-alpha3-snapshot-42434e60f -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/common/tools/configtxlator
+CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/mchain/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/mchain/common/metadata.Version=1.0.0-alpha3-snapshot-42434e60f -X github.com/hyperledger/mchain/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/mchain/common/metadata.BaseDockerLabel=org.hyperledger.mchain -X github.com/hyperledger/mchain/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/mchain/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/mchain/common/tools/configtxlator
 Binary available as build/bin/configtxlator
 ```
 ```
@@ -77,11 +77,11 @@ Then, in another window, build the `configtxgen` tool.
 ```
 $ make configtxgen
 build/bin/configtxgen
-CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/fabric/build/bin go install -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/common/configtx/tool/configtxgen
+CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/mchain/build/bin go install -ldflags "-X github.com/hyperledger/mchain/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/mchain/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/mchain/common/metadata.BaseDockerLabel=org.hyperledger.mchain -X github.com/hyperledger/mchain/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/mchain/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/mchain/common/configtx/tool/configtxgen
 Binary available as build/bin/configtxgen
 ```
 
-It is recommended to run the example by invoking the script `fabric/examples/configtxupdate/bootstrap_batchsize/script.sh` as follows:
+It is recommended to run the example by invoking the script `mchain/examples/configtxupdate/bootstrap_batchsize/script.sh` as follows:
 
 ```
 INTERACTIVE=true ./script.sh
@@ -129,7 +129,7 @@ First build and start the `configtxlator`.
 ```
 $ make configtxlator
 build/bin/configtxlator
-CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/fabric/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-alpha3-snapshot-42434e60f -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/common/tools/configtxlator
+CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/mchain/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/mchain/common/metadata.Version=1.0.0-alpha3-snapshot-42434e60f -X github.com/hyperledger/mchain/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/mchain/common/metadata.BaseDockerLabel=org.hyperledger.mchain -X github.com/hyperledger/mchain/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/mchain/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/mchain/common/tools/configtxlator
 Binary available as build/bin/configtxlator
 ```
 ```
@@ -142,14 +142,14 @@ Then, in another window, build the orderer and peer.
 ```
 $ make peer
 Installing chaintool
-curl -L https://github.com/hyperledger/fabric-chaintool/releases/download/v0.10.3/chaintool > build/bin/chaintool
+curl -L https://github.com/hyperledger/mchain-chaintool/releases/download/v0.10.3/chaintool > build/bin/chaintool
 ...
-CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/fabric/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/peer
+CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/mchain/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/mchain/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/mchain/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/mchain/common/metadata.BaseDockerLabel=org.hyperledger.mchain -X github.com/hyperledger/mchain/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/mchain/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/mchain/peer
 Binary available as build/bin/peer
 
 $ make orderer
 build/bin/orderer
-CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/fabric/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/orderer
+CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/mchain/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/mchain/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/mchain/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/mchain/common/metadata.BaseDockerLabel=org.hyperledger.mchain -X github.com/hyperledger/mchain/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/mchain/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/mchain/orderer
 Binary available as build/bin/orderer
 ```
 Start the orderer using the default options, including the provisional bootstrapper which will create a `testchainid` ordering system channel.
@@ -160,7 +160,7 @@ ORDERER_GENERAL_LOGLEVEL=debug orderer
 
 Reconfiguring a channel can be performed in a very similar way to modifying a genesis config.
 
-The recommended path to proceed with this example is to run the script located at `fabric/examples/configtxupdate/reconfigure_batchsize/script.sh` by invoking
+The recommended path to proceed with this example is to run the script located at `mchain/examples/configtxupdate/reconfigure_batchsize/script.sh` by invoking
 
 ```
 INTERACTIVE=true ./script.sh
@@ -174,8 +174,8 @@ At this point, executing `examples/reconfig/script.sh` in another window will in
 
 ```
 $ peer channel fetch config config_block.pb -o 127.0.0.1:7050 -c testchainid
-2017-05-31 15:11:37.617 EDT [msp] getMspConfig -> INFO 001 intermediate certs folder not found at [/home/yellickj/go/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /home/yellickj/go/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts: no such file or directory]
-2017-05-31 15:11:37.617 EDT [msp] getMspConfig -> INFO 002 crls folder not found at [/home/yellickj/go/src/github.com/hyperledger/fabric/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /home/yellickj/go/src/github.com/hyperledger/fabric/sampleconfig/msp/crls: no such file or directory]
+2017-05-31 15:11:37.617 EDT [msp] getMspConfig -> INFO 001 intermediate certs folder not found at [/home/yellickj/go/src/github.com/hyperledger/mchain/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /home/yellickj/go/src/github.com/hyperledger/mchain/sampleconfig/msp/intermediatecerts: no such file or directory]
+2017-05-31 15:11:37.617 EDT [msp] getMspConfig -> INFO 002 crls folder not found at [/home/yellickj/go/src/github.com/hyperledger/mchain/sampleconfig/msp/intermediatecerts]. Skipping.: [stat /home/yellickj/go/src/github.com/hyperledger/mchain/sampleconfig/msp/crls: no such file or directory]
 Received block:  1
 Received block:  1
 2017-05-31 15:11:37.635 EDT [main] main -> INFO 003 Exiting.....
@@ -248,7 +248,7 @@ First build and start the `configtxlator`.
 ```
 $ make configtxlator
 build/bin/configtxlator
-CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/fabric/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-alpha3-snapshot-42434e60f -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/common/tools/configtxlator
+CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/mchain/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/mchain/common/metadata.Version=1.0.0-alpha3-snapshot-42434e60f -X github.com/hyperledger/mchain/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/mchain/common/metadata.BaseDockerLabel=org.hyperledger.mchain -X github.com/hyperledger/mchain/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/mchain/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/mchain/common/tools/configtxlator
 Binary available as build/bin/configtxlator
 ```
 ```
@@ -261,7 +261,7 @@ Then, in another window, build the `configtxgen` tool.
 ```
 $ make configtxgen
 build/bin/configtxgen
-CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/fabric/build/bin go install -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/common/configtx/tool/configtxgen
+CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/mchain/build/bin go install -ldflags "-X github.com/hyperledger/mchain/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/mchain/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/mchain/common/metadata.BaseDockerLabel=org.hyperledger.mchain -X github.com/hyperledger/mchain/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/mchain/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/mchain/common/configtx/tool/configtxgen
 Binary available as build/bin/configtxgen
 ```
 
@@ -270,14 +270,14 @@ Then, build the orderer and peer.
 ```
 $ make peer
 Installing chaintool
-curl -L https://github.com/hyperledger/fabric-chaintool/releases/download/v0.10.3/chaintool > build/bin/chaintool
+curl -L https://github.com/hyperledger/mchain-chaintool/releases/download/v0.10.3/chaintool > build/bin/chaintool
 ...
-CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/fabric/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/peer
+CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/mchain/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/mchain/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/mchain/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/mchain/common/metadata.BaseDockerLabel=org.hyperledger.mchain -X github.com/hyperledger/mchain/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/mchain/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/mchain/peer
 Binary available as build/bin/peer
 
 $ make orderer
 build/bin/orderer
-CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/fabric/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/fabric/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/fabric/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/fabric/common/metadata.BaseDockerLabel=org.hyperledger.fabric -X github.com/hyperledger/fabric/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/fabric/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/fabric/orderer
+CGO_CFLAGS=" " GOBIN=/home/yellickj/go/src/github.com/hyperledger/mchain/build/bin go install -tags "" -ldflags "-X github.com/hyperledger/mchain/common/metadata.Version=1.0.0-alpha3-snapshot-63e0dc80f -X github.com/hyperledger/mchain/common/metadata.BaseVersion=0.3.1 -X github.com/hyperledger/mchain/common/metadata.BaseDockerLabel=org.hyperledger.mchain -X github.com/hyperledger/mchain/common/metadata.DockerNamespace=hyperledger -X github.com/hyperledger/mchain/common/metadata.BaseDockerNamespace=hyperledger" github.com/hyperledger/mchain/orderer
 Binary available as build/bin/orderer
 ```
 
@@ -289,7 +289,7 @@ ORDERER_GENERAL_LOGLEVEL=debug ORDERER_GENERAL_GENESISPROFILE=SampleDevModeSolo 
 
 The process to add an organization then follows exactly like the batch size example, but, instead of setting the batch size, a new org is defined at the application level.  Adding an organization is slightly more involved, because we must first create a channel, then modify its membership set.
 
-To see this example run the script `fabric/examples/configtxupdate/reconfig_membership/script.sh` by:
+To see this example run the script `mchain/examples/configtxupdate/reconfig_membership/script.sh` by:
 
 ```
 INTERACTIVE=true ./script.sh

@@ -14,19 +14,19 @@ import (
 
 	"github.com/golang/protobuf/proto"
 
-	"github.com/hyperledger/fabric/common/cauthdsl"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/util"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/ledger/rwset"
-	"github.com/hyperledger/fabric/protos/transientstore"
+	"github.com/hyperledger/mchain/common/cauthdsl"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/util"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/ledger/rwset"
+	"github.com/hyperledger/mchain/protos/transientstore"
 
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestMain(m *testing.M) {
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/core/transientdata")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/core/transientdata")
 	os.Exit(m.Run())
 }
 

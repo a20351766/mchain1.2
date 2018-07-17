@@ -6,7 +6,7 @@ as opposed to user chaincodes that run in separate docker containers. As
 such they have more access to resources in the peer and can be used for
 implementing features that are difficult or impossible to be implemented through
 user chaincodes. Examples of System Chaincodes include QSCC (Query System Chaincode)
-for ledger and other Fabric-related queries, CSCC (Configuration System Chaincode)
+for ledger and other Mchain-related queries, CSCC (Configuration System Chaincode)
 which helps regulate access control, and LSCC (Lifecycle System Chaincode).
 
 Unlike a user chaincode, a system chaincode is not installed and instantiated
@@ -26,7 +26,7 @@ using the Go `plugin <https://golang.org/pkg/plugin>`_ package.
 A plugin includes a main package with exported symbols and is built with the command
 ``go build -buildmode=plugin``.
 
-Every system chaincode must implement the `Chaincode Interface <https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim#Chaincode>`_
+Every system chaincode must implement the `Chaincode Interface <https://godoc.org/github.com/hyperledger/mchain/core/chaincode/shim#Chaincode>`_
 and export a constructor method that matches the signature ``func New() shim.Chaincode``
 in the main package. An example can be found in the repository at ``examples/plugin/scc``.
 
@@ -37,7 +37,7 @@ best-practices on things like logging and testing.
 
 .. note:: On imported packages: the Go standard library requires that a plugin must
           include the same version of imported packages as the host application
-          (Fabric, in this case).
+          (Mchain, in this case).
 
 Configuring Plugins
 -------------------

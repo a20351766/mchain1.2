@@ -1,12 +1,12 @@
 Gossip data dissemination protocol
 ==================================
 
-Hyperledger Fabric optimizes blockchain network performance, security,
+Hyperledger Mchain optimizes blockchain network performance, security,
 and scalability by dividing workload across transaction execution
 (endorsing and committing) peers and transaction ordering nodes. This
 decoupling of network operations requires a secure, reliable and
 scalable data dissemination protocol to ensure data integrity and
-consistency. To meet these requirements, Fabric implements a
+consistency. To meet these requirements, Mchain implements a
 **gossip data dissemination protocol**.
 
 Gossip protocol
@@ -23,7 +23,7 @@ synced up to the current ledger state by contacting peers in possession of these
 missing blocks.
 
 The gossip-based data dissemination protocol performs three primary functions on
-a Fabric network:
+a Mchain network:
 
 1. Manages peer discovery and channel membership, by continually
    identifying available member peers, and eventually detecting peers that have

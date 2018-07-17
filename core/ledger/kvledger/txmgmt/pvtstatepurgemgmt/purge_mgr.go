@@ -10,11 +10,11 @@ import (
 	"math"
 	"sync"
 
-	"github.com/hyperledger/fabric/core/ledger/kvledger/bookkeeping"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/privacyenabledstate"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/version"
-	"github.com/hyperledger/fabric/core/ledger/pvtdatapolicy"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/bookkeeping"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/privacyenabledstate"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/statedb"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/version"
+	"github.com/hyperledger/mchain/core/ledger/pvtdatapolicy"
 )
 
 // PurgeMgr manages purging of the expired pvtdata

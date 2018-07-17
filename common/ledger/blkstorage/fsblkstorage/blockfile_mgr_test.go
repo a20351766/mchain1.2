@@ -21,12 +21,12 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	ledgerutil "github.com/hyperledger/fabric/core/ledger/util"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	ledgerutil "github.com/hyperledger/mchain/core/ledger/util"
 
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/peer"
-	putil "github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/peer"
+	putil "github.com/hyperledger/mchain/protos/utils"
 )
 
 func TestBlockfileMgrBlockReadWrite(t *testing.T) {

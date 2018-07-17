@@ -61,7 +61,7 @@ policy to ensure that the correct allotment of the specified peers have signed t
 will authenticate the signatures against the transaction payload.
 
 Secondly, peers will perform a versioning check against the transaction read set, to ensure
-data integrity and protect against threats such as double-spending. Hyperledger Fabric has concurrency
+data integrity and protect against threats such as double-spending. Hyperledger Mchain has concurrency
 control whereby transactions execute in parallel (by endorsers) to increase throughput, and upon
 commit (by all peers) each transaction is verified to ensure that no other transaction has modified
 data it has read. In other words, it ensures that the data that was read during chaincode execution

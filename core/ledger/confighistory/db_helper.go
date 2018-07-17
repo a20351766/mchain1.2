@@ -12,7 +12,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/hyperledger/fabric/common/ledger/util/leveldbhelper"
+	"github.com/hyperledger/mchain/common/ledger/util/leveldbhelper"
 )
 
 const (

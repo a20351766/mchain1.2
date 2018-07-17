@@ -9,10 +9,10 @@ package admin
 import (
 	"time"
 
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/peer"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/peer"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/pkg/errors"
 	"golang.org/x/net/context"
 )

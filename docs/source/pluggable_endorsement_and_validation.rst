@@ -13,7 +13,7 @@ checks before applying the state changes that come with the transaction itself:
   of the corresponding chaincodes.
 
 There are use cases which demand custom transaction validation rules different
-from the default Fabric validation rules, such as:
+from the default Mchain validation rules, such as:
 
 - **State-based endorsement:** When the endorsement policy depends on the key,
   and not only on the namespace.
@@ -26,7 +26,7 @@ from the default Fabric validation rules, such as:
 Pluggable endorsement and validation logic
 ------------------------------------------
 
-Fabric allows for the implementation and deployment of custom endorsement and
+Mchain allows for the implementation and deployment of custom endorsement and
 validation logic into the peer to be associated with chaincode handling in a
 pluggable manner. This logic can be either compiled into the peer as built in
 selectable logic, or compiled and deployed alongside the peer as a
@@ -85,13 +85,13 @@ entries in the configuration in ``core.yaml``:
             name: DefaultEndorsement
           statebased:
             name: state_based
-            library: /etc/hyperledger/fabric/plugins/state_based_endorsement.so
+            library: /etc/hyperledger/mchain/plugins/state_based_endorsement.so
         validators:
           vscc:
             name: DefaultValidation
           statebased:
             name: state_based
-            library: /etc/hyperledger/fabric/plugins/state_based_validation.so
+            library: /etc/hyperledger/mchain/plugins/state_based_validation.so
 
 And we'd have to place the ``.so`` plugin files in the peer's local file system.
 
@@ -141,7 +141,7 @@ interface.
 After the creation of the ``Plugin`` instance, the ``Init`` method is invoked on
 it by the peer with the ``dependencies`` passed as parameters.
 
-Currently Fabric comes with the following dependencies for endorsement plugins:
+Currently Mchain comes with the following dependencies for endorsement plugins:
 
 - ``SigningIdentityFetcher``: Returns an instance of ``SigningIdentity`` based
   on a given signed proposal:
@@ -230,7 +230,7 @@ interface.
 After the creation of the ``Plugin`` instance, the **Init** method is invoked on
 it by the peer with the dependencies passed as parameters.
 
-Currently Fabric comes with the following dependencies for validation plugins:
+Currently Mchain comes with the following dependencies for validation plugins:
 
 - ``IdentityDeserializer``: Converts byte representation of identities into
   ``Identity`` objects that can be used to verify signatures signed by them, be
@@ -274,7 +274,7 @@ Currently Fabric comes with the following dependencies for validation plugins:
 Important notes
 ---------------
 
-- **Validation plugin consistency across peers:** In future releases, the Fabric
+- **Validation plugin consistency across peers:** In future releases, the Mchain
   channel infrastructure would guarantee that the same validation logic is used
   for a given chaincode by all peers in the channel at any given blockchain
   height in order to eliminate the chance of mis-configuration which would might
@@ -292,9 +292,9 @@ Important notes
   of marking the transaction as invalid. This is to prevent state divergence
   between different peers.
 
-- **Importing Fabric code into the plugin**: Importing code that belongs to Fabric
+- **Importing Mchain code into the plugin**: Importing code that belongs to Mchain
   other than protobufs as part of the plugin is highly discouraged, and can lead
-  to issues when the Fabric code changes between releases, or can cause inoperability
+  to issues when the Mchain code changes between releases, or can cause inoperability
   issues when running mixed peer versions. Ideally, the plugin code should only
   use the dependencies given to it, and should import the bare minimum other
   than protobufs.

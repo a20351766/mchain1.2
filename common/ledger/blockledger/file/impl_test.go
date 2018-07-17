@@ -23,13 +23,13 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	cl "github.com/hyperledger/fabric/common/ledger"
-	"github.com/hyperledger/fabric/common/ledger/blockledger"
-	genesisconfig "github.com/hyperledger/fabric/common/tools/configtxgen/localconfig"
-	cb "github.com/hyperledger/fabric/protos/common"
-	ab "github.com/hyperledger/fabric/protos/orderer"
-	"github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/flogging"
+	cl "github.com/hyperledger/mchain/common/ledger"
+	"github.com/hyperledger/mchain/common/ledger/blockledger"
+	genesisconfig "github.com/hyperledger/mchain/common/tools/configtxgen/localconfig"
+	cb "github.com/hyperledger/mchain/protos/common"
+	ab "github.com/hyperledger/mchain/protos/orderer"
+	"github.com/hyperledger/mchain/protos/peer"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )
@@ -47,7 +47,7 @@ type testEnv struct {
 }
 
 func initialize(t *testing.T) (*testEnv, *FileLedger) {
-	name, err := ioutil.TempDir("", "hyperledger_fabric")
+	name, err := ioutil.TempDir("", "hyperledger_mchain")
 	assert.NoError(t, err, "Error creating temp dir: %s", err)
 
 	flf := New(name).(*fileLedgerFactory)

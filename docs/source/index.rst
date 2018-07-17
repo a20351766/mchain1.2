@@ -1,7 +1,7 @@
 A Blockchain Platform for the Enterprise
 ========================================
 
-.. image:: images/hyperledger_fabric_logo_color.png
+.. image:: images/hyperledger_mchain_logo_color.png
 
 Enterprise grade permissioned distributed ledger platform that offers
 modularity and versatility for a broad set of industry use cases.
@@ -22,7 +22,7 @@ modularity and versatility for a broad set of industry use cases.
    ops_guide
    command_ref
    architecture
-   Fabric-FAQ
+   Mchain-FAQ
    CONTRIBUTING
    glossary
    releases

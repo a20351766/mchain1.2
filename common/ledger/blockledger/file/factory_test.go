@@ -21,9 +21,9 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/ledger/blkstorage"
-	"github.com/hyperledger/fabric/common/ledger/blockledger"
-	genesisconfig "github.com/hyperledger/fabric/common/tools/configtxgen/localconfig"
+	"github.com/hyperledger/mchain/common/ledger/blkstorage"
+	"github.com/hyperledger/mchain/common/ledger/blockledger"
+	genesisconfig "github.com/hyperledger/mchain/common/tools/configtxgen/localconfig"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -69,7 +69,7 @@ func TestBlockstoreProviderError(t *testing.T) {
 }
 
 func TestMultiReinitialization(t *testing.T) {
-	dir, err := ioutil.TempDir("", "hyperledger_fabric")
+	dir, err := ioutil.TempDir("", "hyperledger_mchain")
 	assert.NoError(t, err, "Error creating temp dir: %s", err)
 
 	flf := New(dir)

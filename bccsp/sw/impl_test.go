@@ -38,10 +38,10 @@ import (
 
 	"reflect"
 
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/signer"
-	"github.com/hyperledger/fabric/bccsp/sw/mocks"
-	"github.com/hyperledger/fabric/bccsp/utils"
+	"github.com/hyperledger/mchain/bccsp"
+	"github.com/hyperledger/mchain/bccsp/signer"
+	"github.com/hyperledger/mchain/bccsp/sw/mocks"
+	"github.com/hyperledger/mchain/bccsp/utils"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/crypto/sha3"
 )

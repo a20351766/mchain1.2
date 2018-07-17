@@ -2,17 +2,17 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-FROM _BASE_NS_/fabric-baseimage:_BASE_TAG_ as builder
+FROM docker.m-chain.com/_BASE_NS_/mchain-baseimage:_BASE_TAG_ as builder
 WORKDIR /opt/gopath
 RUN mkdir src && mkdir pkg && mkdir bin
-ADD . src/github.com/hyperledger/fabric
-WORKDIR /opt/gopath/src/github.com/hyperledger/fabric
+ADD . src/github.com/hyperledger/mchain
+WORKDIR /opt/gopath/src/github.com/hyperledger/mchain
 ENV EXECUTABLES go git curl
 RUN make configtxgen configtxlator cryptogen peer
 
-FROM _BASE_NS_/fabric-baseimage:_BASE_TAG_
-ENV FABRIC_CFG_PATH /etc/hyperledger/fabric
+FROM docker.m-chain.com/_BASE_NS_/mchain-baseimage:_BASE_TAG_
+ENV FABRIC_CFG_PATH /etc/hyperledger/mchain
 RUN apt-get update && apt-get install -y jq
-VOLUME /etc/hyperledger/fabric
-COPY --from=builder /opt/gopath/src/github.com/hyperledger/fabric/.build/bin /usr/local/bin
-COPY --from=builder /opt/gopath/src/github.com/hyperledger/fabric/sampleconfig $FABRIC_CFG_PATH
+VOLUME /etc/hyperledger/mchain
+COPY --from=builder /opt/gopath/src/github.com/hyperledger/mchain/.build/bin /usr/local/bin
+COPY --from=builder /opt/gopath/src/github.com/hyperledger/mchain/sampleconfig $FABRIC_CFG_PATH

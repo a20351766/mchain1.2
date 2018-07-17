@@ -12,11 +12,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/ledger/ledgerconfig"
-	"github.com/hyperledger/fabric/protos/common"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/core/ledger/ledgerconfig"
+	"github.com/hyperledger/mchain/protos/common"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"github.com/spf13/viper"
 	"golang.org/x/net/context"
 )
@@ -25,7 +25,7 @@ import (
 func TestQueriesPrivateData(t *testing.T) {
 	// Skipping this tests as this test requires the application configuration to be set such that the private data capability is set to 'true'
 	// However, with the latest restructuring of some of the packages, it is not possible to register system chaincodes with desired configurations for test.
-	// see function RegisterSysCCs in file 'fabric/core/scc/register.go'. In absence of this lscc returns error while deploying a chaincode with collection configurations.
+	// see function RegisterSysCCs in file 'mchain/core/scc/register.go'. In absence of this lscc returns error while deploying a chaincode with collection configurations.
 	// This test should be moved as an integration test outside of chaincode package.
 	t.Skip()
 	chainID := util.GetTestChainID()
@@ -39,7 +39,7 @@ func TestQueriesPrivateData(t *testing.T) {
 
 	var ctxt = context.Background()
 
-	url := "github.com/hyperledger/fabric/examples/chaincode/go/map"
+	url := "github.com/hyperledger/mchain/examples/chaincode/go/map"
 	cID := &pb.ChaincodeID{Name: "tmap", Path: url, Version: "0"}
 
 	f := "init"

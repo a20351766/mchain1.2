@@ -3,7 +3,7 @@ Using CouchDB
 =============
 
 This tutorial will describe the steps required to use the CouchDB as the state
-database with Hyperledger Fabric. By now, you should be familiar with Fabric
+database with Hyperledger Mchain. By now, you should be familiar with Mchain
 concepts and have explored some of the samples and tutorials.
 
 The tutorial will take you through the following steps:
@@ -17,12 +17,12 @@ The tutorial will take you through the following steps:
 #. :ref:`cdb-delete-index`
 
 For a deeper dive into CouchDB refer to :doc:`couchdb_as_state_database`
-and for more information on the Fabric ledger refer to the `Ledger <ledger/ledger.html>`_
+and for more information on the Mchain ledger refer to the `Ledger <ledger/ledger.html>`_
 topic. Follow the tutorial below for details on how to leverage CouchDB in your
 blockchain network.
 
-Throughout this tutorial we will use the `Marbles sample <https://github.com/hyperledger/fabric-samples/blob/master/chaincode/marbles02/go/marbles_chaincode.go>`__
-as our use case to demonstrate how to use CouchDB with Fabric and will deploy
+Throughout this tutorial we will use the `Marbles sample <https://github.com/hyperledger/mchain-samples/blob/master/chaincode/marbles02/go/marbles_chaincode.go>`__
+as our use case to demonstrate how to use CouchDB with Mchain and will deploy
 Marbles to the :doc:`build_network` (BYFN) tutorial network. You should have
 completed the task :doc:`install`. However, running the BYFN tutorial is not
 a prerequisite for this tutorial, instead the necessary commands are provided
@@ -31,7 +31,7 @@ throughout this tutorial to use the network.
 Why CouchDB?
 ~~~~~~~~~~~~
 
-Fabric supports two types of peer databases. LevelDB is the default state
+Mchain supports two types of peer databases. LevelDB is the default state
 database embedded in the peer node and stores chaincode data as simple
 key-value pairs and supports key, key range, and composite key queries only.
 CouchDB is an optional alternate state database that supports rich
@@ -51,12 +51,12 @@ only be queried based on key, key range, and composite key queries.
 
 .. _cdb-enable-couch:
 
-Enable CouchDB in Hyperledger Fabric
+Enable CouchDB in Hyperledger Mchain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CouchDB runs as a separate database process alongside the peer, therefore there
 are additional considerations in terms of setup, management, and operations.
-A docker image of `CouchDB <https://hub.docker.com/r/hyperledger/fabric-couchdb/>`__
+A docker image of `CouchDB <https://hub.docker.com/r/hyperledger/mchain-couchdb/>`__
 is available and we recommend that it be run on the same server as the
 peer. You will need to setup one CouchDB container per peer
 and update each peer container by changing the configuration found in
@@ -74,9 +74,9 @@ FABRIC_CFG_PATH:
 
 Edit the ``stateDatabase`` section of ``core.yaml``. Specify ``CouchDB`` as the
 ``stateDatabase`` and fill in the associated ``couchDBConfig`` properties. For
-more details on configuring CouchDB to work with fabric, refer `here <http://hyperledger-fabric.readthedocs.io/en/master/couchdb_as_state_database.html#couchdb-configuration>`__.
+more details on configuring CouchDB to work with mchain, refer `here <http://hyperledger-mchain.readthedocs.io/en/master/couchdb_as_state_database.html#couchdb-configuration>`__.
 To view an example of a core.yaml file configured for CouchDB, examine the
-BYFN ``docker-compose-couch.yaml`` in the ``HyperLedger/fabric-samples/first-network``
+BYFN ``docker-compose-couch.yaml`` in the ``HyperLedger/mchain-samples/first-network``
 directory.
 
 .. _cdb-create-index:
@@ -102,7 +102,7 @@ in a query, CouchDB requires an index of the sorted fields.
    otherwise, the query will fail and an error will be thrown.
 
 To demonstrate building an index, we will use the data from the `Marbles
-sample <https://github.com/hyperledger/fabric-samples/blob/master/chaincode/marbles02/go/marbles_chaincode.go>`__.
+sample <https://github.com/hyperledger/mchain-samples/blob/master/chaincode/marbles02/go/marbles_chaincode.go>`__.
 In this example, the Marbles data structure is defined as:
 
 .. code:: javascript
@@ -225,9 +225,9 @@ In general, you should model index fields to match the fields that will be used
 in query filters and sorts. For more details on building an index in JSON
 format refer to the `CouchDB documentation <http://docs.couchdb.org/en/latest/api/database/find.html#db-index>`__.
 
-A final word on indexing, Fabric takes care of indexing the documents in the
+A final word on indexing, Mchain takes care of indexing the documents in the
 database using a pattern called ``index warming``. CouchDB does not typically
-index new or updated documents until the next query. Fabric ensures that
+index new or updated documents until the next query. Mchain ensures that
 indexes stay 'warm' by requesting an index update after every block of data is
 committed.  This ensures queries are fast because they do not have to index
 documents before running the query. This process keeps the index current
@@ -243,10 +243,10 @@ Once you finalize an index, it is ready to be packaged with your chaincode for
 deployment by being placed alongside it in the appropriate metadata folder.
 
 If your chaincode installation and instantiation uses the Hyperledger
-Fabric Node SDK, the JSON index files can be located in any folder as long
-as it conforms to this `directory structure <https://fabric-sdk-node.github.io/tutorial-metadata-chaincode.html>`__.
+Mchain Node SDK, the JSON index files can be located in any folder as long
+as it conforms to this `directory structure <https://mchain-sdk-node.github.io/tutorial-metadata-chaincode.html>`__.
 During the chaincode installation using the client.installChaincode() API,
-include the attribute (``metadataPath``) in the `installation request <https://fabric-sdk-node.github.io/global.html#ChaincodeInstallRequest>`__.
+include the attribute (``metadataPath``) in the `installation request <https://mchain-sdk-node.github.io/global.html#ChaincodeInstallRequest>`__.
 The value of the metadataPath is a string representing the absolute path to the
 directory structure containing the JSON index file(s).
 
@@ -255,7 +255,7 @@ Alternatively, if you are using the
 index files must be located under the path ``META-INF/statedb/couchdb/indexes``
 which is located inside the directory where the chaincode resides.
 
-The `Marbles sample <https://github.com/hyperledger/fabric-samples/tree/master/chaincode/marbles02/go>`__  below illustrates how the index
+The `Marbles sample <https://github.com/hyperledger/mchain-samples/tree/master/chaincode/marbles02/go>`__  below illustrates how the index
 is packaged with the chaincode which will be installed using the peer commands.
 
 .. image:: images/couchdb_tutorial_pkg_example.png
@@ -278,7 +278,7 @@ Start the network
 
  .. code:: bash
 
-  cd fabric-samples/first-network
+  cd mchain-samples/first-network
   ./byfn.sh -m down
 
 
@@ -288,7 +288,7 @@ Start the network
 
    ./byfn.sh up -c mychannel -s couchdb
 
- This will create a simple Fabric network consisting of a single channel named
+ This will create a simple Mchain network consisting of a single channel named
  `mychannel` with two organizations (each maintaining two peer nodes) and an
  ordering service while using CouchDB as the state database.
 
@@ -307,7 +307,7 @@ Chaincode is installed onto a peer and then instantiated onto the channel using
 :doc:`peer-commands`.
 
 
-1. Use the `peer chaincode install <http://hyperledger-fabric.readthedocs.io/en/master/commands/peerchaincode.html?%20chaincode%20instantiate#peer-chaincode-install>`__ command to install the Marbles chaincode on a peer.
+1. Use the `peer chaincode install <http://hyperledger-mchain.readthedocs.io/en/master/commands/peerchaincode.html?%20chaincode%20instantiate#peer-chaincode-install>`__ command to install the Marbles chaincode on a peer.
 
  :guilabel:`Try it yourself`
 
@@ -326,7 +326,7 @@ Chaincode is installed onto a peer and then instantiated onto the channel using
 
       peer chaincode install -n marbles -v 1.0 -p github.com/chaincode/marbles02/go
 
-2. Issue the `peer chaincode instantiate <http://hyperledger-fabric.readthedocs.io/en/master/commands/peerchaincode.html?%20chaincode%20instantiate#peer-chaincode-instantiate>`__ command to instantiate the
+2. Issue the `peer chaincode instantiate <http://hyperledger-mchain.readthedocs.io/en/master/commands/peerchaincode.html?%20chaincode%20instantiate#peer-chaincode-instantiate>`__ command to instantiate the
 chaincode on a channel.
 
  :guilabel:`Try it yourself`
@@ -337,7 +337,7 @@ chaincode on a channel.
  .. code:: bash
 
     export CHANNEL_NAME=mychannel
-    peer chaincode instantiate -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -v 1.0 -c '{"Args":["init"]}' -P "OR ('Org0MSP.peer','Org1MSP.peer')"
+    peer chaincode instantiate -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -v 1.0 -c '{"Args":["init"]}' -P "OR ('Org0MSP.peer','Org1MSP.peer')"
 
 Verify index was deployed
 -------------------------
@@ -394,7 +394,7 @@ Build the query in chaincode
 
 You can perform complex rich queries against the chaincode data values using
 the CouchDB JSON query language within chaincode. As we explored above, the
-`marbles02 sample chaincode <https://github.com/hyperledger/fabric-samples/blob/master/chaincode/marbles02/go/marbles_chaincode.go>`__
+`marbles02 sample chaincode <https://github.com/hyperledger/mchain-samples/blob/master/chaincode/marbles02/go/marbles_chaincode.go>`__
 includes an index and rich queries are defined in the functions - ``queryMarbles``
 and ``queryMarblesByOwner``:
 
@@ -422,7 +422,7 @@ Run the query using the peer command
 
 In absence of a client application to test rich queries defined in chaincode,
 peer commands can be used. Peer commands run from the command line inside the
-docker container. We will customize the `peer chaincode query <http://hyperledger-fabric.readthedocs.io/en/master/commands/peerchaincode.html?%20chaincode%20query#peer-chaincode-query>`__
+docker container. We will customize the `peer chaincode query <http://hyperledger-mchain.readthedocs.io/en/master/commands/peerchaincode.html?%20chaincode%20query#peer-chaincode-query>`__
 command to use the Marbles index ``indexOwner`` and query for all marbles owned
 by "tom" using the ``queryMarbles`` function.
 
@@ -433,7 +433,7 @@ by "tom" using the ``queryMarbles`` function.
 
  .. code:: bash
 
-   peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["initMarble","marble1","blue","35","tom"]}'
+   peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["initMarble","marble1","blue","35","tom"]}'
 
  After an index has been deployed during chaincode instantiation, it will
  automatically be utilized by chaincode queries. CouchDB can determine which
@@ -451,7 +451,7 @@ by "tom" using the ``queryMarbles`` function.
 Delving into the query command above, there are three arguments of interest:
 
 *  ``queryMarbles``
-  Name of the function in the Marbles chaincode. Notice a `shim <https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim>`__
+  Name of the function in the Marbles chaincode. Notice a `shim <https://godoc.org/github.com/hyperledger/mchain/core/chaincode/shim>`__
   ``shim.ChaincodeStubInterface`` is used to access and modify the ledger. The
   ``getQueryResultForQueryString()`` passes the queryString to the shim API ``getQueryResult()``.
 
@@ -505,7 +505,7 @@ subsequent versions of the chaincode that gets installed. In order for an index
 to be updated, the original index definition must have included the design
 document ``ddoc`` attribute and an index name. To update an index definition,
 use the same index name but alter the index definition. Simply edit the index
-JSON file and add or remove fields from the index. Fabric only supports the
+JSON file and add or remove fields from the index. Mchain only supports the
 index type JSON, changing the index type is not supported. The updated
 index definition gets redeployed to the peer’s state database when the chaincode
 is installed and instantiated. Changes to the index name or ``ddoc`` attributes
@@ -555,7 +555,7 @@ of a curl command which can be used to create the index on the database
 Delete an Index
 ~~~~~~~~~~~~~~~
 
-Index deletion is not managed by Fabric tooling. If you need to delete an index,
+Index deletion is not managed by Mchain tooling. If you need to delete an index,
 manually issue a curl command against the database or delete it using the
 Fauxton interface.
 

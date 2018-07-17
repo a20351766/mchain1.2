@@ -13,8 +13,8 @@ import (
 	"encoding/hex"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/peer/common"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/peer/common"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"github.com/stretchr/testify/assert"
 )
 

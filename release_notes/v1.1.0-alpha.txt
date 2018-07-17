@@ -34,8 +34,8 @@ none
 
 Known Issues & Workarounds
 --------------------------
-The fabric-ccenv image which is used to build chaincode, currently includes
-the github.com/hyperledger/fabric/core/chaincode/shim ("shim") package.
+The mchain-ccenv image which is used to build chaincode, currently includes
+the github.com/hyperledger/mchain/core/chaincode/shim ("shim") package.
 This is convenient, as it provides the ability to package chaincode
 without the need to include the "shim". However, this may cause issues in future
 releases (and/or when trying to use packages which are included by the "shim").
@@ -46,8 +46,8 @@ for installing chaincode.
 
 Please refer to https://jira.hyperledger.org/browse/FAB-5177 for more details,
 and kindly be aware that given the above, we may end up changing the
-fabric-ccenv in the future.
+mchain-ccenv in the future.
 
 Change Log
 ----------
-https://github.com/hyperledger/fabric/blob/master/CHANGELOG.md#v110-alpha
+https://github.com/hyperledger/mchain/blob/master/CHANGELOG.md#v110-alpha

@@ -13,8 +13,8 @@ import (
 	"time"
 
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/integration/helpers"
-	"github.com/hyperledger/fabric/integration/runner"
+	"github.com/hyperledger/mchain/integration/helpers"
+	"github.com/hyperledger/mchain/integration/runner"
 	"github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gexec"
@@ -26,7 +26,7 @@ type Components struct {
 }
 
 var RequiredImages = []string{
-	"hyperledger/fabric-ccenv:latest",
+	"hyperledger/mchain-ccenv:latest",
 	runner.CouchDBDefaultImage,
 	runner.KafkaDefaultImage,
 	runner.ZooKeeperDefaultImage,
@@ -38,23 +38,23 @@ func (c *Components) Build(args ...string) {
 	if c.Paths == nil {
 		c.Paths = map[string]string{}
 	}
-	cryptogen, err := gexec.Build("github.com/hyperledger/fabric/common/tools/cryptogen", args...)
+	cryptogen, err := gexec.Build("github.com/hyperledger/mchain/common/tools/cryptogen", args...)
 	Expect(err).NotTo(HaveOccurred())
 	c.Paths["cryptogen"] = cryptogen
 
-	idemixgen, err := gexec.Build("github.com/hyperledger/fabric/common/tools/idemixgen", args...)
+	idemixgen, err := gexec.Build("github.com/hyperledger/mchain/common/tools/idemixgen", args...)
 	Expect(err).NotTo(HaveOccurred())
 	c.Paths["idemixgen"] = idemixgen
 
-	configtxgen, err := gexec.Build("github.com/hyperledger/fabric/common/tools/configtxgen", args...)
+	configtxgen, err := gexec.Build("github.com/hyperledger/mchain/common/tools/configtxgen", args...)
 	Expect(err).NotTo(HaveOccurred())
 	c.Paths["configtxgen"] = configtxgen
 
-	orderer, err := gexec.Build("github.com/hyperledger/fabric/orderer", args...)
+	orderer, err := gexec.Build("github.com/hyperledger/mchain/orderer", args...)
 	Expect(err).NotTo(HaveOccurred())
 	c.Paths["orderer"] = orderer
 
-	peer, err := gexec.Build("github.com/hyperledger/fabric/peer", args...)
+	peer, err := gexec.Build("github.com/hyperledger/mchain/peer", args...)
 	Expect(err).NotTo(HaveOccurred())
 	c.Paths["peer"] = peer
 }

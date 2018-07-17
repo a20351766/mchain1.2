@@ -22,15 +22,15 @@ import (
 	"path/filepath"
 	"testing"
 
-	configtxtest "github.com/hyperledger/fabric/common/configtx/test"
-	"github.com/hyperledger/fabric/common/ledger/blkstorage/fsblkstorage"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/common/util"
-	ledgerproto "github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/ledgerconfig"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/ledger/queryresult"
-	putils "github.com/hyperledger/fabric/protos/utils"
+	configtxtest "github.com/hyperledger/mchain/common/configtx/test"
+	"github.com/hyperledger/mchain/common/ledger/blkstorage/fsblkstorage"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/common/util"
+	ledgerproto "github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/ledgerconfig"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/ledger/queryresult"
+	putils "github.com/hyperledger/mchain/protos/utils"
 	"github.com/spf13/viper"
 )
 
@@ -171,8 +171,8 @@ func TestMultipleLedgerBasicRW(t *testing.T) {
 
 func TestLedgerBackup(t *testing.T) {
 	ledgerid := "TestLedger"
-	originalPath := "/tmp/fabric/ledgertests/kvledger1"
-	restorePath := "/tmp/fabric/ledgertests/kvledger2"
+	originalPath := "/tmp/mchain/ledgertests/kvledger1"
+	restorePath := "/tmp/mchain/ledgertests/kvledger2"
 	viper.Set("ledger.history.enableHistoryDatabase", true)
 
 	// create and populate a ledger in the original environment

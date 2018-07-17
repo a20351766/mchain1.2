@@ -15,7 +15,7 @@ The collection definition gets deployed to the channel at the time of chaincode
 instantiation. If using the peer CLI to instantiate the chaincode, the
 collection definition file is passed to the chaincode instantiation
 using the ``--collections-config`` flag. If using a client SDK, check the `SDK
-documentation <https://fabric-sdk-node.github.io/>`_ for information on providing the collection
+documentation <https://mchain-sdk-node.github.io/>`_ for information on providing the collection
 definition.
 
 Collection definitions are composed of five properties:
@@ -142,7 +142,7 @@ alongside their blockchain until the transaction is committed.
 Referencing collections from chaincode
 --------------------------------------
 
-A set of `shim APIs <https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim>`_
+A set of `shim APIs <https://godoc.org/github.com/hyperledger/mchain/core/chaincode/shim>`_
 are available for setting and retrieving private data.
 
 The same chaincode data operations can be applied to channel state data and
@@ -160,7 +160,7 @@ not to include private data in the main part of the chaincode proposal. A specia
 field in the chaincode proposal called the ``transient`` field can be used to pass
 private data from the client (or data that chaincode will use to generate private
 data), to chaincode invocation on the peer.  The chaincode can retrieve the
-``transient`` field by calling the ```GetTransient()`` API <https://github.com/hyperledger/fabric/blob/13447bf5ead693f07285ce63a1903c5d0d25f096/core/chaincode/shim/interfaces_stable.go>`_.
+``transient`` field by calling the ```GetTransient()`` API <https://github.com/hyperledger/mchain/blob/13447bf5ead693f07285ce63a1903c5d0d25f096/core/chaincode/shim/interfaces_stable.go>`_.
 This ``transient`` field gets excluded from the channel transaction.
 
 Considerations when using private data
@@ -204,7 +204,7 @@ Limitations:
   non-authorized clients are able to invoke chaincode on peers that have access
   to the private data, the chaincode logic still needs a means to enforce access
   control as usual, for example by calling the GetCreator() chaincode API or
-  using the client identity `chaincode library <https://github.com/hyperledger/fabric/tree/master/core/chaincode/lib/cid>`__ .
+  using the client identity `chaincode library <https://github.com/hyperledger/mchain/tree/master/core/chaincode/lib/cid>`__ .
 
 Using Indexes with collections
 ------------------------------
@@ -214,7 +214,7 @@ applied to the channel’s state database to enable JSON content queries, by
 packaging indexes in a ``META-INF/statedb/couchdb/indexes`` directory at chaincode
 installation time.  Similarly, indexes can also be applied to private data
 collections, by packaging indexes in a ``META-INF/statedb/couchdb/collections/<collection_name>/indexes``
-directory. An example index is available `here <https://github.com/hyperledger/fabric-samples/blob/master/chaincode/marbles02_private/go/META-INF/statedb/couchdb/collections/collectionMarbles/indexes/indexOwner.json>`_.
+directory. An example index is available `here <https://github.com/hyperledger/mchain-samples/blob/master/chaincode/marbles02_private/go/META-INF/statedb/couchdb/collections/collectionMarbles/indexes/indexOwner.json>`_.
 
 Private Data Purging
 ~~~~~~~~~~~~~~~~~~~~

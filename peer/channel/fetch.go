@@ -13,9 +13,9 @@ import (
 	"strings"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/peer/common"
-	cb "github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/peer/common"
+	cb "github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/spf13/cobra"
 )
 

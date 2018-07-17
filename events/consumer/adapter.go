@@ -17,11 +17,11 @@ limitations under the License.
 package consumer
 
 import (
-	"github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/protos/peer"
 )
 
-//EventAdapter is the interface by which a fabric event client registers interested events and
-//receives messages from the fabric event Server
+//EventAdapter is the interface by which a mchain event client registers interested events and
+//receives messages from the mchain event Server
 type EventAdapter interface {
 	GetInterestedEvents() ([]*peer.Interest, error)
 	Recv(msg *peer.Event) (bool, error)

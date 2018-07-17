@@ -1,11 +1,11 @@
 Working with Gerrit
 -------------------
 
-Follow these instructions to collaborate on Hyperledger Fabric
+Follow these instructions to collaborate on Hyperledger Mchain
 through the Gerrit review system.
 
 Please be sure that you are subscribed to the `mailing
-list <https://lists.hyperledger.org/mailman/listinfo/hyperledger-fabric>`__
+list <https://lists.hyperledger.org/mailman/listinfo/hyperledger-mchain>`__
 and of course, you can reach out on
 `chat <https://chat.hyperledger.org/>`__ if you need help.
 
@@ -58,9 +58,9 @@ To work on something, whether a new feature or a bugfix:
 
 .. code::
 
-   git clone ssh://LFID@gerrit.hyperledger.org:29418/fabric && scp -p -P 29418 LFID@gerrit.hyperledger.org:hooks/commit-msg fabric/.git/hooks/
+   git clone ssh://LFID@gerrit.hyperledger.org:29418/mchain && scp -p -P 29418 LFID@gerrit.hyperledger.org:hooks/commit-msg mchain/.git/hooks/
 
-.. note:: If you are cloning the fabric project repository, you will
+.. note:: If you are cloning the mchain project repository, you will
           want to clone it to the ``$GOPATH/src/github.com/hyperledger``
           directory so that it will build, and so that you can use it
           with the Vagrant :doc:`development environment <../dev-setup/devenv>`.
@@ -69,7 +69,7 @@ To work on something, whether a new feature or a bugfix:
 
 ::
 
-    cd fabric
+    cd mchain
     git checkout -b issue-nnnn
 
 5. Commit your code. For an in-depth discussion of creating an effective
@@ -106,7 +106,7 @@ with your gerrit id.
 ::
 
     [remote "gerrit"]
-        url = ssh://<USERNAME>@gerrit.hyperledger.org:29418/fabric.git
+        url = ssh://<USERNAME>@gerrit.hyperledger.org:29418/mchain.git
         fetch = +refs/heads/*:refs/remotes/gerrit/*
 
 Then submit your change with ``git review``.
@@ -129,7 +129,7 @@ be pushed to a special branch. The name of this special branch contains
 a reference to the final branch where the code should reside, once
 accepted.
 
-For the Hyperledger Fabric repository, the special branch is called
+For the Hyperledger Mchain repository, the special branch is called
 ``refs/for/master``.
 
 To push the current local development branch to the gerrit server, open
@@ -153,7 +153,7 @@ this:
     remote: New Changes:
     remote:   https://gerrit.hyperledger.org/r/6 Test commit
     remote:
-    To ssh://LFID@gerrit.hyperledger.org:29418/fabric
+    To ssh://LFID@gerrit.hyperledger.org:29418/mchain
     * [new branch]      HEAD -> refs/for/master
 
 The gerrit server generates a link where the change can be tracked.
@@ -196,13 +196,13 @@ Viewing Pending Changes
 
 Find all pending changes by clicking on the ``All --> Changes`` link in
 the upper-left corner, or `open this
-link <https://gerrit.hyperledger.org/r/#/q/project:fabric>`__.
+link <https://gerrit.hyperledger.org/r/#/q/project:mchain>`__.
 
 If you collaborate in multiple projects, you may wish to limit searching
 to the specific branch through the search bar in the upper-right side.
 
-Add the filter *project:fabric* to limit the visible changes to only
-those from Hyperledger Fabric.
+Add the filter *project:mchain* to limit the visible changes to only
+those from Hyperledger Mchain.
 
 List all current changes you submitted, or list just those changes in
 need of your input by clicking on ``My --> Changes`` or `open this

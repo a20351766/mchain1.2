@@ -12,17 +12,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric/common/crypto/tlsgen"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/chaincode/accesscontrol"
-	"github.com/hyperledger/fabric/core/chaincode/shim"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/container"
-	"github.com/hyperledger/fabric/core/container/dockercontroller"
-	"github.com/hyperledger/fabric/core/container/inproccontroller"
-	"github.com/hyperledger/fabric/core/peer"
-	"github.com/hyperledger/fabric/core/scc"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/crypto/tlsgen"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/chaincode/accesscontrol"
+	"github.com/hyperledger/mchain/core/chaincode/shim"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/core/container"
+	"github.com/hyperledger/mchain/core/container/dockercontroller"
+	"github.com/hyperledger/mchain/core/container/inproccontroller"
+	"github.com/hyperledger/mchain/core/peer"
+	"github.com/hyperledger/mchain/core/scc"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"github.com/spf13/viper"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
@@ -150,7 +150,7 @@ func initSysCCTests() (*oldSysCCInfo, net.Listener, *ChaincodeSupport, error) {
 	syscc := &scc.SystemChaincode{
 		Enabled:   true,
 		Name:      "sample_syscc",
-		Path:      "github.com/hyperledger/fabric/core/scc/samplesyscc",
+		Path:      "github.com/hyperledger/mchain/core/scc/samplesyscc",
 		InitArgs:  [][]byte{},
 		Chaincode: &SampleSysCC{},
 	}
@@ -172,7 +172,7 @@ func deploySampleSysCC(t *testing.T, ctxt context.Context, chainID string, chain
 
 	defer chaincodeSupport.sccp.(*scc.Provider).DeDeploySysCCs(chainID, ccp)
 
-	url := "github.com/hyperledger/fabric/core/scc/sample_syscc"
+	url := "github.com/hyperledger/mchain/core/scc/sample_syscc"
 
 	sysCCVers := util.GetSysCCVersion()
 

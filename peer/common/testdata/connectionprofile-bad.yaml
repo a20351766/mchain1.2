@@ -6,7 +6,7 @@ name: connection-profile-bad
 # them for the applications to process. This is a mechanism for different components of an application
 # to exchange information that are not part of the standard schema described below. In particular,
 # the "x-type" property with the "hlfv1" value example below is used by Hyperledger Composer to
-# determine the type of Fabric networks (v0.6 vs. v1.0) it needs to work with.
+# determine the type of Mchain networks (v0.6 vs. v1.0) it needs to work with.
 #
 x-type: "hlfv1"
 x-loggingLevel: info

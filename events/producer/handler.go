@@ -15,10 +15,10 @@ import (
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"
 
-	"github.com/hyperledger/fabric/common/crypto"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/msp/mgmt"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/crypto"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/msp/mgmt"
+	pb "github.com/hyperledger/mchain/protos/peer"
 )
 
 type handler struct {

@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/orderer/consensus"
-	cb "github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/orderer/consensus"
+	cb "github.com/hyperledger/mchain/protos/common"
 	"github.com/op/go-logging"
 )
 

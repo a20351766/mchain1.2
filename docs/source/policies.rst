@@ -1,7 +1,7 @@
-Policies in Hyperledger Fabric
+Policies in Hyperledger Mchain
 ==============================
 
-Configuration for a Hyperledger Fabric blockchain network is managed by
+Configuration for a Hyperledger Mchain blockchain network is managed by
 policies. These policies generally reside in the channel configuration.
 The primary purpose of this document is to explain how policies are
 defined in and interact with the channel configuration. However,
@@ -47,7 +47,7 @@ There are presently two different types of policies implemented:
    the organization admin policies".
 
 Policies are encoded in a ``common.Policy`` message as defined in
-``fabric/protos/common/policies.proto``. They are defined by the
+``mchain/protos/common/policies.proto``. They are defined by the
 following message:
 
 ::
@@ -218,7 +218,7 @@ This defines a signature policy over MSP Principals ``mspP1``,
 Hopefully it is clear that complicated and relatively arbitrary logic
 may be expressed using the SignaturePolicy policy type. For code which
 constructs signature policies, consult
-``fabric/common/cauthdsl/cauthdsl_builder.go``.
+``mchain/common/cauthdsl/cauthdsl_builder.go``.
 
 ---------
 
@@ -265,7 +265,7 @@ cryptography other than X.509, for the purposes of this document, the
 discussion will assume that the underlying MSP implementation is the
 default MSP type, based on X.509 cryptography.
 
-An MSP Principal is defined in ``fabric/protos/msp_principal.proto`` as
+An MSP Principal is defined in ``mchain/protos/msp_principal.proto`` as
 follows:
 
 ::
@@ -321,7 +321,7 @@ evaluate the signature, and the ``Role`` is set to either ``MEMBER``,
 2. ``ADMIN`` matches certificates enumerated as admin in the MSP definition.
 3. ``CLIENT`` (``PEER``) matches certificates that carry the client (peer) Organizational unit.
 
-(see `MSP Documentation <http://hyperledger-fabric.readthedocs.io/en/latest/msp.html>`_)
+(see `MSP Documentation <http://hyperledger-mchain.readthedocs.io/en/latest/msp.html>`_)
 
 Constructing an ImplicitMetaPolicy
 ----------------------------------
@@ -330,7 +330,7 @@ The ``ImplicitMetaPolicy`` is only validly defined in the context of
 channel configuration. It is ``Implicit`` because it is constructed
 implicitly based on the current configuration, and it is ``Meta``
 because its evaluation is not against MSP principals, but rather against
-other policies. It is defined in ``fabric/protos/common/policies.proto``
+other policies. It is defined in ``mchain/protos/common/policies.proto``
 as follows:
 
 ::

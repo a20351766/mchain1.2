@@ -16,10 +16,10 @@ import (
 	"github.com/op/go-logging"
 	"github.com/spf13/viper"
 
-	"github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/core/config/configtest"
-	"github.com/hyperledger/fabric/msp"
+	"github.com/hyperledger/mchain/bccsp/factory"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/core/config/configtest"
+	"github.com/hyperledger/mchain/msp"
 )
 
 var configLogger = flogging.MustGetLogger("config")

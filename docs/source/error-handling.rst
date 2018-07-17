@@ -3,7 +3,7 @@ Error handling
 
 General Overview
 ----------------
-Hyperledger Fabric code should use the vendored package
+Hyperledger Mchain code should use the vendored package
 **github.com/pkg/errors** in place of the standard error type provided by Go.
 This package allows easy generation and display of stack traces with error
 messages.
@@ -25,20 +25,20 @@ errors.Wrap(), errors.Wrapf().
 
 .. note:: See https://godoc.org/github.com/pkg/errors for complete documentation
           of the available error creation function. Also, refer to the General guidelines
-          section below for more specific guidelines for using the package for Fabric
+          section below for more specific guidelines for using the package for Mchain
           code.
 
 Finally, change the formatting directive for any logger or fmt.Printf() calls
 from ``%s`` to ``%+v`` to print the call stack along with the error message.
 
-General guidelines for error handling in Hyperledger Fabric
+General guidelines for error handling in Hyperledger Mchain
 -----------------------------------------------------------
 
 - If you are servicing a user request, you should log the error and return it.
 - If the error comes from an external source, such as a Go library or vendored
   package, wrap the error using errors.Wrap() to generate a call stack for the
   error.
-- If the error comes from another Fabric function, add further context, if
+- If the error comes from another Mchain function, add further context, if
   desired, to the error message using errors.WithMessage() while leaving the
   call stack unaffected.
 - A panic should not be allowed to propagate to other packages.
@@ -66,7 +66,7 @@ package:
   }
   func wrapWithoutStack() error {
     err := createError()
-    // do this when error comes from internal Fabric since it already has stack trace
+    // do this when error comes from internal Mchain since it already has stack trace
     return errors.WithMessage(err, "wrapping an error without stack")
   }
   func createError() error {

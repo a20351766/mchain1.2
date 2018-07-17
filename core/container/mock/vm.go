@@ -4,8 +4,8 @@ package mock
 import (
 	"sync"
 
-	container_test "github.com/hyperledger/fabric/core/container"
-	"github.com/hyperledger/fabric/core/container/ccintf"
+	container_test "github.com/hyperledger/mchain/core/container"
+	"github.com/hyperledger/mchain/core/container/ccintf"
 	"golang.org/x/net/context"
 )
 

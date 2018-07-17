@@ -33,7 +33,7 @@ func init() {
 
 // This test checks that `New` factory should fail if parent directory is read-only
 func TestErrorMkdir(t *testing.T) {
-	name, err := ioutil.TempDir("", "hyperledger_fabric")
+	name, err := ioutil.TempDir("", "hyperledger_mchain")
 	assert.Nil(t, err, "Error creating temp dir: %s", err)
 	defer os.RemoveAll(name)
 	ledgerPath := path.Join(name, "jsonledger")
@@ -47,7 +47,7 @@ func TestErrorMkdir(t *testing.T) {
 // constructing a chain from invalid dir or file are ignored anyway. Consider refactoring impl
 // to make it more testable.
 func TestIgnoreInvalidObjectInDir(t *testing.T) {
-	name, err := ioutil.TempDir("", "hyperledger_fabric")
+	name, err := ioutil.TempDir("", "hyperledger_mchain")
 	assert.Nil(t, err, "Error creating temp dir: %s", err)
 	defer os.RemoveAll(name)
 	file, err := ioutil.TempFile(name, "chain_")
@@ -62,7 +62,7 @@ func TestIgnoreInvalidObjectInDir(t *testing.T) {
 
 // This test checks that factory initialization panics given invalid chain
 func TestInvalidChain(t *testing.T) {
-	name, err := ioutil.TempDir("", "hyperledger_fabric")
+	name, err := ioutil.TempDir("", "hyperledger_mchain")
 	assert.Nil(t, err, "Error creating temp dir: %s", err)
 	defer os.RemoveAll(name)
 
@@ -94,7 +94,7 @@ func TestInvalidChain(t *testing.T) {
 
 // This test checks that file is ignored if the name is not valid
 func TestIgnoreInvalidBlockFileName(t *testing.T) {
-	name, err := ioutil.TempDir("", "hyperledger_fabric")
+	name, err := ioutil.TempDir("", "hyperledger_mchain")
 	assert.Nil(t, err, "Error creating temp dir: %s", err)
 	defer os.RemoveAll(name)
 
@@ -112,7 +112,7 @@ func TestIgnoreInvalidBlockFileName(t *testing.T) {
 }
 
 func TestClose(t *testing.T) {
-	name, err := ioutil.TempDir("", "hyperledger_fabric")
+	name, err := ioutil.TempDir("", "hyperledger_mchain")
 	assert.Nil(t, err, "Error creating temp dir: %s", err)
 	defer os.RemoveAll(name)
 

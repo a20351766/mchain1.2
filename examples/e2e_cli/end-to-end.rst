@@ -1,7 +1,7 @@
 End-to-End Flow
 ===============
 
-The end-to-end verification provisions a sample Fabric network consisting of
+The end-to-end verification provisions a sample Mchain network consisting of
 two organizations, each maintaining two peers, and a Kafka-based ordering service.
 
 This verification makes use of two fundamental tools, which are necessary to
@@ -54,17 +54,17 @@ Now create the following directory structure and ``cd`` into it:
       mkdir -p $GOPATH/src/github.com/hyperledger
       cd $GOPATH/src/github.com/hyperledger
 
--  Clone the Fabric code base into this path.
+-  Clone the Mchain code base into this path.
 
 .. code:: bash
 
-       git clone http://gerrit.hyperledger.org/r/fabric
+       git clone http://gerrit.hyperledger.org/r/mchain
 
 or though a mirrored repository in github:
 
 .. code:: bash
 
-       git clone https://github.com/hyperledger/fabric.git
+       git clone https://github.com/hyperledger/mchain.git
 
 - If you are running OSX, perform the following:
 
@@ -80,18 +80,18 @@ Build the binaries
 
 .. code:: bash
 
-       cd $GOPATH/src/github.com/hyperledger/fabric
-       # ensure sure you are in the /fabric directory where the Makefile resides
+       cd $GOPATH/src/github.com/hyperledger/mchain
+       # ensure sure you are in the /mchain directory where the Makefile resides
        make release
 
-This will output platform-specific binaries into the ``fabric/release`` folder.
+This will output platform-specific binaries into the ``mchain/release`` folder.
 
--  Next, make the Fabric images.  This typically takes between five to ten minutes, so
+-  Next, make the Mchain images.  This typically takes between five to ten minutes, so
    be patient:
 
 .. code:: bash
 
-       # make sure you are in the /fabric directory
+       # make sure you are in the /mchain directory
        make docker
 
 Execute a ``docker images`` command in your terminal. If the images compiled
@@ -100,28 +100,28 @@ successfully, you should see an output similar to the following:
 .. code:: bash
 
   REPOSITORY                     TAG                   IMAGE ID            CREATED             SIZE
-  hyperledger/fabric-couchdb     latest                e2df4dd39ca9        38 minutes ago      1.51 GB
-  hyperledger/fabric-couchdb     amd64-1.1.0           e2df4dd39ca9        38 minutes ago      1.51 GB
-  hyperledger/fabric-kafka       latest                08af4d797266        40 minutes ago      1.3 GB
-  hyperledger/fabric-kafka       amd64-1.1.0           08af4d797266        40 minutes ago      1.3 GB
-  hyperledger/fabric-zookeeper   latest                444e9e695367        40 minutes ago      1.31 GB
-  hyperledger/fabric-zookeeper   amd64-1.1.0           444e9e695367        40 minutes ago      1.31 GB
-  hyperledger/fabric-testenv     latest                8678d3101930        41 minutes ago      1.41 GB
-  hyperledger/fabric-testenv     amd64-1.1.0           8678d3101930        41 minutes ago      1.41 GB
-  hyperledger/fabric-buildenv    latest                60911392c82e        41 minutes ago      1.33 GB
-  hyperledger/fabric-buildenv    amd64-1.1.0           60911392c82e        41 minutes ago      1.33 GB
-  hyperledger/fabric-orderer     latest                2afab937b9cc        41 minutes ago      182 MB
-  hyperledger/fabric-orderer     amd64-1.1.0           2afab937b9cc        41 minutes ago      182 MB
-  hyperledger/fabric-peer        latest                9560e58e8089        41 minutes ago      185 MB
-  hyperledger/fabric-peer        amd64-1.1.0           9560e58e8089        41 minutes ago      185 MB
-  hyperledger/fabric-javaenv     latest                881ca5219fad        42 minutes ago      1.43 GB
-  hyperledger/fabric-javaenv     amd64-1.1.0           881ca5219fad        42 minutes ago      1.43 GB
-  hyperledger/fabric-ccenv       latest                28af77ffe9e9        43 minutes ago      1.29 GB
-  hyperledger/fabric-ccenv       amd64-1.1.0           28af77ffe9e9        43 minutes ago      1.29 GB
-  hyperledger/fabric-baseimage   amd64-0.4.8           f4751a503f02        3 months ago        1.27 GB
-  hyperledger/fabric-baseos      amd64-0.4.8           c3a4cf3b3350        3 months ago        161 MB
+  hyperledger/mchain-couchdb     latest                e2df4dd39ca9        38 minutes ago      1.51 GB
+  hyperledger/mchain-couchdb     amd64-1.1.0           e2df4dd39ca9        38 minutes ago      1.51 GB
+  hyperledger/mchain-kafka       latest                08af4d797266        40 minutes ago      1.3 GB
+  hyperledger/mchain-kafka       amd64-1.1.0           08af4d797266        40 minutes ago      1.3 GB
+  hyperledger/mchain-zookeeper   latest                444e9e695367        40 minutes ago      1.31 GB
+  hyperledger/mchain-zookeeper   amd64-1.1.0           444e9e695367        40 minutes ago      1.31 GB
+  hyperledger/mchain-testenv     latest                8678d3101930        41 minutes ago      1.41 GB
+  hyperledger/mchain-testenv     amd64-1.1.0           8678d3101930        41 minutes ago      1.41 GB
+  hyperledger/mchain-buildenv    latest                60911392c82e        41 minutes ago      1.33 GB
+  hyperledger/mchain-buildenv    amd64-1.1.0           60911392c82e        41 minutes ago      1.33 GB
+  hyperledger/mchain-orderer     latest                2afab937b9cc        41 minutes ago      182 MB
+  hyperledger/mchain-orderer     amd64-1.1.0           2afab937b9cc        41 minutes ago      182 MB
+  hyperledger/mchain-peer        latest                9560e58e8089        41 minutes ago      185 MB
+  hyperledger/mchain-peer        amd64-1.1.0           9560e58e8089        41 minutes ago      185 MB
+  hyperledger/mchain-javaenv     latest                881ca5219fad        42 minutes ago      1.43 GB
+  hyperledger/mchain-javaenv     amd64-1.1.0           881ca5219fad        42 minutes ago      1.43 GB
+  hyperledger/mchain-ccenv       latest                28af77ffe9e9        43 minutes ago      1.29 GB
+  hyperledger/mchain-ccenv       amd64-1.1.0           28af77ffe9e9        43 minutes ago      1.29 GB
+  hyperledger/mchain-baseimage   amd64-0.4.8           f4751a503f02        3 months ago        1.27 GB
+  hyperledger/mchain-baseos      amd64-0.4.8           c3a4cf3b3350        3 months ago        161 MB
 
-If you failed to compile the ``fabric-testenv`` image, then you can
+If you failed to compile the ``mchain-testenv`` image, then you can
 perform a ``make clean`` followed by another ``make docker``.
 
 Cryptogen Tool
@@ -138,7 +138,7 @@ topology and allows us to generate a library of certificates for both the
 Organizations and the components that belong to those Organizations.  Each
 Organization is provisioned a unique root certificate (``ca-cert``), that binds
 specific components (peers and orderers) to that Org.  Transactions and communications
-within Fabric are signed by an entity's private key (``keystore``), and then verified
+within Mchain are signed by an entity's private key (``keystore``), and then verified
 by means of a public key (``signcerts``).  You will notice a "count" variable within
 this file.  We use this to specify the number of peers per Organization; in our
 case it's two peers per Org.  The rest of this template is extremely
@@ -150,8 +150,8 @@ Configuration Transaction Generator
 -----------------------------------
 
 The `configtxgen
-tool <https://github.com/hyperledger/fabric/blob/master/docs/source/configtxgen.rst>`__
-is used to create four artifacts: orderer **bootstrap block**, fabric
+tool <https://github.com/hyperledger/mchain/blob/master/docs/source/configtxgen.rst>`__
+is used to create four artifacts: orderer **bootstrap block**, mchain
 **channel configuration transaction**, and two **anchor peer transactions** - one
 for each Peer Org.
 
@@ -225,7 +225,7 @@ and self-explanatory messages in your terminal.  They are as follows:
 These configuration transactions will bundle the crypto material for the
 participating members and their network components and output an orderer
 genesis block and three channel transaction artifacts. These artifacts are
-required to successfully bootstrap a Fabric network and create a channel to
+required to successfully bootstrap a Mchain network and create a channel to
 transact upon.
 
 Manually generate the artifacts (optional)
@@ -333,11 +333,11 @@ You should see an output identical to the following:
   b568de3fe931        dev-peer1.org2.example.com-mycc-1.0   "chaincode -peer.a..."   4 minutes ago       Up 4 minutes                                                           dev-peer1.org2.example.com-mycc-1.0
   17c1c82087e7        dev-peer0.org1.example.com-mycc-1.0   "chaincode -peer.a..."   4 minutes ago       Up 4 minutes                                                           dev-peer0.org1.example.com-mycc-1.0
   0e1c5034c47b        dev-peer0.org2.example.com-mycc-1.0   "chaincode -peer.a..."   4 minutes ago       Up 4 minutes                                                           dev-peer0.org2.example.com-mycc-1.0
-  71339e7e1d38        hyperledger/fabric-peer               "peer node start -..."   5 minutes ago       Up 5 minutes        0.0.0.0:8051->7051/tcp, 0.0.0.0:8053->7053/tcp     peer1.org1.example.com
-  add6113ffdcf        hyperledger/fabric-peer               "peer node start -..."   5 minutes ago       Up 5 minutes        0.0.0.0:10051->7051/tcp, 0.0.0.0:10053->7053/tcp   peer1.org2.example.com
-  689396c0e520        hyperledger/fabric-peer               "peer node start -..."   5 minutes ago       Up 5 minutes        0.0.0.0:7051->7051/tcp, 0.0.0.0:7053->7053/tcp     peer0.org1.example.com
-  65424407a653        hyperledger/fabric-orderer            "orderer"                5 minutes ago       Up 5 minutes        0.0.0.0:7050->7050/tcp                             orderer.example.com
-  ce14853db660        hyperledger/fabric-peer               "peer node start -..."   5 minutes ago       Up 5 minutes        0.0.0.0:9051->7051/tcp, 0.0.0.0:9053->7053/tcp     peer0.org2.example.com
+  71339e7e1d38        hyperledger/mchain-peer               "peer node start -..."   5 minutes ago       Up 5 minutes        0.0.0.0:8051->7051/tcp, 0.0.0.0:8053->7053/tcp     peer1.org1.example.com
+  add6113ffdcf        hyperledger/mchain-peer               "peer node start -..."   5 minutes ago       Up 5 minutes        0.0.0.0:10051->7051/tcp, 0.0.0.0:10053->7053/tcp   peer1.org2.example.com
+  689396c0e520        hyperledger/mchain-peer               "peer node start -..."   5 minutes ago       Up 5 minutes        0.0.0.0:7051->7051/tcp, 0.0.0.0:7053->7053/tcp     peer0.org1.example.com
+  65424407a653        hyperledger/mchain-orderer            "orderer"                5 minutes ago       Up 5 minutes        0.0.0.0:7050->7050/tcp                             orderer.example.com
+  ce14853db660        hyperledger/mchain-peer               "peer node start -..."   5 minutes ago       Up 5 minutes        0.0.0.0:9051->7051/tcp, 0.0.0.0:9053->7053/tcp     peer0.org2.example.com
 
 If you set a moderately high ``TIMEOUT`` value, then you will see your cli
 container as well.
@@ -410,7 +410,7 @@ traditional transaction - read/write - is performed against that chaincode (e.g.
 the value of "a"). The transaction causes the container to start. Also,
 all peers in a channel maintain an exact copy of the ledger which
 comprises the blockchain to store the immutable, sequenced record in
-blocks, as well as a state database to maintain current fabric state.
+blocks, as well as a state database to maintain current mchain state.
 This includes those peers that do not have chaincode installed on them
 (like ``peer1.org1.example.com`` in the above example) . Finally, the chaincode is accessible
 after it is installed (like ``peer1.org2.example.com`` in the above example) because it
@@ -503,7 +503,7 @@ the entirety of the instructions on this page.
 
 The second flavor, ``docker-compose-e2e.yaml``, is constructed to run end-to-end tests
 using the Node.js SDK.  Aside from functioning with the SDK, its primary differentiation
-is that there are containers for the fabric-ca servers.  As a result, we are able
+is that there are containers for the mchain-ca servers.  As a result, we are able
 to send REST calls to the organizational CAs for user registration and enrollment.
 
 If you want to use the ``docker-compose-e2e.yaml`` without first running the
@@ -567,7 +567,7 @@ left of the command. For example:
 
 .. code:: bash
 
-        working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+        working_dir: /opt/gopath/src/github.com/hyperledger/mchain/peer
       # command: /bin/bash -c './scripts/script.sh ${CHANNEL_NAME}; sleep $TIMEOUT'
 
 Save the file and return to the ``/e2e_cli`` directory.
@@ -599,10 +599,10 @@ paths:
 
     # Environment variables for PEER0
 
-    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+    CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
     CORE_PEER_ADDRESS=peer0.org1.example.com:7051
     CORE_PEER_LOCALMSPID="Org1MSP"
-    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+    CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
 
 Create channel
 ^^^^^^^^^^^^^^
@@ -617,7 +617,7 @@ If successful you should see the following:
 
 .. code:: bash
 
-    root@0d78bb69300d:/opt/gopath/src/github.com/hyperledger/fabric/peer#
+    root@0d78bb69300d:/opt/gopath/src/github.com/hyperledger/mchain/peer#
 
 Specify your channel name with the ``-c`` flag. Specify your channel
 configuration transaction with the ``-f`` flag. In this case it is
@@ -631,7 +631,7 @@ with a different name.
     # we also pass the path for the orderer ca-cert in order to verify the TLS handshake
     # be sure to replace the $CHANNEL_NAME variable appropriately
 
-    peer channel create -o orderer.example.com:7050 -c $CHANNEL_NAME -f ./channel-artifacts/channel.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem
+    peer channel create -o orderer.example.com:7050 -c $CHANNEL_NAME -f ./channel-artifacts/channel.tx --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem
 
 
 .. note:: You will remain in the CLI container for the remainder of
@@ -661,7 +661,7 @@ Install the sample go code onto one of the four peer nodes
 
 .. code:: bash
 
-    peer chaincode install -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/example02/cmd
+    peer chaincode install -n mycc -v 1.0 -p github.com/hyperledger/mchain/examples/chaincode/go/example02/cmd
 
 Instantiate chaincode and define the endorsement policy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -677,10 +677,10 @@ The command is:
     # be sure to replace the $CHANNEL_NAME environment variable
     # if you did not install your chaincode with a name of mycc, then modify that argument as well
 
-    peer chaincode instantiate -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n mycc -v 1.0 -c '{"Args":["init","a", "100", "b","200"]}' -P "OR ('Org1MSP.member','Org2MSP.member')"
+    peer chaincode instantiate -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n mycc -v 1.0 -c '{"Args":["init","a", "100", "b","200"]}' -P "OR ('Org1MSP.member','Org2MSP.member')"
 
 See the `endorsement
-policies <http://hyperledger-fabric.readthedocs.io/en/latest/endorsement-policies.html>`__
+policies <http://hyperledger-mchain.readthedocs.io/en/latest/endorsement-policies.html>`__
 documentation for more details on policy implementation.
 
 Invoke chaincode
@@ -689,7 +689,7 @@ Invoke chaincode
 .. code:: bash
 
     # be sure to set the -C and -n flags appropriately
-    peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem  -C $CHANNEL_NAME -n mycc -c '{"Args":["invoke","a","b","10"]}'
+    peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem  -C $CHANNEL_NAME -n mycc -c '{"Args":["invoke","a","b","10"]}'
 
 Make sure to wait a few seconds for the operation to complete.
 
@@ -729,7 +729,7 @@ the network pass the couchdb docker-compose as well:
 
 **chaincode_example02** should now work using CouchDB underneath.
 
-.. note::  If you choose to implement mapping of the fabric-couchdb container
+.. note::  If you choose to implement mapping of the mchain-couchdb container
            port to a host port, please make sure you are aware of the security
            implications. Mapping of the port in a development environment makes the
            CouchDB REST API available, and allows the
@@ -741,7 +741,7 @@ You can use **chaincode_example02** chaincode against the CouchDB state database
 using the steps outlined above, however in order to exercise the CouchDB query
 capabilities you will need to use a chaincode that has data modeled as JSON,
 (e.g. **marbles02**). You can locate the **marbles02** chaincode in the
-``fabric/examples/chaincode/go`` directory.
+``mchain/examples/chaincode/go`` directory.
 
 We will follow the same process to create and join the channel as outlined in the
 **Manually exercise the commands** section above.  Once you have joined your
@@ -754,8 +754,8 @@ chaincode:
 
        # be sure to modify the $CHANNEL_NAME variable accordingly for the instantiate command
 
-       peer chaincode install -o orderer.example.com:7050 -n marbles -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/marbles02
-       peer chaincode instantiate -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -v 1.0 -c '{"Args":["init"]}' -P "OR ('Org0MSP.member','Org1MSP.member')"
+       peer chaincode install -o orderer.example.com:7050 -n marbles -v 1.0 -p github.com/hyperledger/mchain/examples/chaincode/go/marbles02
+       peer chaincode instantiate -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -v 1.0 -c '{"Args":["init"]}' -P "OR ('Org0MSP.member','Org1MSP.member')"
 
 -  Create some marbles and move them around:
 
@@ -763,12 +763,12 @@ chaincode:
 
         # be sure to modify the $CHANNEL_NAME variable accordingly
 
-        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["initMarble","marble1","blue","35","tom"]}'
-        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["initMarble","marble2","red","50","tom"]}'
-        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["initMarble","marble3","blue","70","tom"]}'
-        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["transferMarble","marble2","jerry"]}'
-        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["transferMarblesBasedOnColor","blue","jerry"]}'
-        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["delete","marble1"]}'
+        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["initMarble","marble1","blue","35","tom"]}'
+        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["initMarble","marble2","red","50","tom"]}'
+        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["initMarble","marble3","blue","70","tom"]}'
+        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["transferMarble","marble2","jerry"]}'
+        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["transferMarblesBasedOnColor","blue","jerry"]}'
+        peer chaincode invoke -o orderer.example.com:7050 --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/cacerts/ca.example.com-cert.pem -C $CHANNEL_NAME -n marbles -c '{"Args":["delete","marble1"]}'
 
 
 -  If you chose to map the CouchDB ports in docker-compose, you can now view
@@ -905,7 +905,7 @@ back and recreate your channel artifacts.
 
        ./network_setup.sh down
 
-- If you continue to see errors, share your logs on the **# fabric-questions**
+- If you continue to see errors, share your logs on the **# mchain-questions**
   channel on `Hyperledger Rocket Chat <https://chat.hyperledger.org/home>`__.
 
 .. Licensed under Creative Commons Attribution 4.0 International License

@@ -1,7 +1,7 @@
 Requesting a Linux Foundation Account
 =====================================
 
-Contributions to the Hyperledger Fabric code base require a
+Contributions to the Hyperledger Mchain code base require a
 `Linux Foundation <https://linuxfoundation.org/>`__
 account --- follow the steps below to create one if you don't
 already have one.
@@ -58,7 +58,7 @@ Finally, add the public key of the generated key pair to the Gerrit server,
 with the following steps:
 
 1. Go to
-   `Gerrit <https://gerrit.hyperledger.org/r/#/admin/projects/fabric>`__.
+   `Gerrit <https://gerrit.hyperledger.org/r/#/admin/projects/mchain>`__.
 
 2. Click on your account name in the upper right corner.
 
@@ -103,7 +103,7 @@ the source code repository with the command:
 
 ::
 
-    git clone ssh://<LFID>@gerrit.hyperledger.org:29418/fabric fabric
+    git clone ssh://<LFID>@gerrit.hyperledger.org:29418/mchain mchain
 
 You have now successfully checked out a copy of the source code to your
 local machine.

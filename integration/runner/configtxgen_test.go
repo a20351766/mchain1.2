@@ -16,8 +16,8 @@ import (
 	"github.com/onsi/gomega/gbytes"
 	"github.com/onsi/gomega/gexec"
 
-	"github.com/hyperledger/fabric/integration/helpers"
-	"github.com/hyperledger/fabric/integration/runner"
+	"github.com/hyperledger/mchain/integration/helpers"
+	"github.com/hyperledger/mchain/integration/runner"
 	"github.com/tedsuo/ifrit"
 )
 

@@ -10,17 +10,17 @@
 
 set -e -u
 
-fabric_dir="$(cd "$(dirname "$0")/.." && pwd)"
+mchain_dir="$(cd "$(dirname "$0")/.." && pwd)"
 
 # find packages that contain "integration" in the import path
 integration_dirs() {
     local packages="$1"
 
-    go list -f {{.Dir}} "$packages" | grep -E '/integration($|/)' | sed "s,${fabric_dir},.,g"
+    go list -f {{.Dir}} "$packages" | grep -E '/integration($|/)' | sed "s,${mchain_dir},.,g"
 }
 
 main() {
-    cd "$fabric_dir"
+    cd "$mchain_dir"
 
     local -a dirs=("$@")
     if [ "${#dirs[@]}" -eq 0 ]; then

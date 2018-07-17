@@ -22,11 +22,11 @@ import (
 	"fmt"
 	"time"
 
-	mockpolicies "github.com/hyperledger/fabric/common/mocks/policies"
-	"github.com/hyperledger/fabric/common/policies"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/protos/common"
-	mspproto "github.com/hyperledger/fabric/protos/msp"
+	mockpolicies "github.com/hyperledger/mchain/common/mocks/policies"
+	"github.com/hyperledger/mchain/common/policies"
+	"github.com/hyperledger/mchain/msp"
+	"github.com/hyperledger/mchain/protos/common"
+	mspproto "github.com/hyperledger/mchain/protos/msp"
 	"github.com/stretchr/testify/mock"
 )
 

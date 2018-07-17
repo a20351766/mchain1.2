@@ -13,8 +13,8 @@
 #   - configtxlator - builds a native configtxlator binary
 #   - cryptogen  -  builds a native cryptogen binary
 #   - idemixgen  -  builds a native idemixgen binary
-#   - peer - builds a native fabric peer binary
-#   - orderer - builds a native fabric orderer binary
+#   - peer - builds a native mchain peer binary
+#   - orderer - builds a native mchain orderer binary
 #   - release - builds release packages for the host platform
 #   - release-all - builds release packages for all target platforms
 #   - unit-test - runs the go-test based unit tests
@@ -48,13 +48,14 @@ PREV_VERSION = 1.2.0-rc1
 CHAINTOOL_RELEASE=1.1.1
 BASEIMAGE_RELEASE=0.4.10
 
+REGISTERY_URL=docker.m-chain.com
 # Allow to build as a submodule setting the main project to
 # the PROJECT_NAME env variable, for example,
-# export PROJECT_NAME=hyperledger/fabric-test
+# export PROJECT_NAME=hyperledger/mchain-test
 ifeq ($(PROJECT_NAME),true)
-PROJECT_NAME = $(PROJECT_NAME)/fabric
+PROJECT_NAME = $(PROJECT_NAME)/mchain
 else
-PROJECT_NAME = hyperledger/fabric
+PROJECT_NAME = hyperledger/mchain
 endif
 EXPERIMENTAL ?= false
 
@@ -84,8 +85,6 @@ METADATA_VAR += Experimental=$(EXPERIMENTAL)
 GO_LDFLAGS = $(patsubst %,-X $(PKGNAME)/common/metadata.%,$(METADATA_VAR))
 
 GO_TAGS ?=
-
-CHAINTOOL_URL ?= https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric/chaintool-$(CHAINTOOL_RELEASE)/hyperledger-fabric-chaintool-$(CHAINTOOL_RELEASE).jar
 
 export GO_LDFLAGS GO_TAGS
 
@@ -130,12 +129,16 @@ help-docs: native
 # Pull thirdparty docker images based on the latest baseimage release version
 .PHONY: docker-thirdparty
 docker-thirdparty:
-	docker pull $(BASE_DOCKER_NS)/fabric-couchdb:$(BASE_DOCKER_TAG)
-	docker tag $(BASE_DOCKER_NS)/fabric-couchdb:$(BASE_DOCKER_TAG) $(DOCKER_NS)/fabric-couchdb
-	docker pull $(BASE_DOCKER_NS)/fabric-zookeeper:$(BASE_DOCKER_TAG)
-	docker tag $(BASE_DOCKER_NS)/fabric-zookeeper:$(BASE_DOCKER_TAG) $(DOCKER_NS)/fabric-zookeeper
-	docker pull $(BASE_DOCKER_NS)/fabric-kafka:$(BASE_DOCKER_TAG)
-	docker tag $(BASE_DOCKER_NS)/fabric-kafka:$(BASE_DOCKER_TAG) $(DOCKER_NS)/fabric-kafka
+	docker pull $(REGISTERY_URL)/$(DOCKER_NS)/mchain-baseos:$(BASE_DOCKER_TAG)
+	docker tag $(REGISTERY_URL)/$(DOCKER_NS)/mchain-baseos:$(BASE_DOCKER_TAG) $(DOCKER_NS)/mchain-baseos
+	docker pull $(REGISTERY_URL)/$(DOCKER_NS)/mchain-baseimage:$(BASE_DOCKER_TAG)
+	docker tag $(REGISTERY_URL)/$(DOCKER_NS)/mchain-baseimage:$(BASE_DOCKER_TAG) $(DOCKER_NS)/mchain-baseimage
+	docker pull $(REGISTERY_URL)/$(DOCKER_NS)/mchain-couchdb:$(BASE_DOCKER_TAG)
+	docker tag $(REGISTERY_URL)/$(DOCKER_NS)/mchain-couchdb:$(BASE_DOCKER_TAG) $(DOCKER_NS)/mchain-couchdb
+	docker pull $(REGISTERY_URL)/$(DOCKER_NS)/mchain-zookeeper:$(BASE_DOCKER_TAG)
+	docker tag $(REGISTERY_URL)/$(DOCKER_NS)/mchain-zookeeper:$(BASE_DOCKER_TAG) $(DOCKER_NS)/mchain-zookeeper
+	docker pull $(REGISTERY_URL)/$(DOCKER_NS)/mchain-kafka:$(BASE_DOCKER_TAG)
+	docker tag $(REGISTERY_URL)/$(DOCKER_NS)/mchain-kafka:$(BASE_DOCKER_TAG) $(DOCKER_NS)/mchain-kafka
 
 .PHONY: spelling
 spelling:
@@ -210,16 +213,16 @@ native: peer orderer configtxgen cryptogen idemixgen configtxlator discover
 
 linter: check-deps buildenv
 	@echo "LINT: Running code checks.."
-	@$(DRUN) $(DOCKER_NS)/fabric-buildenv:$(DOCKER_TAG) ./scripts/golinter.sh
+	@$(DRUN) $(DOCKER_NS)/mchain-buildenv:$(DOCKER_TAG) ./scripts/golinter.sh
 
 check-deps: buildenv
 	@echo "DEP: Checking for dependency issues.."
-	@$(DRUN) $(DOCKER_NS)/fabric-buildenv:$(DOCKER_TAG) ./scripts/check_deps.sh
+	@$(DRUN) $(DOCKER_NS)/mchain-buildenv:$(DOCKER_TAG) ./scripts/check_deps.sh
 
 $(BUILD_DIR)/%/chaintool: Makefile
 	@echo "Installing chaintool"
 	@mkdir -p $(@D)
-	curl -fL $(CHAINTOOL_URL) > $@
+	cp ./chaintool/chaintool $@
 	chmod +x $@
 
 # We (re)build a package within a docker context but persist the $GOPATH/pkg
@@ -231,7 +234,7 @@ $(BUILD_DIR)/docker/bin/%: $(PROJECT_FILES)
 	@$(DRUN) \
 		-v $(abspath $(BUILD_DIR)/docker/bin):/opt/gopath/bin \
 		-v $(abspath $(BUILD_DIR)/docker/$(TARGET)/pkg):/opt/gopath/pkg \
-		$(BASE_DOCKER_NS)/fabric-baseimage:$(BASE_DOCKER_TAG) \
+		$(REGISTERY_URL)/$(BASE_DOCKER_NS)/mchain-baseimage:$(BASE_DOCKER_TAG) \
 		go install -tags "$(GO_TAGS)" -ldflags "$(DOCKER_GO_LDFLAGS)" $(pkgmap.$(@F))
 	@touch $@
 
@@ -249,7 +252,7 @@ $(BUILD_DIR)/docker/gotools: gotools.mk
 	@$(DRUN) \
 		-v $(abspath $@):/opt/gotools \
 		-w /opt/gopath/src/$(PKGNAME) \
-		$(BASE_DOCKER_NS)/fabric-baseimage:$(BASE_DOCKER_TAG) \
+		$(REGISTERY_URL)/$(BASE_DOCKER_NS)/mchain-baseimage:$(BASE_DOCKER_TAG) \
 		make -f gotools.mk GOTOOLS_BINDIR=/opt/gotools/bin GOTOOLS_GOPATH=/opt/gotools/obj
 
 $(BUILD_DIR)/bin/%: $(PROJECT_FILES)
@@ -294,17 +297,17 @@ $(BUILD_DIR)/image/%/Dockerfile: images/%/Dockerfile.in
 $(BUILD_DIR)/image/tools/$(DUMMY): $(BUILD_DIR)/image/tools/Dockerfile
 	$(eval TARGET = ${patsubst $(BUILD_DIR)/image/%/$(DUMMY),%,${@}})
 	@echo "Building docker $(TARGET)-image"
-	$(DBUILD) -t $(DOCKER_NS)/fabric-$(TARGET) -f $(@D)/Dockerfile .
-	docker tag $(DOCKER_NS)/fabric-$(TARGET) $(DOCKER_NS)/fabric-$(TARGET):$(DOCKER_TAG)
-	docker tag $(DOCKER_NS)/fabric-$(TARGET) $(DOCKER_NS)/fabric-$(TARGET):$(ARCH)-latest
+	$(DBUILD) -t $(DOCKER_NS)/mchain-$(TARGET) -f $(@D)/Dockerfile .
+	docker tag $(DOCKER_NS)/mchain-$(TARGET) $(DOCKER_NS)/mchain-$(TARGET):$(DOCKER_TAG)
+	docker tag $(DOCKER_NS)/mchain-$(TARGET) $(DOCKER_NS)/mchain-$(TARGET):$(ARCH)-latest
 	@touch $@
 
 $(BUILD_DIR)/image/%/$(DUMMY): Makefile $(BUILD_DIR)/image/%/payload $(BUILD_DIR)/image/%/Dockerfile
 	$(eval TARGET = ${patsubst $(BUILD_DIR)/image/%/$(DUMMY),%,${@}})
 	@echo "Building docker $(TARGET)-image"
-	$(DBUILD) -t $(DOCKER_NS)/fabric-$(TARGET) $(@D)
-	docker tag $(DOCKER_NS)/fabric-$(TARGET) $(DOCKER_NS)/fabric-$(TARGET):$(DOCKER_TAG)
-	docker tag $(DOCKER_NS)/fabric-$(TARGET) $(DOCKER_NS)/fabric-$(TARGET):$(ARCH)-latest
+	$(DBUILD) -t $(DOCKER_NS)/mchain-$(TARGET) $(@D)
+	docker tag $(DOCKER_NS)/mchain-$(TARGET) $(DOCKER_NS)/mchain-$(TARGET):$(DOCKER_TAG)
+	docker tag $(DOCKER_NS)/mchain-$(TARGET) $(DOCKER_NS)/mchain-$(TARGET):$(ARCH)-latest
 	@touch $@
 
 $(BUILD_DIR)/gotools.tar.bz2: $(BUILD_DIR)/docker/gotools
@@ -407,21 +410,21 @@ dist-all: dist-clean $(patsubst %,dist/%, $(RELEASE_PLATFORMS))
 dist/%: release/%
 	mkdir -p release/$(@F)/config
 	cp -r sampleconfig/*.yaml release/$(@F)/config
-	cd release/$(@F) && tar -czvf hyperledger-fabric-$(@F).$(PROJECT_VERSION).tar.gz *
+	cd release/$(@F) && tar -czvf hyperledger-mchain-$(@F).$(PROJECT_VERSION).tar.gz *
 
 .PHONY: protos
 protos: buildenv
-	@$(DRUN) $(DOCKER_NS)/fabric-buildenv:$(DOCKER_TAG) ./scripts/compile_protos.sh
+	@$(DRUN) $(DOCKER_NS)/mchain-buildenv:$(DOCKER_TAG) ./scripts/compile_protos.sh
 
 %-docker-list:
 	$(eval TARGET = ${patsubst %-docker-list,%,${@}})
-	@echo $(DOCKER_NS)/fabric-$(TARGET):$(DOCKER_TAG)
+	@echo $(DOCKER_NS)/mchain-$(TARGET):$(DOCKER_TAG)
 
 docker-list: $(patsubst %,%-docker-list, $(IMAGES))
 
 %-docker-clean:
 	$(eval TARGET = ${patsubst %-docker-clean,%,${@}})
-	-docker images --quiet --filter=reference='$(DOCKER_NS)/fabric-$(TARGET):$(ARCH)-$(BASE_VERSION)$(if $(EXTRA_VERSION),-snapshot-*,)' | xargs docker rmi -f
+	-docker images --quiet --filter=reference='$(DOCKER_NS)/mchain-$(TARGET):$(ARCH)-$(BASE_VERSION)$(if $(EXTRA_VERSION),-snapshot-*,)' | xargs docker rmi -f
 	-@rm -rf $(BUILD_DIR)/image/$(TARGET) ||:
 
 docker-clean: $(patsubst %,%-docker-clean, $(IMAGES))
@@ -430,7 +433,7 @@ docker-tag-latest: $(IMAGES:%=%-docker-tag-latest)
 
 %-docker-tag-latest:
 	$(eval TARGET = ${patsubst %-docker-tag-latest,%,${@}})
-	docker tag $(DOCKER_NS)/fabric-$(TARGET):$(DOCKER_TAG) $(DOCKER_NS)/fabric-$(TARGET):latest
+	docker tag $(DOCKER_NS)/mchain-$(TARGET):$(DOCKER_TAG) $(DOCKER_NS)/mchain-$(TARGET):latest
 
 .PHONY: clean
 clean: docker-clean unit-test-clean release-clean
@@ -443,11 +446,11 @@ clean-all: clean gotools-clean dist-clean
 
 .PHONY: dist-clean
 dist-clean:
-	-@rm -rf release/windows-amd64/hyperledger-fabric-windows-amd64.$(PROJECT_VERSION).tar.gz
-	-@rm -rf release/darwin-amd64/hyperledger-fabric-darwin-amd64.$(PROJECT_VERSION).tar.gz
-	-@rm -rf release/linux-amd64/hyperledger-fabric-linux-amd64.$(PROJECT_VERSION).tar.gz
-	-@rm -rf release/linux-ppc64le/hyperledger-fabric-linux-ppc64le.$(PROJECT_VERSION).tar.gz
-	-@rm -rf release/linux-s390x/hyperledger-fabric-linux-s390x.$(PROJECT_VERSION).tar.gz
+	-@rm -rf release/windows-amd64/hyperledger-mchain-windows-amd64.$(PROJECT_VERSION).tar.gz
+	-@rm -rf release/darwin-amd64/hyperledger-mchain-darwin-amd64.$(PROJECT_VERSION).tar.gz
+	-@rm -rf release/linux-amd64/hyperledger-mchain-linux-amd64.$(PROJECT_VERSION).tar.gz
+	-@rm -rf release/linux-ppc64le/hyperledger-mchain-linux-ppc64le.$(PROJECT_VERSION).tar.gz
+	-@rm -rf release/linux-s390x/hyperledger-mchain-linux-s390x.$(PROJECT_VERSION).tar.gz
 
 %-release-clean:
 	$(eval TARGET = ${patsubst %-release-clean,%,${@}})

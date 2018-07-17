@@ -18,8 +18,8 @@ syntax = "proto3";
 
 import "google/protobuf/timestamp.proto";
 
-option go_package = "github.com/hyperledger/fabric/protos/common";
-option java_package = "org.hyperledger.fabric.protos.common";
+option go_package = "github.com/hyperledger/mchain/protos/common";
+option java_package = "org.hyperledger.mchain.protos.common";
 
 package common;
 
@@ -38,7 +38,7 @@ enum Status {
 
 enum HeaderType {
     // Prevent removed tag re-use
-    // Uncomment after fabric-baseimage moves to 3.5.1
+    // Uncomment after mchain-baseimage moves to 3.5.1
     // reserved 7;
     // reserved "PEER_RESOURCE_UPDATE";
 

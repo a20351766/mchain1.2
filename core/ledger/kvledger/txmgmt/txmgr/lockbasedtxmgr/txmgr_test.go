@@ -12,20 +12,20 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/hyperledger/fabric/core/ledger/pvtdatapolicy"
-	btltestutil "github.com/hyperledger/fabric/core/ledger/pvtdatapolicy/testutil"
+	"github.com/hyperledger/mchain/core/ledger/pvtdatapolicy"
+	btltestutil "github.com/hyperledger/mchain/core/ledger/pvtdatapolicy/testutil"
 
 	"os"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/privacyenabledstate"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/txmgr"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/version"
-	ledgertestutil "github.com/hyperledger/fabric/core/ledger/testutil"
-	"github.com/hyperledger/fabric/core/ledger/util"
-	"github.com/hyperledger/fabric/protos/ledger/queryresult"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/privacyenabledstate"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/txmgr"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/version"
+	ledgertestutil "github.com/hyperledger/mchain/core/ledger/testutil"
+	"github.com/hyperledger/mchain/core/ledger/util"
+	"github.com/hyperledger/mchain/protos/ledger/queryresult"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 )
@@ -39,7 +39,7 @@ func TestMain(m *testing.M) {
 	flogging.SetModuleLevel("valimpl", "debug")
 	flogging.SetModuleLevel("pvtstatepurgemgmt", "debug")
 
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/ledgertests/kvledger/txmgmt/txmgr/lockbasedtxmgr")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/ledgertests/kvledger/txmgmt/txmgr/lockbasedtxmgr")
 	os.Exit(m.Run())
 }
 

@@ -23,7 +23,7 @@ All code samples below assume two things:
    to your chaincode.
 2. You have added the following import statement to your chaincode.
     ```
-    import "github.com/hyperledger/fabric/core/chaincode/lib/cid"
+    import "github.com/hyperledger/mchain/core/chaincode/lib/cid"
     ```
 #### Getting the client's ID
 
@@ -118,12 +118,12 @@ as demonstrated above.
 ## Adding Attributes to Identities
 
 This section describes how to add custom attributes to certificates when
-using Hyperledger Fabric CA as well as when using an external CA.
+using Hyperledger Mchain CA as well as when using an external CA.
 
-#### Managing attributes with Fabric CA
+#### Managing attributes with Mchain CA
 
 There are two methods of adding attributes to an enrollment certificate
-with fabric-ca:
+with mchain-ca:
 
   1. When you register an identity, you can specify that an enrollment certificate
      issued for the identity should by default contain an attribute.  This behavior
@@ -138,7 +138,7 @@ with fabric-ca:
      to the enrollment certificate by default.
 
      ```
-     fabric-ca-client register --id.name user1 --id.secret user1pw --id.type user --id.affiliation org1 --id.attrs 'app1Admin=true:ecert,email=user1@gmail.com'
+     mchain-ca-client register --id.name user1 --id.secret user1pw --id.type user --id.affiliation org1 --id.attrs 'app1Admin=true:ecert,email=user1@gmail.com'
      ```
 
   2. When you enroll an identity, you may request that one or more attributes
@@ -151,7 +151,7 @@ with fabric-ca:
      without the *app1Admin* attribute and optionally with the *phone* attribute
      (if the user possesses *phone* attribute).
      ```
-     fabric-ca-client enroll -u http://user1:user1pw@localhost:7054 --enrollment.attrs "email,phone:opt"
+     mchain-ca-client enroll -u http://user1:user1pw@localhost:7054 --enrollment.attrs "email,phone:opt"
      ```
 #### Attribute format in a certificate
 
@@ -170,7 +170,7 @@ Certificate:
         Serial Number:
             1e:49:98:e9:f4:4f:d0:03:53:bf:36:81:c0:a0:a4:31:96:4f:52:75
         Signature Algorithm: ecdsa-with-SHA256
-        Issuer: CN=fabric-ca-server
+        Issuer: CN=mchain-ca-server
         Validity
             Not Before: Sep  8 03:42:00 2017 GMT
             Not After : Sep  8 03:42:00 2018 GMT
@@ -207,7 +207,7 @@ Certificate:
 ```
 
 If you want to use the client identity library to extract or assert attribute
-values as described previously but you are not using Hyperledger Fabric CA,
+values as described previously but you are not using Hyperledger Mchain CA,
 then you must ensure that the certificates which are issued by your external CA
 contain attributes of the form shown above.  In particular, the certificates
 must contain the `1.2.3.4.5.6.7.8.1` X509v3 extension with a JSON value

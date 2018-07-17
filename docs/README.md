@@ -2,14 +2,14 @@
 
 ## Introduction
 
-This document contains information on how the Fabric documentation is
+This document contains information on how the Mchain documentation is
 built and published as well as a few conventions one should be aware of
 before making changes to the doc.
 
 The crux of the documentation is written in
 [reStructuredText](http://docutils.sourceforge.net/rst.html) which is
 converted to HTML using [Sphinx](http://www.sphinx-doc.org/en/stable/).
-The HTML is then published on http://hyperledger-fabric.readthedocs.io
+The HTML is then published on http://hyperledger-mchain.readthedocs.io
 which has a hook so that any new content that goes into `docs/source`
 on the main repository will trigger a new build and publication of the
 doc.
@@ -26,7 +26,7 @@ doc.
   <br/>Do not put the .rst suffix at the end of the filepath.
 * For non RST files, such as text files, MD or YAML files, link to the
   file on github, like this one for instance:
-  https://github.com/hyperledger/fabric/blob/master/docs/README.md
+  https://github.com/hyperledger/mchain/blob/master/docs/README.md
 
 Notes: The above means we have a dependency on the github mirror
 repository. Relative links are unfortunately not working on github
@@ -44,17 +44,17 @@ the docs on your machine. The following sections cover both options:
 
 You can easily build your own staging repo following these steps:
 
-1. Fork [fabric on github](https://github.com/hyperledger/fabric)
+1. Fork [mchain on github](https://github.com/hyperledger/mchain)
 1. From your fork, go to `settings` in the upper right portion of the screen,
 1. click `Integration & services`,
 1. click `Add service` dropdown,
 1. and scroll down to ReadTheDocs.
 1. Next, go to http://readthedocs.org and sign up for an account. One of the first prompts will offer to link to github. Elect this then,
 1. click import a project,
-1. navigate through the options to your fork (e.g. yourgithubid/fabric),
+1. navigate through the options to your fork (e.g. yourgithubid/mchain),
 1. it will ask for a name for this project. Choose something
-intuitive. Your name will preface the URL and you may want to append `-fabric` to ensure that you can distinguish between this and other docs that you need to create for other projects. So for example:
-`yourgithubid-fabric.readthedocs.io/en/latest`
+intuitive. Your name will preface the URL and you may want to append `-mchain` to ensure that you can distinguish between this and other docs that you need to create for other projects. So for example:
+`yourgithubid-mchain.readthedocs.io/en/latest`
 
 Now anytime you modify or add documentation content to your fork, this
 URL will automatically get updated with your changes!
@@ -62,14 +62,14 @@ URL will automatically get updated with your changes!
 ### Building the docs on your machine
 
 Here are the quick steps to achieve this on a local machine without
-depending on ReadTheDocs, starting from the main fabric
+depending on ReadTheDocs, starting from the main mchain
 directory. Note: you may need to adjust depending on your OS.
 
 ```
 sudo pip install Sphinx
 sudo pip install sphinx_rtd_theme
 sudo pip install recommonmark==0.4.0
-cd fabric/docs # Be in this directory. Makefile sits there.
+cd mchain/docs # Be in this directory. Makefile sits there.
 make html
 ```
 

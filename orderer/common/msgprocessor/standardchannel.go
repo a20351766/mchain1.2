@@ -7,11 +7,11 @@ SPDX-License-Identifier: Apache-2.0
 package msgprocessor
 
 import (
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/crypto"
-	"github.com/hyperledger/fabric/common/policies"
-	cb "github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/common/channelconfig"
+	"github.com/hyperledger/mchain/common/crypto"
+	"github.com/hyperledger/mchain/common/policies"
+	cb "github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/utils"
 )
 
 // StandardChannelSupport includes the resources needed for the StandardChannel processor.

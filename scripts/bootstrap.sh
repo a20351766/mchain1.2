@@ -30,8 +30,8 @@ dockerFabricPull() {
   for IMAGES in peer orderer ccenv tools; do
       echo "==> FABRIC IMAGE: $IMAGES"
       echo
-      docker pull hyperledger/fabric-$IMAGES:$FABRIC_TAG
-      docker tag hyperledger/fabric-$IMAGES:$FABRIC_TAG hyperledger/fabric-$IMAGES
+      docker pull hyperledger/mchain-$IMAGES:$FABRIC_TAG
+      docker tag hyperledger/mchain-$IMAGES:$FABRIC_TAG hyperledger/mchain-$IMAGES
   done
 }
 
@@ -40,8 +40,8 @@ dockerThirdPartyImagesPull() {
   for IMAGES in couchdb kafka zookeeper; do
       echo "==> THIRDPARTY DOCKER IMAGE: $IMAGES"
       echo
-      docker pull hyperledger/fabric-$IMAGES:$THIRDPARTY_TAG
-      docker tag hyperledger/fabric-$IMAGES:$THIRDPARTY_TAG hyperledger/fabric-$IMAGES
+      docker pull hyperledger/mchain-$IMAGES:$THIRDPARTY_TAG
+      docker tag hyperledger/mchain-$IMAGES:$THIRDPARTY_TAG hyperledger/mchain-$IMAGES
   done
 }
 
@@ -131,11 +131,11 @@ binaryDownload() {
 }
 
 binariesInstall() {
-  echo "===> Downloading version ${FABRIC_TAG} platform specific fabric binaries"
-  binaryDownload ${BINARY_FILE} https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric/${ARCH}-${VERSION}/${BINARY_FILE}
+  echo "===> Downloading version ${FABRIC_TAG} platform specific mchain binaries"
+  binaryDownload ${BINARY_FILE} https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/mchain/hyperledger-mchain/${ARCH}-${VERSION}/${BINARY_FILE}
   if [ $? -eq 22 ]; then
      echo
-     echo "------> ${FABRIC_TAG} platform specific fabric binary is not available to download <----"
+     echo "------> ${FABRIC_TAG} platform specific mchain binary is not available to download <----"
      echo
    fi
 
@@ -152,9 +152,9 @@ dockerInstall() {
   which docker >& /dev/null
   NODOCKER=$?
   if [ "${NODOCKER}" == 0 ]; then
-	  echo "===> Pulling fabric Images"
+	  echo "===> Pulling mchain Images"
 	  dockerFabricPull ${FABRIC_TAG}
-	  echo "===> Pulling fabric ca Image"
+	  echo "===> Pulling mchain ca Image"
 	  dockerCaPull ${CA_TAG}
 	  echo "===> Pulling thirdparty docker images"
 	  dockerThirdPartyImagesPull ${THIRDPARTY_TAG}
@@ -196,7 +196,7 @@ else
   : ${THIRDPARTY_TAG:="$THIRDPARTY_IMAGE_VERSION"}
 fi
 
-BINARY_FILE=hyperledger-fabric-${ARCH}-${VERSION}.tar.gz
+BINARY_FILE=hyperledger-mchain-${ARCH}-${VERSION}.tar.gz
 CA_BINARY_FILE=hyperledger-fabric-ca-${ARCH}-${CA_VERSION}.tar.gz
 
 # then parse opts

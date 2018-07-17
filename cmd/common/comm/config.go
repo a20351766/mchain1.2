@@ -10,8 +10,8 @@ import (
 	"io/ioutil"
 	"time"
 
-	"github.com/hyperledger/fabric/common/crypto/tlsgen"
-	"github.com/hyperledger/fabric/core/comm"
+	"github.com/hyperledger/mchain/common/crypto/tlsgen"
+	"github.com/hyperledger/mchain/core/comm"
 	"github.com/pkg/errors"
 )
 

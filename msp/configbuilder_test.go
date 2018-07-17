@@ -12,7 +12,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/hyperledger/fabric/core/config/configtest"
+	"github.com/hyperledger/mchain/core/config/configtest"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -29,7 +29,7 @@ func TestGetLocalMspConfigFails(t *testing.T) {
 }
 
 func TestGetPemMaterialFromDirWithFile(t *testing.T) {
-	tempFile, err := ioutil.TempFile("", "fabric-msp-test")
+	tempFile, err := ioutil.TempFile("", "mchain-msp-test")
 	assert.NoError(t, err)
 	err = tempFile.Close()
 	assert.NoError(t, err)
@@ -43,7 +43,7 @@ func TestGetPemMaterialFromDirWithSymlinks(t *testing.T) {
 	mspDir, err := configtest.GetDevMspDir()
 	assert.NoError(t, err)
 
-	tempDir, err := ioutil.TempDir("", "fabric-msp-test")
+	tempDir, err := ioutil.TempDir("", "mchain-msp-test")
 	assert.NoError(t, err)
 	defer os.RemoveAll(tempDir)
 

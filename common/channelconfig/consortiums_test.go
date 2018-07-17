@@ -8,7 +8,7 @@ package channelconfig
 import (
 	"testing"
 
-	cb "github.com/hyperledger/fabric/protos/common"
+	cb "github.com/hyperledger/mchain/protos/common"
 
 	"github.com/stretchr/testify/assert"
 )

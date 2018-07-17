@@ -1,15 +1,15 @@
 Capability Requirements
 -----------------------
 
-Because Fabric is a distributed system that will usually involve multiple
+Because Mchain is a distributed system that will usually involve multiple
 organizations (sometimes in different countries or even continents), it is
-possible (and typical) that many different versions of Fabric code will exist in
+possible (and typical) that many different versions of Mchain code will exist in
 the network. Nevertheless, it’s vital that networks process transactions in the
 same way so that everyone has the same view of the current network state.
 
 This means that every network -- and every channel within that network – must
 define a set of what we call “capabilities” to be able to participate in
-processing transactions. For example, Fabric v1.1 introduces new MSP role types
+processing transactions. For example, Mchain v1.1 introduces new MSP role types
 of “Peer” and “Client”. However, if a v1.0 peer does not understand these new
 role types, it will not be able to appropriately evaluate an endorsement policy
 that references them. This means that before the new role types may be used, the

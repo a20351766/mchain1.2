@@ -4,8 +4,8 @@ package fake
 import (
 	"sync"
 
-	chaincode_test "github.com/hyperledger/fabric/core/chaincode"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	chaincode_test "github.com/hyperledger/mchain/core/chaincode"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"golang.org/x/net/context"
 )
 

@@ -9,9 +9,9 @@ package pvtdatastorage
 import (
 	"math"
 
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/pvtdatapolicy"
-	"github.com/hyperledger/fabric/protos/ledger/rwset"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/pvtdatapolicy"
+	"github.com/hyperledger/mchain/protos/ledger/rwset"
 )
 
 func prepareStoreEntries(blockNum uint64, pvtdata []*ledger.TxPvtData, btlPolicy pvtdatapolicy.BTLPolicy) ([]*dataEntry, []*expiryEntry, error) {

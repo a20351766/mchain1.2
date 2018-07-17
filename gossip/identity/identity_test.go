@@ -15,9 +15,9 @@ import (
 
 	"strings"
 
-	"github.com/hyperledger/fabric/gossip/api"
-	"github.com/hyperledger/fabric/gossip/common"
-	"github.com/hyperledger/fabric/gossip/util"
+	"github.com/hyperledger/mchain/gossip/api"
+	"github.com/hyperledger/mchain/gossip/common"
+	"github.com/hyperledger/mchain/gossip/util"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

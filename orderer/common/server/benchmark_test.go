@@ -13,11 +13,11 @@ import (
 	"testing"
 	"time"
 
-	genesisconfig "github.com/hyperledger/fabric/common/tools/configtxgen/localconfig"
-	"github.com/hyperledger/fabric/core/config/configtest"
-	"github.com/hyperledger/fabric/orderer/common/localconfig"
-	perf "github.com/hyperledger/fabric/orderer/common/performance"
-	cb "github.com/hyperledger/fabric/protos/common"
+	genesisconfig "github.com/hyperledger/mchain/common/tools/configtxgen/localconfig"
+	"github.com/hyperledger/mchain/core/config/configtest"
+	"github.com/hyperledger/mchain/orderer/common/localconfig"
+	perf "github.com/hyperledger/mchain/orderer/common/performance"
+	cb "github.com/hyperledger/mchain/protos/common"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -408,7 +408,7 @@ func benchmarkOrderer(
 		// the same config object by address.
 		localConf := localconfig.TopLevel(*conf)
 		if localConf.General.LedgerType != "ram" {
-			tempDir, err := ioutil.TempDir("", "fabric-benchmark-test-")
+			tempDir, err := ioutil.TempDir("", "mchain-benchmark-test-")
 			assert.NoError(t, err, "Should be able to create temp dir")
 			localConf.FileLedger.Location = tempDir
 			defer os.RemoveAll(tempDir)

@@ -16,9 +16,9 @@ import (
 
 	"archive/tar"
 
-	"github.com/hyperledger/fabric/common/metadata"
-	"github.com/hyperledger/fabric/core/chaincode/platforms/golang"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/metadata"
+	"github.com/hyperledger/mchain/core/chaincode/platforms/golang"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"github.com/stretchr/testify/assert"
 )
 

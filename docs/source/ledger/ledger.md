@@ -14,11 +14,11 @@ the current moment in time. If you want to see how your balance was derived,
 then you can look through the transaction credits and debits that determined it.
 This is a real life example of a ledger -- a state (your bank balance), and a
 set of ordered transactions (credits and debits) that determine it. Hyperledger
-Fabric is motivated by these same two concerns -- to present the current value
+Mchain is motivated by these same two concerns -- to present the current value
 of a set of ledger states, and to capture the history of the transactions that
 determined these states.
 
-Let's take a closer look at the Hyperledger Fabric ledger structure!
+Let's take a closer look at the Hyperledger Mchain ledger structure!
 
 ## A Blockchain Ledger
 
@@ -29,7 +29,7 @@ Firstly, there's a **world state** -- a database that holds the **current
 values** of a set of ledger states. The world state makes it easy for a program
 to get the current value of these states, rather than having to calculate them
 by traversing the entire transaction log. Ledger states are, by default,
-expressed as **key-value** pairs, though we'll see later that Hyperledger Fabric
+expressed as **key-value** pairs, though we'll see later that Hyperledger Mchain
 provides flexibility in this regard. The world state can change frequently, as
 states can be created, updated and deleted.
 
@@ -48,7 +48,7 @@ blockchain B and World State W. Blockchain B determines World State W. Also
 expressed as: World state W is derived from blockchain B.*
 
 It's helpful to think of there being one **logical** ledger in a Hyperledger
-Fabric network. In reality, the network maintains multiple copies of a ledger --
+Mchain network. In reality, the network maintains multiple copies of a ledger --
 which are kept consistent with every other copy through a process called
 **consensus**. The term **Distributed Ledger Technology** (**DLT**) is often
 associated with this kind of ledger -- one that is logically singular, but has
@@ -80,7 +80,7 @@ chaincode which access states via simple APIs -- they **get**, **put** and
 
 Physically, the world state is implemented as a database. This makes a lot of
 sense because a database provides a rich set of operators for the efficient
-storage and retrieval of states.  We'll see later that Hyperledger Fabric can be
+storage and retrieval of states.  We'll see later that Hyperledger Mchain can be
 configured to use different world state databases to address the needs of
 different types of state values and the access patterns required by
 applications, for example in complex queries.
@@ -88,7 +88,7 @@ applications, for example in complex queries.
 Transactions capture changes to the world state, and as you'd expect,
 transactions have a lifecycle. They are created by applications, and finally end
 up being committed to the ledger blockchain. The whole lifecycle is described in
-detail [here](../txflow.html); but the key design point for Hyperledger Fabric
+detail [here](../txflow.html); but the key design point for Hyperledger Mchain
 is that only transactions that are **signed** by a set of **endorsing
 organizations** will result in an update to the world state. If a transaction is
 not signed by sufficient endorsers, then it will fail this validity check, and
@@ -282,11 +282,11 @@ between a network node and a CouchDB instance. All of this is invisible to
 chaincode. See [CouchDB as the StateDatabase](../couchdb_as_state_database.html)
 for more information on CouchDB.
 
-In LevelDB and CouchDB, we see an important aspect of Hyperledger Fabric -- it is
+In LevelDB and CouchDB, we see an important aspect of Hyperledger Mchain -- it is
 *pluggable*. The world state database could be a relational data store, or a
 graph store, or a temporal database.  This provides great flexibility in the
 types of ledger states that can be efficiently accessed, allowing Hyperledger
-Fabric to address many different types of problems.
+Mchain to address many different types of problems.
 
 ## Example Ledger: fabcar
 
@@ -323,7 +323,7 @@ headers and hashes.  If you're interested in the precise details of these, you
 will find a dedicated reference topic elsewhere in the documentation. It gives
 you a fully worked example of an entire block with its transactions in glorious
 detail -- but for now, you have achieved a solid conceptual understanding of a
-Hyperledger Fabric ledger. Well done!
+Hyperledger Mchain ledger. Well done!
 
 ## More information
 

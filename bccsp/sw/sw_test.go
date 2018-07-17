@@ -22,9 +22,9 @@ import (
 
 	"reflect"
 
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/mocks"
-	mocks2 "github.com/hyperledger/fabric/bccsp/sw/mocks"
+	"github.com/hyperledger/mchain/bccsp"
+	"github.com/hyperledger/mchain/bccsp/mocks"
+	mocks2 "github.com/hyperledger/mchain/bccsp/sw/mocks"
 	"github.com/stretchr/testify/assert"
 )
 

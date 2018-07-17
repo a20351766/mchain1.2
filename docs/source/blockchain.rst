@@ -1,6 +1,6 @@
 Introduction
 ============
-Hyperledger Fabric is a platform for distributed ledger solutions underpinned
+Hyperledger Mchain is a platform for distributed ledger solutions underpinned
 by a modular architecture delivering high degrees of confidentiality,
 resiliency, flexibility, and scalability. It is designed to support pluggable
 implementations of different components and accommodate the complexity and
@@ -8,10 +8,10 @@ intricacies that exist across the economic ecosystem.
 
 We recommend first-time users begin by going through the rest of the
 introduction below in order to gain familiarity with how blockchains work
-and with the specific features and components of Hyperledger Fabric.
+and with the specific features and components of Hyperledger Mchain.
 
 Once comfortable --- or if you're already familiar with blockchain and
-Hyperledger Fabric --- go to :doc:`getting_started` and from there explore the
+Hyperledger Mchain --- go to :doc:`getting_started` and from there explore the
 demos, technical specifications, APIs, etc.
 
 What is a Blockchain?
@@ -124,7 +124,7 @@ You now know what blockchain is and why it’s useful. There are a lot of other
 details that are important, but they all relate to these fundamental ideas of
 the sharing of information and processes.
 
-What is Hyperledger Fabric?
+What is Hyperledger Mchain?
 ---------------------------
 
 The Linux Foundation founded the Hyperledger project in 2015 to advance
@@ -134,21 +134,21 @@ blockchain technologies via a community process, with intellectual property
 rights that encourage open development and the adoption of key standards over
 time.
 
-Hyperledger Fabric is one of the blockchain projects within Hyperledger.
+Hyperledger Mchain is one of the blockchain projects within Hyperledger.
 Like other blockchain technologies, it has a ledger, uses smart contracts,
 and is a system by which participants manage their transactions.
 
-Where Hyperledger Fabric breaks from some other blockchain systems is that
+Where Hyperledger Mchain breaks from some other blockchain systems is that
 it is **private** and **permissioned**. Rather than an open permissionless system
 that allows unknown identities to participate in the network (requiring protocols
 like "proof of work" to validate transactions and secure the network), the members
-of a Hyperledger Fabric network enroll through a trusted **Membership Service Provider (MSP)**.
+of a Hyperledger Mchain network enroll through a trusted **Membership Service Provider (MSP)**.
 
-Hyperledger Fabric also offers several pluggable options. Ledger data can be
+Hyperledger Mchain also offers several pluggable options. Ledger data can be
 stored in multiple formats, consensus mechanisms can be swapped in and out,
 and different MSPs are supported.
 
-Hyperledger Fabric also offers the ability to create **channels**, allowing a group of
+Hyperledger Mchain also offers the ability to create **channels**, allowing a group of
 participants to create a separate ledger of transactions. This is an especially
 important option for networks where some participants might be competitors and not
 want every transaction they make --- a special price they're offering to some participants
@@ -158,9 +158,9 @@ for that channel.
 
 **Shared Ledger**
 
-Hyperledger Fabric has a ledger subsystem comprising two components: the **world
+Hyperledger Mchain has a ledger subsystem comprising two components: the **world
 state** and the **transaction log**. Each participant has a copy of the ledger to
-every Hyperledger Fabric network they belong to.
+every Hyperledger Mchain network they belong to.
 
 The world state component describes the state of the ledger at a given point
 in time. It’s the database of the ledger. The transaction log component records
@@ -175,7 +175,7 @@ being used by the blockchain network.
 
 **Smart Contracts**
 
-Hyperledger Fabric smart contracts are written in **chaincode** and are invoked
+Hyperledger Mchain smart contracts are written in **chaincode** and are invoked
 by an application external to the blockchain when that application needs to
 interact with the ledger. In most cases, chaincode interacts only with the
 database component of the ledger, the world state (querying it, for example), and
@@ -190,7 +190,7 @@ Depending on the needs of a network, participants in a Business-to-Business
 (B2B) network might be extremely sensitive about how much information they share.
 For other networks, privacy will not be a top concern.
 
-Hyperledger Fabric supports networks where privacy (using channels) is a key
+Hyperledger Mchain supports networks where privacy (using channels) is a key
 operational requirement as well as networks that are comparatively open.
 
 **Consensus**
@@ -209,13 +209,13 @@ of corruption. Alternatively, in Bitcoin, ordering happens through a process
 called mining where competing computers race to solve a cryptographic puzzle
 which defines the order that all processes subsequently build upon.
 
-Hyperledger Fabric has been designed to allow network starters to choose a
+Hyperledger Mchain has been designed to allow network starters to choose a
 consensus mechanism that best represents the relationships that exist between
 participants. As with privacy, there is a spectrum of needs; from networks
 that are highly structured in their relationships to those that are more
 peer-to-peer.
 
-We’ll learn more about the Hyperledger Fabric consensus mechanisms, which
+We’ll learn more about the Hyperledger Mchain consensus mechanisms, which
 currently include SOLO and Kafka.
 
 Where can I learn more?
@@ -224,21 +224,21 @@ Where can I learn more?
 * `Identity <identity/identity.html>`_ (conceptual documentation)
 
 A conceptual doc that will take you through the critical role identities play
-in a Fabric network (using an established PKI structure and x.509 certificates).
+in a Mchain network (using an established PKI structure and x.509 certificates).
 
 * `Membership <membership/membership.html>`_ (conceptual documentation)
 
 Talks through the role of a Membership Service Provider (MSP), which converts
-identities into roles in a Fabric network.
+identities into roles in a Mchain network.
 
 * `Peers <peers/peers.html>`_ (conceptual documentation)
 
 Peers --- owned by organizations --- host the ledger and smart contracts and make
-up the physical structure of a Fabric network.
+up the physical structure of a Mchain network.
 
 * :doc:`build_network` (tutorial)
 
-Learn how to download Fabric binaries and bootstrap your own sample network with
+Learn how to download Mchain binaries and bootstrap your own sample network with
 a sample script. Then tear down the network and learn how it was constructed one
 step at a time.
 
@@ -251,7 +251,7 @@ to use with a simple smart contract and application.
 
 A high level look look at a sample transaction flow.
 
-* :doc:`fabric_model`
+* :doc:`mchain_model`
 
 A high level look at some of components and concepts brought up in this introduction as
 well as a few others and describes how they work together in a sample

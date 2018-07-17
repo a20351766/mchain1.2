@@ -10,16 +10,16 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/protos/ledger/rwset/kvrwset"
-	"github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/protos/ledger/rwset/kvrwset"
+	"github.com/hyperledger/mchain/protos/peer"
 
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	lgrutil "github.com/hyperledger/fabric/core/ledger/util"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	lgrutil "github.com/hyperledger/mchain/core/ledger/util"
 
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/customtx"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/customtx"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/stretchr/testify/assert"
 )
 

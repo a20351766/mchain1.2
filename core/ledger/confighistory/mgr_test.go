@@ -13,11 +13,11 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/protos/ledger/rwset/kvrwset"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/protos/ledger/rwset/kvrwset"
 
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/protos/common"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -27,7 +27,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestMgr(t *testing.T) {
-	dbPath := "/tmp/fabric/core/ledger/confighistory"
+	dbPath := "/tmp/mchain/core/ledger/confighistory"
 	env := newTestEnv(t, dbPath)
 	mgr := env.mgr
 	defer env.cleanup()

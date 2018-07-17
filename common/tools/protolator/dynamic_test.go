@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/tools/protolator/testprotos"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/common/tools/protolator/testprotos"
+	"github.com/hyperledger/mchain/protos/utils"
 
 	"github.com/stretchr/testify/assert"
 )

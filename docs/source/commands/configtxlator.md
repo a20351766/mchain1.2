@@ -1,7 +1,7 @@
 # configtxlator
 
 The `configtxlator` command allows users to translate between protobuf and JSON
-versions of fabric data structures and create config updates.  The command may
+versions of mchain data structures and create config updates.  The command may
 either start a REST server to expose its functions over HTTP or may be utilized
 directly as a command line tool.
 
@@ -97,17 +97,17 @@ Flags:
 
 ### Decoding
 
-Decode a block named `fabric_block.pb` to JSON and print to stdout.
+Decode a block named `mchain_block.pb` to JSON and print to stdout.
 
 ```
-configtxlator proto_decode --input fabric_block.pb --type common.Block
+configtxlator proto_decode --input mchain_block.pb --type common.Block
 ```
 
 Alternatively, after starting the REST server, the following curl command
 performs the same operation through the REST API.
 
 ```
-curl -X POST --data-binary @fabric_block.pb "${CONFIGTXLATOR_URL}/protolator/decode/common.Block"
+curl -X POST --data-binary @mchain_block.pb "${CONFIGTXLATOR_URL}/protolator/decode/common.Block"
 ```
 
 ### Encoding

@@ -99,10 +99,10 @@ If you continue with ``core.autocrlf`` set to ``true``, the
 
 ``./setup.sh: /bin/bash^M: bad interpreter: No such file or directory``
 
-Cloning the Hyperledger Fabric source
+Cloning the Hyperledger Mchain source
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Since Hyperledger Fabric is written in ``Go``, you'll need to
+Since Hyperledger Mchain is written in ``Go``, you'll need to
 clone the source repository to your $GOPATH/src directory. If your $GOPATH
 has multiple path components, then you will want to use the first one.
 There's a little bit of setup needed:
@@ -120,7 +120,7 @@ For brevity, the command is as follows:
 
 ::
 
-    git clone ssh://LFID@gerrit.hyperledger.org:29418/fabric && scp -p -P 29418 LFID@gerrit.hyperledger.org:hooks/commit-msg fabric/.git/hooks/
+    git clone ssh://LFID@gerrit.hyperledger.org:29418/mchain && scp -p -P 29418 LFID@gerrit.hyperledger.org:hooks/commit-msg mchain/.git/hooks/
 
 **Note:** Of course, you would want to replace ``LFID`` with your own
 :doc:`Linux Foundation ID <../Gerrit/lf-account>`.
@@ -135,7 +135,7 @@ are not supported by Docker for Mac or Windows.**
 
 ::
 
-    cd $GOPATH/src/github.com/hyperledger/fabric/devenv
+    cd $GOPATH/src/github.com/hyperledger/mchain/devenv
     vagrant up
 
 Go get coffee... this will take a few minutes. Once complete, you should
@@ -146,22 +146,22 @@ be able to ``ssh`` into the Vagrant VM just created.
     vagrant ssh
 
 Once inside the VM, you can find the source under
-``$GOPATH/src/github.com/hyperledger/fabric``. It is also mounted as
+``$GOPATH/src/github.com/hyperledger/mchain``. It is also mounted as
 ``/hyperledger``.
 
-Building Hyperledger Fabric
+Building Hyperledger Mchain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Once you have all the dependencies installed, and have cloned the
 repository, you can proceed to :doc:`build and test <build>` Hyperledger
-Fabric.
+Mchain.
 
 Notes
 ~~~~~
 
-**NOTE:** Any time you change any of the files in your local fabric
-directory (under ``$GOPATH/src/github.com/hyperledger/fabric``), the
-update will be instantly available within the VM fabric directory.
+**NOTE:** Any time you change any of the files in your local mchain
+directory (under ``$GOPATH/src/github.com/hyperledger/mchain``), the
+update will be instantly available within the VM mchain directory.
 
 **NOTE:** If you intend to run the development environment behind an
 HTTP Proxy, you need to configure the guest so that the provisioning
@@ -187,7 +187,7 @@ http://www.microsoft.com/en-us/download/details.aspx?id=8328
 
 **NOTE:** The inclusion of the miekg/pkcs11 package introduces
 an external dependency on the libtdl.h header file during
-a build of fabric. Please ensure your libtool and libtdhl-dev packages
+a build of mchain. Please ensure your libtool and libtdhl-dev packages
 are installed. Otherwise, you may get a ltdl.h header missing error.
 You can download the missing package by command:
 ``sudo apt-get install -y build-essential git make curl unzip g++ libtool``.

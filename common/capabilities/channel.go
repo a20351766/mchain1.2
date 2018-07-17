@@ -7,14 +7,14 @@ SPDX-License-Identifier: Apache-2.0
 package capabilities
 
 import (
-	"github.com/hyperledger/fabric/msp"
-	cb "github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/msp"
+	cb "github.com/hyperledger/mchain/protos/common"
 )
 
 const (
 	channelTypeName = "Channel"
 
-	// ChannelV1_1 is the capabilties string for standard new non-backwards compatible fabric v1.1 channel capabilities.
+	// ChannelV1_1 is the capabilties string for standard new non-backwards compatible mchain v1.1 channel capabilities.
 	ChannelV1_1 = "V1_1"
 )
 

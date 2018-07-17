@@ -1,19 +1,19 @@
 Tutorials
 =========
 
-We offer tutorials to get you started with Hyperledger Fabric.
-The first is oriented to the Hyperledger Fabric **application developer**,
+We offer tutorials to get you started with Hyperledger Mchain.
+The first is oriented to the Hyperledger Mchain **application developer**,
 :doc:`write_first_app`. It takes you through the process of writing your first
-blockchain application for Hyperledger Fabric using the Hyperledger Fabric
-`Node SDK <https://github.com/hyperledger/fabric-sdk-node>`__.
+blockchain application for Hyperledger Mchain using the Hyperledger Mchain
+`Node SDK <https://github.com/hyperledger/mchain-sdk-node>`__.
 
-The second tutorial is oriented towards the Hyperledger Fabric network
+The second tutorial is oriented towards the Hyperledger Mchain network
 operators, :doc:`build_network`. This one walks you through the process of
-establishing a blockchain network using Hyperledger Fabric and provides
+establishing a blockchain network using Hyperledger Mchain and provides
 a basic sample application to test it out.
 
 There are also tutorials for updating your channel, :doc:`channel_update_tutorial`, and
-upgrading your network to a later version of Hyperledger Fabric, :doc:`upgrading_your_network_tutorial`.
+upgrading your network to a later version of Hyperledger Mchain, :doc:`upgrading_your_network_tutorial`.
 
 Finally, we offer two chaincode tutorials. One oriented to developers,
 :doc:`chaincode4ade`, and the other oriented to operators,

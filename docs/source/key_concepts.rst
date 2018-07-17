@@ -6,7 +6,7 @@ Key Concepts
 
    blockchain
    functionalities
-   fabric_model
+   mchain_model
    network/network.md
    identity/identity.md
    membership/membership.md

@@ -13,20 +13,20 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric/core/ledger/pvtdatapolicy"
+	"github.com/hyperledger/mchain/core/ledger/pvtdatapolicy"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
-	btltestutil "github.com/hyperledger/fabric/core/ledger/pvtdatapolicy/testutil"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/rwsetutil"
+	btltestutil "github.com/hyperledger/mchain/core/ledger/pvtdatapolicy/testutil"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestMain(m *testing.M) {
 	flogging.SetModuleLevel("pvtdatastorage", "debug")
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/core/ledger/pvtdatastorage")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/core/ledger/pvtdatastorage")
 	os.Exit(m.Run())
 }
 

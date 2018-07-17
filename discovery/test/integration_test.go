@@ -24,36 +24,36 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	bccsp "github.com/hyperledger/fabric/bccsp/utils"
-	"github.com/hyperledger/fabric/common/cauthdsl"
-	"github.com/hyperledger/fabric/common/configtx"
-	"github.com/hyperledger/fabric/common/crypto/tlsgen"
-	policiesmocks "github.com/hyperledger/fabric/common/mocks/policies"
-	"github.com/hyperledger/fabric/common/policies"
-	"github.com/hyperledger/fabric/common/tools/configtxgen/encoder"
-	genesisconfig "github.com/hyperledger/fabric/common/tools/configtxgen/localconfig"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/cclifecycle"
-	lifecyclemocks "github.com/hyperledger/fabric/core/cclifecycle/mocks"
-	"github.com/hyperledger/fabric/core/comm"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/discovery"
-	disc "github.com/hyperledger/fabric/discovery/client"
-	"github.com/hyperledger/fabric/discovery/endorsement"
-	discsupport "github.com/hyperledger/fabric/discovery/support"
-	discacl "github.com/hyperledger/fabric/discovery/support/acl"
-	ccsupport "github.com/hyperledger/fabric/discovery/support/chaincode"
-	"github.com/hyperledger/fabric/discovery/support/config"
-	"github.com/hyperledger/fabric/discovery/support/mocks"
-	"github.com/hyperledger/fabric/gossip/api"
-	gcommon "github.com/hyperledger/fabric/gossip/common"
-	gdisc "github.com/hyperledger/fabric/gossip/discovery"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/protos/common"
-	. "github.com/hyperledger/fabric/protos/discovery"
-	"github.com/hyperledger/fabric/protos/gossip"
-	msprotos "github.com/hyperledger/fabric/protos/msp"
-	"github.com/hyperledger/fabric/protos/utils"
+	bccsp "github.com/hyperledger/mchain/bccsp/utils"
+	"github.com/hyperledger/mchain/common/cauthdsl"
+	"github.com/hyperledger/mchain/common/configtx"
+	"github.com/hyperledger/mchain/common/crypto/tlsgen"
+	policiesmocks "github.com/hyperledger/mchain/common/mocks/policies"
+	"github.com/hyperledger/mchain/common/policies"
+	"github.com/hyperledger/mchain/common/tools/configtxgen/encoder"
+	genesisconfig "github.com/hyperledger/mchain/common/tools/configtxgen/localconfig"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/cclifecycle"
+	lifecyclemocks "github.com/hyperledger/mchain/core/cclifecycle/mocks"
+	"github.com/hyperledger/mchain/core/comm"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/discovery"
+	disc "github.com/hyperledger/mchain/discovery/client"
+	"github.com/hyperledger/mchain/discovery/endorsement"
+	discsupport "github.com/hyperledger/mchain/discovery/support"
+	discacl "github.com/hyperledger/mchain/discovery/support/acl"
+	ccsupport "github.com/hyperledger/mchain/discovery/support/chaincode"
+	"github.com/hyperledger/mchain/discovery/support/config"
+	"github.com/hyperledger/mchain/discovery/support/mocks"
+	"github.com/hyperledger/mchain/gossip/api"
+	gcommon "github.com/hyperledger/mchain/gossip/common"
+	gdisc "github.com/hyperledger/mchain/gossip/discovery"
+	"github.com/hyperledger/mchain/msp"
+	"github.com/hyperledger/mchain/protos/common"
+	. "github.com/hyperledger/mchain/protos/discovery"
+	"github.com/hyperledger/mchain/protos/gossip"
+	msprotos "github.com/hyperledger/mchain/protos/msp"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/onsi/gomega/gexec"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
@@ -570,12 +570,12 @@ func createPolicyManagerGetter(t *testing.T, mspMgr msp.MSPManager) *mocks.Chann
 
 func buildBinaries() error {
 	var err error
-	cryptogen, err = gexec.Build("github.com/hyperledger/fabric/common/tools/cryptogen")
+	cryptogen, err = gexec.Build("github.com/hyperledger/mchain/common/tools/cryptogen")
 	if err != nil {
 		return errors.WithStack(err)
 	}
 
-	idemixgen, err = gexec.Build("github.com/hyperledger/fabric/common/tools/idemixgen")
+	idemixgen, err = gexec.Build("github.com/hyperledger/mchain/common/tools/idemixgen")
 	if err != nil {
 		return errors.WithStack(err)
 	}

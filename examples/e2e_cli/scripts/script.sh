@@ -16,9 +16,9 @@ CHANNEL_NAME="$1"
 : ${TIMEOUT:="60"}
 COUNTER=1
 MAX_RETRY=5
-ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
-PEER0_ORG1_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
-PEER0_ORG2_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+ORDERER_CA=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+PEER0_ORG1_CA=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+PEER0_ORG2_CA=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
 ORDERER_SYSCHAN_ID=e2e-orderer-syschan
 
 echo "Channel name : "$CHANNEL_NAME
@@ -38,7 +38,7 @@ setGlobals () {
 	if [ $ORG -eq 1 ] ; then
 		CORE_PEER_LOCALMSPID="Org1MSP"
 		CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG1_CA
-		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
 		if [ $PEER -eq 0 ]; then
 			CORE_PEER_ADDRESS=peer0.org1.example.com:7051
 		else
@@ -46,14 +46,14 @@ setGlobals () {
 		fi
 	elif [ $ORG -eq 3 ] ; then
 		CORE_PEER_LOCALMSPID="Org3MSP"
-		CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+		CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
 		CORE_PEER_ADDRESS=peer0.org1.example.com:7051
-		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/idemix/idemix-config
+		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/idemix/idemix-config
 		CORE_PEER_LOCALMSPTYPE=idemix
 	else
 		CORE_PEER_LOCALMSPID="Org2MSP"
 		CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG2_CA
-		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+		CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
 		if [ $PEER -eq 0 ]; then
 			CORE_PEER_ADDRESS=peer0.org2.example.com:7051
 		else
@@ -68,7 +68,7 @@ checkOSNAvailability() {
 	# Use orderer's MSP for fetching system channel config block
 	CORE_PEER_LOCALMSPID="OrdererMSP"
 	CORE_PEER_TLS_ROOTCERT_FILE=$ORDERER_CA
-	CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp
+	CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp
 
 	local rc=1
 	local starttime=$(date +%s)
@@ -160,7 +160,7 @@ installChaincode () {
 	PEER=$1
 	ORG=$2
 	setGlobals $PEER $ORG
-	peer chaincode install -n mycc -v 1.0 -p github.com/hyperledger/fabric/examples/chaincode/go/example02/cmd >&log.txt
+	peer chaincode install -n mycc -v 1.0 -p github.com/hyperledger/mchain/examples/chaincode/go/example02/cmd >&log.txt
 	res=$?
 	cat log.txt
 	verifyResult $res "Chaincode installation on peer peer${PEER}.org${ORG} has Failed"

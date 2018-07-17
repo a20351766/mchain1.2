@@ -13,9 +13,9 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/msp"
-	cb "github.com/hyperledger/fabric/protos/common"
-	mb "github.com/hyperledger/fabric/protos/msp"
+	"github.com/hyperledger/mchain/msp"
+	cb "github.com/hyperledger/mchain/protos/common"
+	mb "github.com/hyperledger/mchain/protos/msp"
 	logging "github.com/op/go-logging"
 	"github.com/stretchr/testify/assert"
 )

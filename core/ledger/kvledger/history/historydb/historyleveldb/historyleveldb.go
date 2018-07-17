@@ -7,17 +7,17 @@ SPDX-License-Identifier: Apache-2.0
 package historyleveldb
 
 import (
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/ledger/blkstorage"
-	"github.com/hyperledger/fabric/common/ledger/util/leveldbhelper"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/history/historydb"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/version"
-	"github.com/hyperledger/fabric/core/ledger/ledgerconfig"
-	"github.com/hyperledger/fabric/core/ledger/util"
-	"github.com/hyperledger/fabric/protos/common"
-	putils "github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/common/ledger/blkstorage"
+	"github.com/hyperledger/mchain/common/ledger/util/leveldbhelper"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/history/historydb"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/rwsetutil"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/version"
+	"github.com/hyperledger/mchain/core/ledger/ledgerconfig"
+	"github.com/hyperledger/mchain/core/ledger/util"
+	"github.com/hyperledger/mchain/protos/common"
+	putils "github.com/hyperledger/mchain/protos/utils"
 )
 
 var logger = flogging.MustGetLogger("historyleveldb")

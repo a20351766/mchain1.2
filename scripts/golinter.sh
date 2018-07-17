@@ -20,8 +20,8 @@ declare -a arr=(
 )
 
 # place the Go build cache directory into the default build tree if it exists
-if [ -d "${GOPATH}/src/github.com/hyperledger/fabric/.build" ]; then
-    export GOCACHE="${GOPATH}/src/github.com/hyperledger/fabric/.build/go-cache"
+if [ -d "${GOPATH}/src/github.com/hyperledger/mchain/.build" ]; then
+    export GOCACHE="${GOPATH}/src/github.com/hyperledger/mchain/.build/go-cache"
 fi
 
 for i in "${arr[@]}"
@@ -38,7 +38,7 @@ do
     fi
 
     echo "Checking with goimports"
-    OUTPUT="$(goimports -srcdir $GOPATH/src/github.com/hyperledger/fabric -l $i | grep -v testdata/ || true )"
+    OUTPUT="$(goimports -srcdir $GOPATH/src/github.com/hyperledger/mchain -l $i | grep -v testdata/ || true )"
     if [[ $OUTPUT ]]; then
         echo "The following files contain goimports errors"
         echo $OUTPUT

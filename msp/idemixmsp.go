@@ -20,10 +20,10 @@ import (
 	"reflect"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric-amcl/amcl"
-	"github.com/hyperledger/fabric-amcl/amcl/FP256BN"
-	"github.com/hyperledger/fabric/idemix"
-	m "github.com/hyperledger/fabric/protos/msp"
+	"github.com/hyperledger/mchain-amcl/amcl"
+	"github.com/hyperledger/mchain-amcl/amcl/FP256BN"
+	"github.com/hyperledger/mchain/idemix"
+	m "github.com/hyperledger/mchain/protos/msp"
 	logging "github.com/op/go-logging"
 	"github.com/pkg/errors"
 )

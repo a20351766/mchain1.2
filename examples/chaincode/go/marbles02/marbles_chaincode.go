@@ -90,8 +90,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/hyperledger/fabric/core/chaincode/shim"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/core/chaincode/shim"
+	pb "github.com/hyperledger/mchain/protos/peer"
 )
 
 // SimpleChaincode example simple Chaincode implementation

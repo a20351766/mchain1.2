@@ -9,8 +9,8 @@ package testutil
 import (
 	"errors"
 
-	"github.com/hyperledger/fabric/core/common/privdata"
-	"github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/core/common/privdata"
+	"github.com/hyperledger/mchain/protos/common"
 )
 
 type MockCollectionStore struct {

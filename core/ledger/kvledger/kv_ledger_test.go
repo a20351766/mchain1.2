@@ -12,17 +12,17 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/common/privdata"
-	lgr "github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/ledgerconfig"
-	ledgertestutil "github.com/hyperledger/fabric/core/ledger/testutil"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/ledger/queryresult"
-	"github.com/hyperledger/fabric/protos/peer"
-	putils "github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/common/privdata"
+	lgr "github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/ledgerconfig"
+	ledgertestutil "github.com/hyperledger/mchain/core/ledger/testutil"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/ledger/queryresult"
+	"github.com/hyperledger/mchain/protos/peer"
+	putils "github.com/hyperledger/mchain/protos/utils"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 )
@@ -33,7 +33,7 @@ func TestMain(m *testing.M) {
 	flogging.SetModuleLevel("statevalidator", "debug")
 	flogging.SetModuleLevel("valimpl", "debug")
 	flogging.SetModuleLevel("confighistory", "debug")
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/ledgertests/kvledger")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/ledgertests/kvledger")
 	viper.Set("ledger.history.enableHistoryDatabase", true)
 	os.Exit(m.Run())
 }

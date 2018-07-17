@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/hyperledger/fabric/core/chaincode/shim"
-	"github.com/hyperledger/fabric/examples/chaincode/go/example02"
+	"github.com/hyperledger/mchain/core/chaincode/shim"
+	"github.com/hyperledger/mchain/examples/chaincode/go/example02"
 )
 
 var chaincodeName = "ex02"

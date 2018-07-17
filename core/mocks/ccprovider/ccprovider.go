@@ -9,11 +9,11 @@ package ccprovider
 import (
 	"context"
 
-	commonledger "github.com/hyperledger/fabric/common/ledger"
-	"github.com/hyperledger/fabric/core/chaincode/shim"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/protos/peer"
+	commonledger "github.com/hyperledger/mchain/common/ledger"
+	"github.com/hyperledger/mchain/core/chaincode/shim"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/protos/peer"
 )
 
 type ExecuteChaincodeResultProvider interface {

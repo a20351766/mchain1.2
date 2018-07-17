@@ -1,7 +1,7 @@
 Channels
 ========
 
-A Hyperledger Fabric ``channel`` is a private "subnet" of communication between
+A Hyperledger Mchain ``channel`` is a private "subnet" of communication between
 two or more specific network members, for the purpose of conducting private and
 confidential transactions. A channel is defined by members (organizations),
 anchor peers per member, the shared ledger, chaincode application(s) and the ordering service

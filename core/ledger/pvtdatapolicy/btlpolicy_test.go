@@ -10,8 +10,8 @@ import (
 	"math"
 	"testing"
 
-	"github.com/hyperledger/fabric/core/common/privdata"
-	"github.com/hyperledger/fabric/core/ledger/pvtdatapolicy/testutil"
+	"github.com/hyperledger/mchain/core/common/privdata"
+	"github.com/hyperledger/mchain/core/ledger/pvtdatapolicy/testutil"
 	"github.com/stretchr/testify/assert"
 )
 

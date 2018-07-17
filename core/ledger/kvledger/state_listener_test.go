@@ -9,10 +9,10 @@ package kvledger
 import (
 	"testing"
 
-	"github.com/hyperledger/fabric/protos/ledger/rwset/kvrwset"
+	"github.com/hyperledger/mchain/protos/ledger/rwset/kvrwset"
 
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/core/ledger"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/core/ledger"
 	"github.com/stretchr/testify/assert"
 )
 

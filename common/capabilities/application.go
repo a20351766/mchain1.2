@@ -7,16 +7,16 @@ SPDX-License-Identifier: Apache-2.0
 package capabilities
 
 import (
-	cb "github.com/hyperledger/fabric/protos/common"
+	cb "github.com/hyperledger/mchain/protos/common"
 )
 
 const (
 	applicationTypeName = "Application"
 
-	// ApplicationV1_1 is the capabilties string for standard new non-backwards compatible fabric v1.1 application capabilities.
+	// ApplicationV1_1 is the capabilties string for standard new non-backwards compatible mchain v1.1 application capabilities.
 	ApplicationV1_1 = "V1_1"
 
-	// ApplicationV1_2 is the capabilties string for standard new non-backwards compatible fabric v1.2 application capabilities.
+	// ApplicationV1_2 is the capabilties string for standard new non-backwards compatible mchain v1.2 application capabilities.
 	ApplicationV1_2 = "V1_2"
 
 	// ApplicationPvtDataExperimental is the capabilties string for private data using the experimental feature of collections/sideDB.

@@ -25,9 +25,9 @@ type Configtxgen struct {
 	Profile string
 	// The organization for this config channel
 	AsOrg string
-	// The fabric config directory
+	// The mchain config directory
 	ConfigDir string
-	// The fabric config directory set in the env variable
+	// The mchain config directory set in the env variable
 	EnvConfigDir string
 	// The directory to write the block file
 	Output string
@@ -41,7 +41,7 @@ func (c *Configtxgen) setupCommandEnv(cmd *exec.Cmd) {
 	}
 }
 
-// OutputBlock uses configtxgen to generate genesis block for fabric.
+// OutputBlock uses configtxgen to generate genesis block for mchain.
 func (c *Configtxgen) OutputBlock(extraArgs ...string) *ginkgomon.Runner {
 	cmd := exec.Command(
 		c.Path,

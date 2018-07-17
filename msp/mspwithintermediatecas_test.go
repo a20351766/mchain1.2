@@ -56,7 +56,7 @@ func TestMSPWithIntermediateCAs(t *testing.T) {
 func TestMSPWithExternalIntermediateCAs(t *testing.T) {
 	// testdata/external contains the credentials for a test MSP setup
 	// identical to testdata/intermediate with the exception that it has
-	// been generated independently of the fabric environment using
+	// been generated independently of the mchain environment using
 	// openssl.  Sanitizing certificates may cause a change in the
 	// signature algorithm used from that used in original
 	// certificate file.  Hashes of raw certificate bytes and

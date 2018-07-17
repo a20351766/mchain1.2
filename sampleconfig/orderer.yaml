@@ -50,7 +50,7 @@ General:
         ServerTimeout: 20s
 
     # Log Level: The level at which to log. This accepts logging specifications
-    # per: fabric/docs/Setup/logging-control.md
+    # per: mchain/docs/Setup/logging-control.md
     LogLevel: info
 
     # Log Format:  The format string to use when logging.  Especially useful to disable color logging
@@ -138,7 +138,7 @@ FileLedger:
 
     # The prefix to use when generating a ledger directory in temporary space.
     # Otherwise, this value is ignored.
-    Prefix: hyperledger-fabric-ordererledger
+    Prefix: hyperledger-mchain-ordererledger
 
 ################################################################################
 #

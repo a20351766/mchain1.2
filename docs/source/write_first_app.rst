@@ -2,12 +2,12 @@ Writing Your First Application
 ==============================
 
 .. note:: If you're not yet familiar with the fundamental architecture of a
-          Fabric network, you may want to visit the :doc:`blockchain` and
+          Mchain network, you may want to visit the :doc:`blockchain` and
           :doc:`build_network` documentation prior to continuing.
 
-In this section we'll be looking at a handful of sample programs to see how Fabric
+In this section we'll be looking at a handful of sample programs to see how Mchain
 apps work. These apps (and the smart contract they use) -- collectively known as
-``fabcar`` -- provide a broad demonstration of Fabric functionality. Notably, we
+``fabcar`` -- provide a broad demonstration of Mchain functionality. Notably, we
 will show the process for interacting with a Certificate Authority and generating
 enrollment certificates, after which we will leverage these identities to query
 and update a ledger.
@@ -31,13 +31,13 @@ We’ll go through three principle steps:
 
 After completing this tutorial you should have a basic understanding of how
 an application is programmed in conjunction with a smart contract to interact
-with the ledger (i.e. the peer) on a Fabric network.
+with the ledger (i.e. the peer) on a Mchain network.
 
 Setting up your Dev Environment
 -------------------------------
 
 If you've already run through :doc:`build_network`, you should have your dev
-environment setup and will have downloaded `fabric-samples` as well as the
+environment setup and will have downloaded `mchain-samples` as well as the
 accompanying artifacts. To run this tutorial, what you need to do now is tear
 down any existing networks you have, which you can do by issuing the following:
 
@@ -51,22 +51,22 @@ the necessary dependencies installed on your machine.
 
 Next, if you haven't done so already, visit the :doc:`install` page and follow
 the provided instructions. Return to this tutorial once you have cloned the
-``fabric-samples`` repository, and downloaded the latest stable Fabric images
+``mchain-samples`` repository, and downloaded the latest stable Mchain images
 and available utilities.
 
 At this point everything should be installed. Navigate to the ``fabcar``
-subdirectory within your ``fabric-samples`` repository and take a look at what's
+subdirectory within your ``mchain-samples`` repository and take a look at what's
 inside:
 
 .. code:: bash
 
-  cd fabric-samples/fabcar  && ls
+  cd mchain-samples/fabcar  && ls
 
 You should see the following:
 
 .. code:: bash
 
-     enrollAdmin.js	invoke.js	package.json	query.js	registerUser.js	startFabric.sh
+     enrollAdmin.js	invoke.js	package.json	query.js	registerUser.js	startMchain.sh
 
 Before starting we also need to do a little housekeeping. Run the following
 command to kill any stale or active containers:
@@ -96,39 +96,39 @@ Install the clients & launch the network
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note:: The following instructions require you to be in the ``fabcar``
-          subdirectory within your local clone of the ``fabric-samples`` repo.
+          subdirectory within your local clone of the ``mchain-samples`` repo.
           Remain at the root of this subdirectory for the remainder of this
           tutorial.
 
-Run the following command to install the Fabric dependencies for the
-applications. We are concerned with ``fabric-ca-client`` which will allow our
+Run the following command to install the Mchain dependencies for the
+applications. We are concerned with ``mchain-ca-client`` which will allow our
 app(s) to communicate with the CA server and retrieve identity material, and
-with ``fabric-client`` which allows us to load the identity material and talk
+with ``mchain-client`` which allows us to load the identity material and talk
 to the peers and ordering service.
 
 .. code:: bash
 
   npm install
 
-Launch your network using the ``startFabric.sh`` shell script. This command
-will spin up our various Fabric entities and launch a smart contract container
+Launch your network using the ``startMchain.sh`` shell script. This command
+will spin up our various Mchain entities and launch a smart contract container
 for chaincode written in Golang:
 
 .. code:: bash
 
-  ./startFabric.sh
+  ./startMchain.sh
 
 You also have the option of running this tutorial against chaincode written in
-`Node.js <https://fabric-shim.github.io/>`__. If you'd like to pursue this route,
+`Node.js <https://mchain-shim.github.io/>`__. If you'd like to pursue this route,
 issue the following command instead:
 
 .. code:: bash
 
- ./startFabric.sh node
+ ./startMchain.sh node
 
 .. note:: Be aware that the Node.js chaincode scenario will take roughly 90 seconds
           to complete; perhaps longer. The script is not hanging, rather the
-          increased time is a result of the fabric-shim being installed as the
+          increased time is a result of the mchain-shim being installed as the
           chaincode image is being built.
 
 Alright, now that you’ve got a sample network and some code, let’s take a
@@ -217,7 +217,7 @@ the signer:
 
 .. code:: bash
 
-  fabric_client.getUserContext('user1', true);
+  mchain_client.getUserContext('user1', true);
 
 Recall that the ``user1`` enrollment material has already been placed into our
 ``hfc-key-store`` subdirectory, so we simply need to tell our application to grab that identity.
@@ -261,8 +261,8 @@ be specified by the app dev.
 
 .. code:: bash
 
-  var channel = fabric_client.newChannel('mychannel');
-  var peer = fabric_client.newPeer('grpc://localhost:7051');
+  var channel = mchain_client.newChannel('mychannel');
+  var peer = mchain_client.newPeer('grpc://localhost:7051');
   channel.addPeer(peer);
 
   var member_user = null;
@@ -287,7 +287,7 @@ When the application ran, it invoked the ``fabcar`` chaincode on the peer, ran t
 ``queryAllCars`` function within it, and passed no arguments to it.
 
 To take a look at the available functions within our smart contract, navigate
-to the ``chaincode/fabcar/go`` subdirectory at the root of ``fabric-samples`` and open
+to the ``chaincode/fabcar/go`` subdirectory at the root of ``mchain-samples`` and open
 ``fabcar.go`` in your editor.
 
 .. note:: These same functions are defined within the Node.js version of the
@@ -523,9 +523,9 @@ and how some of these more low level application functions can be leveraged
 Additional Resources
 --------------------
 
-The `Hyperledger Fabric Node SDK repo <https://github.com/hyperledger/fabric-sdk-node>`__
+The `Hyperledger Mchain Node SDK repo <https://github.com/hyperledger/mchain-sdk-node>`__
 is an excellent resource for deeper documentation and sample code. You can also consult
-the Fabric community and component experts on `Hyperledger Rocket Chat <https://chat.hyperledger.org/home>`__.
+the Mchain community and component experts on `Hyperledger Rocket Chat <https://chat.hyperledger.org/home>`__.
 
 .. Licensed under Creative Commons Attribution 4.0 International License
    https://creativecommons.org/licenses/by/4.0/

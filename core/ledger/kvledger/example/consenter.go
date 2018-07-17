@@ -19,7 +19,7 @@ package example
 import (
 	"github.com/golang/protobuf/proto"
 
-	"github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/protos/common"
 )
 
 // Consenter - a toy Consenter

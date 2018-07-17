@@ -11,12 +11,12 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/common/ledger/util"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/common/ledger/util"
 )
 
 func TestConstructCheckpointInfoFromBlockFiles(t *testing.T) {
-	testPath := "/tmp/tests/fabric/common/ledger/blkstorage/fsblkstorage"
+	testPath := "/tmp/tests/mchain/common/ledger/blkstorage/fsblkstorage"
 	ledgerid := "testLedger"
 	conf := NewConf(testPath, 0)
 	blkStoreDir := conf.getLedgerBlockDir(ledgerid)

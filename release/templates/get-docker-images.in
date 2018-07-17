@@ -12,14 +12,14 @@ VERSION=_VERSION_
 BASE_DOCKER_TAG=_BASE_DOCKER_TAG_
 
 # set of Hyperledger Fabric images
-FABRIC_IMAGES=(fabric-peer fabric-orderer fabric-ccenv fabric-tools)
+FABRIC_IMAGES=(mchain-peer mchain-orderer mchain-ccenv mchain-tools)
 
 for image in ${FABRIC_IMAGES[@]}; do
   echo "Pulling ${DOCKER_NS}/$image:${ARCH}-${VERSION}"
   docker pull ${DOCKER_NS}/$image:${ARCH}-${VERSION}
 done
 
-THIRDPARTY_IMAGES=(fabric-kafka fabric-zookeeper fabric-couchdb fabric-baseos)
+THIRDPARTY_IMAGES=(mchain-kafka mchain-zookeeper mchain-couchdb mchain-baseos)
 
 for image in ${THIRDPARTY_IMAGES[@]}; do
   echo "Pulling ${DOCKER_NS}/$image:${BASE_DOCKER_TAG}"

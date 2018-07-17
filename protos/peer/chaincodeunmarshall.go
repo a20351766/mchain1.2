@@ -19,7 +19,7 @@ package peer
 import (
 	"encoding/json"
 
-	"github.com/hyperledger/fabric/common/util"
+	"github.com/hyperledger/mchain/common/util"
 )
 
 type strArgs struct {

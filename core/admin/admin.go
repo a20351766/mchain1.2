@@ -8,9 +8,9 @@ package admin
 
 import (
 	"github.com/golang/protobuf/ptypes/empty"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/protos/common"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/protos/common"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"github.com/pkg/errors"
 	"golang.org/x/net/context"
 )

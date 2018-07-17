@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package util
 
 import (
-	"github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/protos/peer"
 )
 
 // TxValidationFlags is array of transaction validation codes. It is used when committer validates block.

@@ -19,8 +19,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hyperledger/fabric/core/config/configtest"
-	"github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/core/config/configtest"
+	"github.com/hyperledger/mchain/protos/peer"
 	"github.com/spf13/viper"
 )
 
@@ -153,8 +153,8 @@ func TestGenerateDockerfile(t *testing.T) {
 		CodePackage: []byte("dummy CodePackage content")}
 
 	str, _ := platform.GenerateDockerfile(cds)
-	if !strings.Contains(str, "/fabric-baseimage:") {
-		t.Fatalf("should have generated a docker file using the fabric-baseimage, but got %s", str)
+	if !strings.Contains(str, "/mchain-baseimage:") {
+		t.Fatalf("should have generated a docker file using the mchain-baseimage, but got %s", str)
 	}
 
 	if !strings.Contains(str, "ADD binpackage.tar /usr/local/src") {
@@ -170,7 +170,7 @@ func TestGenerateDockerBuild(t *testing.T) {
 
 	content := []byte(`
 		{
-		  "name": "fabric-shim-test",
+		  "name": "mchain-shim-test",
 		  "version": "1.0.0-snapshot",
 	      "script": {
 	        "start": "node chaincode.js"
@@ -188,7 +188,7 @@ func TestGenerateDockerBuild(t *testing.T) {
 	}
 
 	content = []byte(`
-		const shim = require('fabric-shim');
+		const shim = require('mchain-shim');
 
 		var chaincode = {};
 		chaincode.Init = function(stub) {

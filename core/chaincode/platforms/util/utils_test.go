@@ -20,9 +20,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/config/configtest"
-	cutil "github.com/hyperledger/fabric/core/container/util"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/config/configtest"
+	cutil "github.com/hyperledger/mchain/core/container/util"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 )
@@ -353,7 +353,7 @@ func TestDockerPull(t *testing.T) {
 	// Future considerations: publish a known dummy image that is multi-arch and free to randomly
 	// delete, and use that here instead.
 	err := DockerBuild(DockerBuildOptions{
-		Image:        cutil.ParseDockerfileTemplate("hyperledger/fabric-ccenv:$(ARCH)-1.1.0"),
+		Image:        cutil.ParseDockerfileTemplate("hyperledger/mchain-ccenv:$(ARCH)-1.1.0"),
 		Cmd:          "/bin/true",
 		InputStream:  codepackage,
 		OutputStream: binpackage,

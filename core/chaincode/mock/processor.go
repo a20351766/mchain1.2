@@ -4,7 +4,7 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/core/container"
+	"github.com/hyperledger/mchain/core/container"
 	"golang.org/x/net/context"
 )
 

@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hyperledger/fabric/common/ledger/testutil"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
 	"github.com/spf13/viper"
 )
 

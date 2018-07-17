@@ -22,7 +22,7 @@ import (
 	"github.com/tedsuo/ifrit"
 )
 
-const CouchDBDefaultImage = "hyperledger/fabric-couchdb:latest"
+const CouchDBDefaultImage = "hyperledger/mchain-couchdb:latest"
 
 // CouchDB manages the execution of an instance of a dockerized CounchDB
 // for tests.

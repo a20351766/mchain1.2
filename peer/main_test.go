@@ -18,7 +18,7 @@ import (
 )
 
 func TestPluginLoadingFailure(t *testing.T) {
-	peer, err := gexec.Build(filepath.Join("github.com", "hyperledger", "fabric", "peer"))
+	peer, err := gexec.Build(filepath.Join("github.com", "hyperledger", "mchain", "peer"))
 	assert.NoError(t, err)
 	defer os.Remove(peer)
 

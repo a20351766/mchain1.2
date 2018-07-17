@@ -10,11 +10,11 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/cauthdsl"
-	lm "github.com/hyperledger/fabric/common/mocks/ledger"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/common/cauthdsl"
+	lm "github.com/hyperledger/mchain/common/mocks/ledger"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/msp"
+	"github.com/hyperledger/mchain/protos/common"
 	"github.com/stretchr/testify/assert"
 	"github.com/syndtr/goleveldb/leveldb/errors"
 )

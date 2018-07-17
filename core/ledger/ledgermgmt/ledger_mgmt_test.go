@@ -22,14 +22,14 @@ import (
 
 	"os"
 
-	"github.com/hyperledger/fabric/common/configtx/test"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/core/ledger"
+	"github.com/hyperledger/mchain/common/configtx/test"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/core/ledger"
 	"github.com/spf13/viper"
 )
 
 func TestMain(m *testing.M) {
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/ledgertests/ledgermgmt")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/ledgertests/ledgermgmt")
 	os.Exit(m.Run())
 }
 

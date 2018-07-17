@@ -90,7 +90,7 @@ ca:
 #     (also known as an enrollment ID and secret).
 #  2) once authenticated, retrieves the identity's attribute names and
 #     values which the fabric-ca-server optionally puts into TCerts
-#     which it issues for transacting on the Hyperledger Fabric blockchain.
+#     which it issues for transacting on the Hyperledger Mchain blockchain.
 #     These attributes are useful for making access control decisions in
 #     chaincode.
 #  There are two main configuration options:
@@ -191,7 +191,7 @@ csr:
         ST: "North Carolina"
         L:
         O: Hyperledger
-        OU: Fabric
+        OU: Mchain
    hosts:
      - 2008f00aff38
    ca:

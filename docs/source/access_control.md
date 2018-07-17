@@ -2,9 +2,9 @@
 
 ## What is an Access Control List?
 
-Fabric uses access control lists (ACLs) to manage access to resources by associating
+Mchain uses access control lists (ACLs) to manage access to resources by associating
 a **policy** --- which specifies a rule that evaluates to true or false, given a set
-of identities --- with the resource. Fabric contains a number of default ACLs. In this
+of identities --- with the resource. Mchain contains a number of default ACLs. In this
 document, we'll talk about how they're formatted and how the defaults can be overridden.
 
 But before we can do that, it's necessary to understand a little about resources
@@ -12,23 +12,23 @@ and policies.
 
 ### Resources
 
-Users interact with Fabric by targeting a [user chaincode](./chaincode4ade.html),
+Users interact with Mchain by targeting a [user chaincode](./chaincode4ade.html),
 [system chaincode](./chaincode4noah.html), or an [events stream source](./peer_event_services.html).
 As such, these endpoints are considered "resources" on which access control should be
 exercised.
 
 Application developers need to be aware of these resources and the default
 policies associated with them. The complete list of these resources are found in
-`configtx.yaml`. You can look at a [sample `configtx.yaml` file here](http://github.com/hyperledger/fabric/blob/release-1.2/sampleconfig/configtx.yaml).
+`configtx.yaml`. You can look at a [sample `configtx.yaml` file here](http://github.com/hyperledger/mchain/blob/release-1.2/sampleconfig/configtx.yaml).
 
 The resources named in `configtx.yaml` is an exhaustive list of all internal resources
-currently defined by Fabric. The loose convention adopted there is `<component>/<resource>`.
+currently defined by Mchain. The loose convention adopted there is `<component>/<resource>`.
 So `cscc/GetConfigBlock` is the resource for the `GetConfigBlock` call in the `CSCC`
 component.
 
 ### Policies
 
-Policies are fundamental to the way Fabric works because they allow the identity
+Policies are fundamental to the way Mchain works because they allow the identity
 (or set of identities) associated with a request to be checked against the policy
 associated with the resource needed to fulfill the request. Endorsement policies
 are used to determine whether a transaction has been appropriately endorsed. The
@@ -104,7 +104,7 @@ access control in the channel configuration of a particular channel.
 ## How ACLs are formatted in `configtx.yaml`
 
 ACLs are formatted as a key-value pair consisting of a resource function name
-followed by a string. To see what this looks like, reference this [sample configtx.yaml file](https://github.com/hyperledger/fabric/blob/release-1.2/sampleconfig/configtx.yaml).
+followed by a string. To see what this looks like, reference this [sample configtx.yaml file](https://github.com/hyperledger/mchain/blob/release-1.2/sampleconfig/configtx.yaml).
 
 Two excerpts from this sample:
 

@@ -21,9 +21,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/viperutil"
-	"github.com/hyperledger/fabric/core/handlers/library"
-	"github.com/hyperledger/fabric/msp/mgmt/testtools"
+	"github.com/hyperledger/mchain/common/viperutil"
+	"github.com/hyperledger/mchain/core/handlers/library"
+	"github.com/hyperledger/mchain/msp/mgmt/testtools"
 	. "github.com/onsi/gomega"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"

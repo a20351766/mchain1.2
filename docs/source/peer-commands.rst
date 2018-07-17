@@ -106,11 +106,11 @@ Here's some examples using the different available flags on the `peer` command.
     channel     Operate a channel: create|fetch|join|list|update.
     logging     Log levels: getlevel|setlevel|revertlevels.
     node        Operate a peer node: start|status.
-    version     Print fabric peer version.
+    version     Print mchain peer version.
 
   Flags:
         --logging-level string       Default logging level and overrides, see core.yaml for full syntax
-    -v, --version                    Display the build version for this fabric peer
+    -v, --version                    Display the build version for this mchain peer
 
   Use "peer [command] --help" for more information about a command.
 
@@ -128,7 +128,7 @@ Here's some examples using the different available flags on the `peer` command.
    Chaincode:
     Base Image Version: 0.3.2
     Base Docker Namespace: hyperledger
-    Base Docker Label: org.hyperledger.fabric
+    Base Docker Label: org.hyperledger.mchain
     Docker Namespace: hyperledger
 
 The ``peer channel`` Command

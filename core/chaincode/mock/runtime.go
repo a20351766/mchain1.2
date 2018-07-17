@@ -4,8 +4,8 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"golang.org/x/net/context"
 )
 

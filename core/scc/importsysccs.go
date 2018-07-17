@@ -8,11 +8,11 @@ package scc
 
 import (
 	//import system chaincodes here
-	"github.com/hyperledger/fabric/core/aclmgmt"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/scc/cscc"
-	"github.com/hyperledger/fabric/core/scc/lscc"
-	"github.com/hyperledger/fabric/core/scc/qscc"
+	"github.com/hyperledger/mchain/core/aclmgmt"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/core/scc/cscc"
+	"github.com/hyperledger/mchain/core/scc/lscc"
+	"github.com/hyperledger/mchain/core/scc/qscc"
 )
 
 func builtInSystemChaincodes(ccp ccprovider.ChaincodeProvider, p *Provider, aclProvider aclmgmt.ACLProvider) []*SystemChaincode {
@@ -20,7 +20,7 @@ func builtInSystemChaincodes(ccp ccprovider.ChaincodeProvider, p *Provider, aclP
 		{
 			Enabled:           true,
 			Name:              "cscc",
-			Path:              "github.com/hyperledger/fabric/core/scc/cscc",
+			Path:              "github.com/hyperledger/mchain/core/scc/cscc",
 			InitArgs:          nil,
 			Chaincode:         cscc.New(ccp, p, aclProvider),
 			InvokableExternal: true, // cscc is invoked to join a channel
@@ -28,7 +28,7 @@ func builtInSystemChaincodes(ccp ccprovider.ChaincodeProvider, p *Provider, aclP
 		{
 			Enabled:           true,
 			Name:              "lscc",
-			Path:              "github.com/hyperledger/fabric/core/scc/lscc",
+			Path:              "github.com/hyperledger/mchain/core/scc/lscc",
 			InitArgs:          nil,
 			Chaincode:         lscc.New(p, aclProvider),
 			InvokableExternal: true, // lscc is invoked to deploy new chaincodes
@@ -37,7 +37,7 @@ func builtInSystemChaincodes(ccp ccprovider.ChaincodeProvider, p *Provider, aclP
 		{
 			Enabled:           true,
 			Name:              "qscc",
-			Path:              "github.com/hyperledger/fabric/core/scc/qscc",
+			Path:              "github.com/hyperledger/mchain/core/scc/qscc",
 			InitArgs:          nil,
 			Chaincode:         qscc.New(aclProvider),
 			InvokableExternal: true, // qscc can be invoked to retrieve blocks
@@ -46,7 +46,7 @@ func builtInSystemChaincodes(ccp ccprovider.ChaincodeProvider, p *Provider, aclP
 	}
 }
 
-//DeploySysCCs is the hook for system chaincodes where system chaincodes are registered with the fabric
+//DeploySysCCs is the hook for system chaincodes where system chaincodes are registered with the mchain
 //note the chaincode must still be deployed and launched like a user chaincode will be
 func (p *Provider) DeploySysCCs(chainID string, ccp ccprovider.ChaincodeProvider) {
 	for _, sysCC := range p.SysCCs {

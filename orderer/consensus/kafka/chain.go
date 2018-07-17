@@ -13,12 +13,12 @@ import (
 
 	"github.com/Shopify/sarama"
 	"github.com/golang/protobuf/proto"
-	localconfig "github.com/hyperledger/fabric/orderer/common/localconfig"
-	"github.com/hyperledger/fabric/orderer/common/msgprocessor"
-	"github.com/hyperledger/fabric/orderer/consensus"
-	cb "github.com/hyperledger/fabric/protos/common"
-	ab "github.com/hyperledger/fabric/protos/orderer"
-	"github.com/hyperledger/fabric/protos/utils"
+	localconfig "github.com/hyperledger/mchain/orderer/common/localconfig"
+	"github.com/hyperledger/mchain/orderer/common/msgprocessor"
+	"github.com/hyperledger/mchain/orderer/consensus"
+	cb "github.com/hyperledger/mchain/protos/common"
+	ab "github.com/hyperledger/mchain/protos/orderer"
+	"github.com/hyperledger/mchain/protos/utils"
 )
 
 // Used for capturing metrics -- see processMessagesToBlocks

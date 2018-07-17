@@ -79,7 +79,7 @@ type FabricMSPConfig struct {
 	// MSP defined before
 	SigningIdentity *SigningIdentityInfo `protobuf:"bytes,6,opt,name=signing_identity,json=signingIdentity" json:"signing_identity,omitempty"`
 	// OrganizationalUnitIdentifiers holds one or more
-	// fabric organizational unit identifiers that belong to
+	// mchain organizational unit identifiers that belong to
 	// this MSP configuration
 	OrganizationalUnitIdentifiers []*FabricOUIdentifier `protobuf:"bytes,7,rep,name=organizational_unit_identifiers,json=organizationalUnitIdentifiers" json:"organizational_unit_identifiers,omitempty"`
 	// FabricCryptoConfig contains the configuration parameters
@@ -91,9 +91,9 @@ type FabricMSPConfig struct {
 	// List of TLS intermediate certificates trusted by this MSP;
 	// They are returned by GetTLSIntermediateCerts.
 	TlsIntermediateCerts [][]byte `protobuf:"bytes,10,rep,name=tls_intermediate_certs,json=tlsIntermediateCerts,proto3" json:"tls_intermediate_certs,omitempty"`
-	// fabric_node_ous contains the configuration to distinguish clients from peers from orderers
+	// mchain_node_ous contains the configuration to distinguish clients from peers from orderers
 	// based on the OUs.
-	FabricNodeOus *FabricNodeOUs `protobuf:"bytes,11,opt,name=fabric_node_ous,json=fabricNodeOus" json:"fabric_node_ous,omitempty"`
+	FabricNodeOus *FabricNodeOUs `protobuf:"bytes,11,opt,name=mchain_node_ous,json=mchainNodeOus" json:"mchain_node_ous,omitempty"`
 }
 
 func (m *FabricMSPConfig) Reset()                    { *m = FabricMSPConfig{} }

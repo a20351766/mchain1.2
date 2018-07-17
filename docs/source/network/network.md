@@ -1,12 +1,12 @@
-# Hyperledger Fabric Network
+# Hyperledger Mchain Network
 
-## What is a Fabric Network?
-A Fabric permissioned blockchain network is a technical infrastructure that provides ledger services to application consumers and administrators. In most
+## What is a Mchain Network?
+A Mchain permissioned blockchain network is a technical infrastructure that provides ledger services to application consumers and administrators. In most
 cases, multiple [organizations](../glossary.html#organization) come together as a [consortium](../glossary.html#consortium) to form the network and their permissions are determined by a set of [policies](../glossary.html#policy) that are agreed to by the
 the consortium when the network is originally configured. Moreover, network policies
 can change over time subject to the agreement of the organizations in the consortium.
 
-This document will take you through the decisions that organizations will need to make to configure and deploy a Hyperledger Fabric network, form channels to transact within the network, and how to update those decisions within the life of the network. You will also learn how those decisions are embedded in the architecture and components of Hyperledger Fabric.
+This document will take you through the decisions that organizations will need to make to configure and deploy a Hyperledger Mchain network, form channels to transact within the network, and how to update those decisions within the life of the network. You will also learn how those decisions are embedded in the architecture and components of Hyperledger Mchain.
 
 ## Who should read this?
 
@@ -14,7 +14,7 @@ In this topic, we'll focus on the major components of the network, why they exis
 
 ## The business requirements for the blockchain network -- Example
 
-The organizations RA, RB, RC and RD have decided to jointly invest in a Fabric blockchain network. Organization RA will contribute 3 peers, and 2 client applications of RA will consume the services of the blockchain network. Organization RB will contribute 4 peers and has 1 client application. Organization RC contributes 3 peers and has 2 client applications. Organization RD contributes 4 orderers.
+The organizations RA, RB, RC and RD have decided to jointly invest in a Mchain blockchain network. Organization RA will contribute 3 peers, and 2 client applications of RA will consume the services of the blockchain network. Organization RB will contribute 4 peers and has 1 client application. Organization RC contributes 3 peers and has 2 client applications. Organization RD contributes 4 orderers.
 Organization RA and RB have decided to form a consortium and exploit a separate application channel between the two of them. Organization RB and RC have decided to form another consortium and also exploit a separate application channel between the two of them. Each application channel has its own policy.
 
 ## Components of a Network
@@ -26,7 +26,7 @@ A network consists of:
 * [Peer](../glossary.html#peer) nodes
 * [Ordering service(s)](../glossary.html#ordering-service)
 * [Channel(s)](../glossary.html#channel)
-* [Fabric Certificate Authorities](../glossary.html#hyperledger-fabric-ca)
+* [Mchain Certificate Authorities](../glossary.html#hyperledger-mchain-ca)
 
 ### Consumers of Network Services
 
@@ -36,10 +36,10 @@ A network consists of:
 
 ### Network Policies and Identities
 
-The Fabric Certificate Authority (CA) issues the certificates for organizations to authenticate to the network.  There can be one or more CAs on the network and organizations can choose to use their own CA.  Additionally, client applications owned by organizations in the consortium use certificates to authenticate [transaction](../glossary.html#transaction) [proposals](../glossary.html#proposal), and peers use them to endorse proposals and commit transactions to the ledger if they are valid.
+The Mchain Certificate Authority (CA) issues the certificates for organizations to authenticate to the network.  There can be one or more CAs on the network and organizations can choose to use their own CA.  Additionally, client applications owned by organizations in the consortium use certificates to authenticate [transaction](../glossary.html#transaction) [proposals](../glossary.html#proposal), and peers use them to endorse proposals and commit transactions to the ledger if they are valid.
 
 *The explanation of the diagram is as follows:
-There is a Fabric network N with network policy NP1 and ordering service O. Channel C1 is governed by channel policy CP1.  Channel C1 has been established by consortium RARB. Channel C1 is managed by ordering service O and peers P1 and P2 and client applications A1 and A2 have been granted permission to transact on C1. Client application A1 is owned by organization RA. Certificate authority CA1 serves organization RA. Peer P2 maintains ledger L1 associated with channel C1 and L2 associated with C2. Peer P2 makes use of chain code S4 and S5. The orderer nodes of ordering service O are owned by organization RD.*
+There is a Mchain network N with network policy NP1 and ordering service O. Channel C1 is governed by channel policy CP1.  Channel C1 has been established by consortium RARB. Channel C1 is managed by ordering service O and peers P1 and P2 and client applications A1 and A2 have been granted permission to transact on C1. Client application A1 is owned by organization RA. Certificate authority CA1 serves organization RA. Peer P2 maintains ledger L1 associated with channel C1 and L2 associated with C2. Peer P2 makes use of chain code S4 and S5. The orderer nodes of ordering service O are owned by organization RD.*
 
 
 ![network.structure](./network.diagram.1_1.png)

@@ -6,7 +6,7 @@ What is Identity Mixer?
 
 In some use cases it will be important to have cryptographic protocols that
 protect the privacy of users when signing, authenticating, and during the transfer
-of certified attributes. In Fabric this is achieved through Identity Mixer, which
+of certified attributes. In Mchain this is achieved through Identity Mixer, which
 has a trust model and security guarantees similar to what is ensured by standard X.509
 certificates but with underlying cryptographic algorithms that efficiently provide
 advanced privacy features such as "unlinkability" and minimal attribute disclosure.
@@ -165,7 +165,7 @@ certain transactions under particular circumstances.
 Cryptographic protocols underlying the Identity Mixer system
 ------------------------------------------------------------
 
-The Fabric Identity Mixer technology is built from a blind signature scheme that
+The Mchain Identity Mixer technology is built from a blind signature scheme that
 support multiple messages and efficient zero-knowledge proofs of possession of a
 signature. All cryptographic building blocks were published at the top conferences
 and journals and verified by the scientific community.
@@ -181,7 +181,7 @@ details and security proofs.
 Identity Mixer code for Hyperledger
 -----------------------------------
 
-Identity Mixer contribution to the Hyperledger Fabric will consist of the
+Identity Mixer contribution to the Hyperledger Mchain will consist of the
 following packages:
 
 * a core Identity Mixer crypto package that implements creating issuer keys,
@@ -210,9 +210,9 @@ Identity Mixer consists of the following packages:
   Identity Mixer crypto package
 * a tool for generating issuer and user keys and issuing credentials with
   attributes using the Identity Mixer crypto package
-* integration with ``fabric-sdk-java`` to enable signing transactions from the client
+* integration with ``mchain-sdk-java`` to enable signing transactions from the client
   side
-* integrating with the Fabric CA
+* integrating with the Mchain CA
 
 The Identity Mixer crypto library provides the following functionality:
 
@@ -225,8 +225,8 @@ The Identity Mixer crypto library provides the following functionality:
 Dependencies
 ~~~~~~~~~~~~
 
-Identity Mixer implementation in GO for the Hyperledger Fabric requires
-only one additional dependency --- a `fork <https://github.com/hyperledger/fabric-amcl>`__
+Identity Mixer implementation in GO for the Hyperledger Mchain requires
+only one additional dependency --- a `fork <https://github.com/hyperledger/mchain-amcl>`__
 from the `Miracl crypto library <https://github.com/milagro-crypto/amcl/tree/master/version3/go>`__.
 
 

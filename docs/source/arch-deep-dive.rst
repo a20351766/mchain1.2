@@ -1,7 +1,7 @@
 Architecture Explained
 ======================
 
-The Hyperledger Fabric architecture delivers the following advantages:
+The Hyperledger Mchain architecture delivers the following advantages:
 
 -  **Chaincode trust flexibility.** The architecture separates *trust
    assumptions* for chaincodes (blockchain applications) from trust
@@ -26,7 +26,7 @@ The Hyperledger Fabric architecture delivers the following advantages:
 -  **Consensus modularity.** The architecture is *modular* and allows
    pluggable consensus (i.e., ordering service) implementations.
 
-**Part I: Elements of the architecture relevant to Hyperledger Fabric
+**Part I: Elements of the architecture relevant to Hyperledger Mchain
 v1**
 
 1. System architecture
@@ -211,7 +211,7 @@ policy is specified as an endorsement policy of the system chaincode.
 1.3.3. Ordering service nodes (Orderers)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The *orderers* form the *ordering service*, i.e., a communication fabric
+The *orderers* form the *ordering service*, i.e., a communication mchain
 that provides delivery guarantees. The ordering service can be
 implemented in different ways: ranging from a centralized service (used
 e.g., in development and testing) to distributed protocols that target
@@ -237,7 +237,7 @@ given channel and can then send messages and obtain the messages that
 arrive. Channels can be thought of as partitions - clients connecting to
 one channel are unaware of the existence of other channels, but clients
 may connect to multiple channels. Even though some ordering service
-implementations included with Hyperledger Fabric support multiple
+implementations included with Hyperledger Mchain support multiple
 channels, for simplicity of presentation, in the rest of this
 document, we assume ordering service consists of a single channel/topic.
 
@@ -542,7 +542,7 @@ not have capability of invoking ordering service directly, it may proxy
 its broadcast through some peer of its choice. Such a peer must be
 trusted by the client not to remove any message from the ``endorsement``
 or otherwise the transaction may be deemed invalid. Notice that,
-however, a proxy peer may not fabricate a valid ``endorsement``.
+however, a proxy peer may not mchainate a valid ``endorsement``.
 
 2.4. The ordering service delivers a transactions to the peers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

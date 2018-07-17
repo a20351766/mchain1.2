@@ -3,9 +3,9 @@ Testing
 
 Unit test
 ~~~~~~~~~
-See :doc:`building Hyperledger Fabric <dev-setup/build>` for unit testing instructions.
+See :doc:`building Hyperledger Mchain <dev-setup/build>` for unit testing instructions.
 
-See `Unit test coverage reports <https://jenkins.hyperledger.org/view/fabric/job/fabric-merge-x86_64/>`__
+See `Unit test coverage reports <https://jenkins.hyperledger.org/view/mchain/job/mchain-merge-x86_64/>`__
 
 To see coverage for a package and all sub-packages, execute the test with the ``-cover`` switch:
 

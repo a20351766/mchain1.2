@@ -4,7 +4,7 @@ Peer channel-based event services
 General overview
 ----------------
 
-In previous versions of Fabric, the peer event service was known as the event
+In previous versions of Mchain, the peer event service was known as the event
 hub. This service sent events any time a new block was added to the peer's
 ledger, regardless of the channel to which that block pertained, and it was only
 accessible to members of the organization running the eventing peer (i.e., the
@@ -87,7 +87,7 @@ A filtered block contains:
 SDK event documentation
 -----------------------
 
-For further details on using the event services, refer to the `SDK documentation. <https://fabric-sdk-node.github.io/tutorial-channel-events.html>`_
+For further details on using the event services, refer to the `SDK documentation. <https://mchain-sdk-node.github.io/tutorial-channel-events.html>`_
 
 .. Licensed under Creative Commons Attribution 4.0 International License
     https://creativecommons.org/licenses/by/4.0/

@@ -29,12 +29,12 @@ Install prerequisites
 Before we begin, if you haven't already done so, you may wish to check that
 you have all the :doc:`prerequisites <prereqs>` installed on the platform(s)
 on which you'll be developing blockchain applications and/or operating
-Hyperledger Fabric.
+Hyperledger Mchain.
 
 Getting a Linux Foundation account
 ----------------------------------
 
-In order to participate in the development of the Hyperledger Fabric
+In order to participate in the development of the Hyperledger Mchain
 project, you will need a :doc:`Linux Foundation
 account <Gerrit/lf-account>`. You will need to use your LF ID to
 access to all the Hyperledger community development tools, including
@@ -49,7 +49,7 @@ If you are looking for something to work on, or need some expert
 assistance in debugging a problem or working out a fix to an issue, our
 `community <https://www.hyperledger.org/community>`__ is always eager to
 help. We hang out on
-`Chat <https://chat.hyperledger.org/channel/fabric/>`__, IRC
+`Chat <https://chat.hyperledger.org/channel/mchain/>`__, IRC
 (#hyperledger on freenode.net) and the `mailing
 lists <https://lists.hyperledger.org/>`__. Most of us don't bite :grin:
 and will be glad to help. The only silly question is the one you don't
@@ -73,9 +73,9 @@ If it has not been previously reported, create a new JIRA. Please try to provide
 sufficient information for someone else to reproduce the
 issue. One of the project's maintainers should respond to your issue within 24
 hours. If not, please bump the issue with a comment and request that it be
-reviewed. You can also post to the relevant Hyperledger Fabric channel in
+reviewed. You can also post to the relevant Hyperledger Mchain channel in
 `Hyperledger Rocket Chat <https://chat.hyperledger.org>`__.  For example, a doc bug should
-be broadcast to ``#fabric-documentation``, a database bug to ``#fabric-ledger``,
+be broadcast to ``#mchain-documentation``, a database bug to ``#mchain-ledger``,
 and so on...
 
 Submitting your fix
@@ -105,7 +105,7 @@ little more time.
 Reviewing submitted Change Requests (CRs)
 -----------------------------------------
 
-Another way to contribute and learn about Hyperledger Fabric is to help the
+Another way to contribute and learn about Hyperledger Mchain is to help the
 maintainers with the review of the CRs that are open. Indeed
 maintainers have the difficult role of having to review all the CRs
 that are being submitted and evaluate whether they should be merged or
@@ -136,14 +136,14 @@ case(s) for which the feature is needed and a case for what the benefit would be
 should the feature be implemented. Once the JIRA issue is created, and the
 "one pager" either attached, inlined in the description field, or a link to a
 publicly accessible document is added to the description, send an introductory
-email to the hyperledger-fabric@lists.hyperledger.org mailing list linking the
+email to the hyperledger-mchain@lists.hyperledger.org mailing list linking the
 JIRA issue, and soliciting feedback.
 
 Discussion of the proposed feature should be conducted in the JIRA issue itself,
 so that we have a consistent pattern within our community as to where to find
 design discussion.
 
-Getting the support of three or more of the Hyperledger Fabric maintainers for the new
+Getting the support of three or more of the Hyperledger Mchain maintainers for the new
 feature will greatly enhance the probability that the feature's related CRs
 will be merged.
 
@@ -243,7 +243,7 @@ and Google Hangouts™ for screen sharing between developers. Our
 development planning and prioritization is done in
 `JIRA <https://jira.hyperledger.org>`__, and we take longer running
 discussions/decisions to the `mailing
-list <https://lists.hyperledger.org/mailman/listinfo/hyperledger-fabric>`__.
+list <https://lists.hyperledger.org/mailman/listinfo/hyperledger-mchain>`__.
 
 Maintainers
 -----------
@@ -279,12 +279,12 @@ Legal stuff
 
 **Note:** Each source file must include a license header for the Apache
 Software License 2.0. See the template of the `license header
-<https://github.com/hyperledger/fabric/blob/master/docs/source/dev-setup/headers.txt>`__.
+<https://github.com/hyperledger/mchain/blob/master/docs/source/dev-setup/headers.txt>`__.
 
 We have tried to make it as easy as possible to make contributions. This
 applies to how we handle the legal aspects of contribution. We use the
 same approach—the `Developer's Certificate of Origin 1.1
-(DCO) <https://github.com/hyperledger/fabric/blob/master/docs/source/DCO1.1.txt>`__—that the Linux® Kernel
+(DCO) <https://github.com/hyperledger/mchain/blob/master/docs/source/DCO1.1.txt>`__—that the Linux® Kernel
 `community <https://elinux.org/Developer_Certificate_Of_Origin>`__ uses
 to manage code contributions.
 

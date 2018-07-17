@@ -18,21 +18,21 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/cauthdsl"
-	"github.com/hyperledger/fabric/common/chaincode"
-	"github.com/hyperledger/fabric/common/policies"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/comm"
-	fabricdisc "github.com/hyperledger/fabric/discovery"
-	"github.com/hyperledger/fabric/discovery/endorsement"
-	"github.com/hyperledger/fabric/gossip/api"
-	gossipcommon "github.com/hyperledger/fabric/gossip/common"
-	discovery3 "github.com/hyperledger/fabric/gossip/discovery"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/discovery"
-	"github.com/hyperledger/fabric/protos/gossip"
-	"github.com/hyperledger/fabric/protos/msp"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/common/cauthdsl"
+	"github.com/hyperledger/mchain/common/chaincode"
+	"github.com/hyperledger/mchain/common/policies"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/comm"
+	mchaindisc "github.com/hyperledger/mchain/discovery"
+	"github.com/hyperledger/mchain/discovery/endorsement"
+	"github.com/hyperledger/mchain/gossip/api"
+	gossipcommon "github.com/hyperledger/mchain/gossip/common"
+	discovery3 "github.com/hyperledger/mchain/gossip/discovery"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/discovery"
+	"github.com/hyperledger/mchain/protos/gossip"
+	"github.com/hyperledger/mchain/protos/msp"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
@@ -266,7 +266,7 @@ func createConnector(t *testing.T, certificate tls.Certificate, targetPort int) 
 }
 
 func createDiscoveryService(sup *mockSupport) discovery.DiscoveryServer {
-	conf := fabricdisc.Config{TLS: true}
+	conf := mchaindisc.Config{TLS: true}
 	mdf := &ccMetadataFetcher{}
 	pe := &principalEvaluator{}
 	pf := &policyFetcher{}
@@ -303,7 +303,7 @@ func createDiscoveryService(sup *mockSupport) discovery.DiscoveryServer {
 	sup.On("Peers").Return(membershipPeers)
 	sup.endorsementAnalyzer = endorsement.NewEndorsementAnalyzer(sup, pf, pe, mdf)
 	sup.On("IdentityInfo").Return(peerIdentities)
-	return fabricdisc.NewService(conf, sup)
+	return mchaindisc.NewService(conf, sup)
 }
 
 func TestClient(t *testing.T) {

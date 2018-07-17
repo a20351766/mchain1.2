@@ -6,7 +6,7 @@ package peer
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import common3 "github.com/hyperledger/fabric/protos/common"
+import common3 "github.com/hyperledger/mchain/protos/common"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -41,7 +41,7 @@ func (m *ChaincodeIdentifier) GetVersion() string {
 }
 
 // ChaincodeValidation instructs the peer how transactions for this chaincode should be
-// validated.  The only validation mechanism which ships with fabric today is the standard
+// validated.  The only validation mechanism which ships with mchain today is the standard
 // 'vscc' validation mechanism.  This built in validation method utilizes an endorsement policy
 // which checks that a sufficient number of signatures have been included.  The 'arguement'
 // field encodes any parameters required by the validation implementation.
@@ -88,7 +88,7 @@ func (m *VSCCArgs) GetEndorsementPolicyRef() string {
 }
 
 // ChaincodeEndorsement instructs the peer how transactions should be endorsed.  The only
-// endorsement mechanism which ships with the fabric today is the standard 'escc' mechanism.
+// endorsement mechanism which ships with the mchain today is the standard 'escc' mechanism.
 // This code simply simulates the proposal to generate a RW set, then signs the result
 // using the peer's local signing identity.
 type ChaincodeEndorsement struct {

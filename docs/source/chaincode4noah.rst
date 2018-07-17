@@ -26,13 +26,13 @@ operational lifecycle within a blockchain network.
 Chaincode lifecycle
 --------------------
 
-The Hyperledger Fabric API enables interaction with the various nodes
+The Hyperledger Mchain API enables interaction with the various nodes
 in a blockchain network - the peers, orderers and MSPs - and it also allows
 one to package, install, instantiate and upgrade chaincode on the endorsing
-peer nodes. The Hyperledger Fabric language-specific SDKs
-abstract the specifics of the Hyperledger Fabric API to facilitate
+peer nodes. The Hyperledger Mchain language-specific SDKs
+abstract the specifics of the Hyperledger Mchain API to facilitate
 application development, though it can be used to manage a chaincode's
-lifecycle. Additionally, the Hyperledger Fabric API can be accessed
+lifecycle. Additionally, the Hyperledger Mchain API can be accessed
 directly via the CLI, which we will use in this document.
 
 We provide four commands to manage a chaincode's lifecycle: ``package``,
@@ -88,7 +88,7 @@ To create a signed chaincode package, use the following command:
 
 .. code:: bash
 
-    peer chaincode package -n mycc -p github.com/hyperledger/fabric/examples/chaincode/go/example02/cmd -v 0 -s -S -i "AND('OrgA.admin')" ccpack.out
+    peer chaincode package -n mycc -p github.com/hyperledger/mchain/examples/chaincode/go/example02/cmd -v 0 -s -S -i "AND('OrgA.admin')" ccpack.out
 
 The ``-s`` option creates a package that can be signed by multiple owners as
 opposed to simply creating a raw CDS. When ``-s`` is specified, the ``-S``
@@ -120,15 +120,15 @@ owners for inspection and signing. The workflow supports out-of-band signing
 of chaincode package.
 
 The
-`ChaincodeDeploymentSpec <https://github.com/hyperledger/fabric/blob/master/protos/peer/chaincode.proto#L78>`_
+`ChaincodeDeploymentSpec <https://github.com/hyperledger/mchain/blob/master/protos/peer/chaincode.proto#L78>`_
 may be optionally be signed by the collective owners to create a
-`SignedChaincodeDeploymentSpec <https://github.com/hyperledger/fabric/blob/master/protos/peer/signed_cc_dep_spec.proto#L26>`_
+`SignedChaincodeDeploymentSpec <https://github.com/hyperledger/mchain/blob/master/protos/peer/signed_cc_dep_spec.proto#L26>`_
 (or SignedCDS). The SignedCDS contains 3 elements:
 
   1. The CDS contains the source code, the name, and version of the chaincode.
   2. An instantiation policy of the chaincode, expressed as endorsement policies.
   3. The list of chaincode owners, defined by means of
-     `Endorsement <https://github.com/hyperledger/fabric/blob/master/protos/peer/proposal_response.proto#L111>`_.
+     `Endorsement <https://github.com/hyperledger/mchain/blob/master/protos/peer/proposal_response.proto#L111>`_.
 
 .. note:: Note that this endorsement policy is determined out-of-band to
           provide proper MSP principals when the chaincode is instantiated
@@ -173,7 +173,7 @@ it will default the instantiation policy and include an empty owner list.
           they can still validate and commit the transactions to the ledger.
 
 To install a chaincode, send a `SignedProposal
-<https://github.com/hyperledger/fabric/blob/master/protos/peer/proposal.proto#L104>`_
+<https://github.com/hyperledger/mchain/blob/master/protos/peer/proposal.proto#L104>`_
 to the ``lifecycle system chaincode`` (LSCC) described in the `System Chaincode`_
 section. For example, to install the **sacc** sample chaincode described
 in section :ref:`simple asset chaincode`
@@ -239,7 +239,7 @@ the state with ``john`` and ``0``, the command would look like the following:
 
 After being successfully instantiated, the chaincode enters the active state on
 the channel and is ready to process any transaction proposals of type
-`ENDORSER_TRANSACTION <https://github.com/hyperledger/fabric/blob/master/protos/common/common.proto#L42>`_.
+`ENDORSER_TRANSACTION <https://github.com/hyperledger/mchain/blob/master/protos/common/common.proto#L42>`_.
 The transactions are processed concurrently as they arrive at the endorsing
 peer.
 
@@ -303,15 +303,15 @@ CLI
 ^^^
 
 .. note:: We are assessing the need to distribute platform-specific binaries
-          for the Hyperledger Fabric ``peer`` binary. For the time being, you
+          for the Hyperledger Mchain ``peer`` binary. For the time being, you
           can simply invoke the commands from within a running docker container.
 
 To view the currently available CLI commands, execute the following command from
-within a running ``fabric-peer`` Docker container:
+within a running ``mchain-peer`` Docker container:
 
 .. code:: bash
 
-    docker run -it hyperledger/fabric-peer bash
+    docker run -it hyperledger/mchain-peer bash
     # peer chaincode --help
 
 Which shows output similar to the example below:
@@ -373,27 +373,27 @@ The purpose of system chaincode is to shortcut gRPC communication cost between
 peer and chaincode, and tradeoff the flexibility in management. For example, a
 system chaincode can only be upgraded with the peer binary. It must also
 register with a `fixed set of parameters
-<https://github.com/hyperledger/fabric/blob/master/core/scc/importsysccs.go>`_
+<https://github.com/hyperledger/mchain/blob/master/core/scc/importsysccs.go>`_
 compiled in and doesn't have endorsement policies or endorsement policy
 functionality.
 
-System chaincode is used in Hyperledger Fabric to implement a number of
+System chaincode is used in Hyperledger Mchain to implement a number of
 system behaviors so that they can be replaced or modified as appropriate
 by a system integrator.
 
 The current list of system chaincodes:
 
-1. `LSCC <https://github.com/hyperledger/fabric/tree/master/core/scc/lscc>`_
+1. `LSCC <https://github.com/hyperledger/mchain/tree/master/core/scc/lscc>`_
    Lifecycle system chaincode handles lifecycle requests described above.
-2. `CSCC <https://github.com/hyperledger/fabric/tree/master/core/scc/cscc>`_
+2. `CSCC <https://github.com/hyperledger/mchain/tree/master/core/scc/cscc>`_
    Configuration system chaincode handles channel configuration on the peer side.
-3. `QSCC <https://github.com/hyperledger/fabric/tree/master/core/scc/qscc>`_
+3. `QSCC <https://github.com/hyperledger/mchain/tree/master/core/scc/qscc>`_
    Query system chaincode provides ledger query APIs such as getting blocks and
    transactions.
-4. `ESCC <https://github.com/hyperledger/fabric/tree/master/core/scc/escc>`_
+4. `ESCC <https://github.com/hyperledger/mchain/tree/master/core/scc/escc>`_
    Endorsement system chaincode handles endorsement by signing the transaction
    proposal response.
-5. `VSCC <https://github.com/hyperledger/fabric/tree/master/core/scc/vscc>`_
+5. `VSCC <https://github.com/hyperledger/mchain/tree/master/core/scc/vscc>`_
    Validation system chaincode handles the transaction validation, including
    checking endorsement policy and multiversioning concurrency control.
 

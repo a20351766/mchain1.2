@@ -7,13 +7,13 @@ SPDX-License-Identifier: Apache-2.0
 package capabilities
 
 import (
-	cb "github.com/hyperledger/fabric/protos/common"
+	cb "github.com/hyperledger/mchain/protos/common"
 )
 
 const (
 	ordererTypeName = "Orderer"
 
-	// OrdererV1_1 is the capabilties string for standard new non-backwards compatible fabric v1.1 orderer capabilities.
+	// OrdererV1_1 is the capabilties string for standard new non-backwards compatible mchain v1.1 orderer capabilities.
 	OrdererV1_1 = "V1_1"
 )
 

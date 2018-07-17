@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"testing"
 
-	cb "github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/utils"
+	cb "github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/utils"
 
 	"github.com/stretchr/testify/assert"
 )

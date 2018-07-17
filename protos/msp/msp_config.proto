@@ -6,8 +6,8 @@ SPDX-License-Identifier: Apache-2.0
 
 syntax = "proto3";
 
-option go_package = "github.com/hyperledger/fabric/protos/msp";
-option java_package = "org.hyperledger.fabric.protos.msp";
+option go_package = "github.com/hyperledger/mchain/protos/msp";
+option java_package = "org.hyperledger.mchain.protos.msp";
 option java_outer_classname = "MspConfigPackage";
 
 package msp;
@@ -67,7 +67,7 @@ message FabricMSPConfig {
     SigningIdentityInfo signing_identity = 6;
 
     // OrganizationalUnitIdentifiers holds one or more
-    // fabric organizational unit identifiers that belong to
+    // mchain organizational unit identifiers that belong to
     // this MSP configuration
     repeated FabricOUIdentifier organizational_unit_identifiers = 7;
 
@@ -83,9 +83,9 @@ message FabricMSPConfig {
     // They are returned by GetTLSIntermediateCerts.
     repeated bytes tls_intermediate_certs = 10;
 
-    // fabric_node_ous contains the configuration to distinguish clients from peers from orderers
+    // mchain_node_ous contains the configuration to distinguish clients from peers from orderers
     // based on the OUs.
-    FabricNodeOUs fabric_node_ous = 11;
+    FabricNodeOUs mchain_node_ous = 11;
 }
 
 // FabricCryptoConfig contains configuration parameters

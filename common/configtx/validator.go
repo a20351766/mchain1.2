@@ -9,9 +9,9 @@ package configtx
 import (
 	"regexp"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/policies"
-	cb "github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/common/policies"
+	cb "github.com/hyperledger/mchain/protos/common"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/pkg/errors"

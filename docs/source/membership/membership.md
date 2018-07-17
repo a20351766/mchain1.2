@@ -333,7 +333,7 @@ Let's describe these folders in a little more detail and see why they are import
   For more information about TLS, click [here](../enable_tls.html).
 
 If you've read this doc as well as our doc on [Identity](../identity/identity.html)), you
-should have a pretty good grasp of how identities and membership work in Hyperledger Fabric.
+should have a pretty good grasp of how identities and membership work in Hyperledger Mchain.
 You've seen how a PKI and MSPs are used to identify the actors collaborating in a blockchain
 network. You've learned how certificates, public/private keys, and roots of trust work,
 in addition to how MSPs are physically and logically structured.

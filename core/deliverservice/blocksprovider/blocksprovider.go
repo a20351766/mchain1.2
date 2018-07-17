@@ -12,14 +12,14 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/gossip/api"
-	gossipcommon "github.com/hyperledger/fabric/gossip/common"
-	"github.com/hyperledger/fabric/gossip/discovery"
-	"github.com/hyperledger/fabric/gossip/util"
-	"github.com/hyperledger/fabric/protos/common"
-	gossip_proto "github.com/hyperledger/fabric/protos/gossip"
-	"github.com/hyperledger/fabric/protos/orderer"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/gossip/api"
+	gossipcommon "github.com/hyperledger/mchain/gossip/common"
+	"github.com/hyperledger/mchain/gossip/discovery"
+	"github.com/hyperledger/mchain/gossip/util"
+	"github.com/hyperledger/mchain/protos/common"
+	gossip_proto "github.com/hyperledger/mchain/protos/gossip"
+	"github.com/hyperledger/mchain/protos/orderer"
 	"github.com/op/go-logging"
 )
 

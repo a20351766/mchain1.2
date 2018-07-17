@@ -55,7 +55,7 @@ example
 
 The default logging level for each individual ``peer`` subcommand can
 also be set in the
-`core.yaml <https://github.com/hyperledger/fabric/blob/master/sampleconfig/core.yaml>`__
+`core.yaml <https://github.com/hyperledger/mchain/blob/master/sampleconfig/core.yaml>`__
 file. For example the key ``logging.node`` sets the default level for
 the ``node`` subcommand. Comments in the file also explain how the
 logging level can be overridden in various ways by using environment
@@ -83,7 +83,7 @@ overrides for individual or groups of modules can be specified using the
 
 syntax. Examples of specifications (valid for all of
 ``--logging-level``, environment variable and
-`core.yaml <https://github.com/hyperledger/fabric/blob/master/sampleconfig/core.yaml>`__
+`core.yaml <https://github.com/hyperledger/mchain/blob/master/sampleconfig/core.yaml>`__
 settings):
 
 ::
@@ -179,7 +179,7 @@ logger *name* will appear in all log messages created by the logger. The
 
 The default logging level for loggers within the Chaincode container can
 be set in the
-`core.yaml <https://github.com/hyperledger/fabric/blob/master/sampleconfig/core.yaml>`__
+`core.yaml <https://github.com/hyperledger/mchain/blob/master/sampleconfig/core.yaml>`__
 file. The key ``chaincode.logging.level`` sets the default level for all
 loggers within the Chaincode container. The key ``chaincode.logging.shim``
 overrides the default level for the ``shim`` module.

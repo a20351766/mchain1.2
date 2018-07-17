@@ -4,7 +4,7 @@ Chaincode
 [WIP]
 
 The widely-used term, smart contract, is referred to as "chaincode" in
-Hyperledger Fabric.
+Hyperledger Mchain.
 
 Self-executing logic that encodes the rules for specific types of
 network transactions. Chaincode (currently written in Go) is

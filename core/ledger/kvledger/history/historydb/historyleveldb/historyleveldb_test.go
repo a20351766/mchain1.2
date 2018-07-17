@@ -21,19 +21,19 @@ import (
 	"strconv"
 	"testing"
 
-	configtxtest "github.com/hyperledger/fabric/common/configtx/test"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	util2 "github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/util"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/ledger/queryresult"
-	"github.com/hyperledger/fabric/protos/peer"
+	configtxtest "github.com/hyperledger/mchain/common/configtx/test"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	util2 "github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/util"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/ledger/queryresult"
+	"github.com/hyperledger/mchain/protos/peer"
 	"github.com/spf13/viper"
 )
 
 func TestMain(m *testing.M) {
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/ledgertests/kvledger/history/historydb/historyleveldb")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/ledgertests/kvledger/history/historydb/historyleveldb")
 	os.Exit(m.Run())
 }
 

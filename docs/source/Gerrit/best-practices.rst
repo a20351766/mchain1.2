@@ -10,7 +10,7 @@ Browsing the Git Tree
 ---------------------
 
 Visit
-`Gerrit <https://gerrit.hyperledger.org/r/#/admin/projects/fabric>`__
+`Gerrit <https://gerrit.hyperledger.org/r/#/admin/projects/mchain>`__
 then select ``Projects --> List --> SELECT-PROJECT --> Branches``.
 Select the branch that interests you, click on ``gitweb`` located on the
 right-hand side. Now, ``gitweb`` loads your selection on the Git web
@@ -20,7 +20,7 @@ Watching a Project
 ------------------
 
 Visit
-`Gerrit <https://gerrit.hyperledger.org/r/#/admin/projects/fabric>`__,
+`Gerrit <https://gerrit.hyperledger.org/r/#/admin/projects/mchain>`__,
 then select ``Settings``, located on the top right corner. Select
 ``Watched Projects`` and then add any projects that interest you.
 
@@ -145,7 +145,7 @@ Finding Available Topics
 
 ::
 
-       $ ssh -p 29418 gerrit.hyperledger.org gerrit query \ status:open project:fabric branch:master \
+       $ ssh -p 29418 gerrit.hyperledger.org gerrit query \ status:open project:mchain branch:master \
        | grep topic: | sort -u
 
 -  `gerrit.hyperledger.org <https://gerrit.hyperledger.org>`__ Is the current URL where the project is
@@ -153,7 +153,7 @@ Finding Available Topics
 -  *status* Indicates the topic's current status: open , merged,
    abandoned, draft, merge conflict.
 -  *project* Refers to the current name of the project, in this case
-   fabric.
+   mchain.
 -  *branch* The topic is searched at this branch.
 -  *topic* The name of an specific topic, leave it blank to include them
    all.

@@ -10,9 +10,9 @@ import (
 	"errors"
 	"fmt"
 
-	protcommon "github.com/hyperledger/fabric/protos/common"
-	pb "github.com/hyperledger/fabric/protos/peer"
-	"github.com/hyperledger/fabric/protos/utils"
+	protcommon "github.com/hyperledger/mchain/protos/common"
+	pb "github.com/hyperledger/mchain/protos/peer"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/spf13/cobra"
 	"golang.org/x/net/context"
 )

@@ -10,8 +10,8 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/hyperledger/fabric/gossip/util"
-	proto "github.com/hyperledger/fabric/protos/gossip"
+	"github.com/hyperledger/mchain/gossip/util"
+	proto "github.com/hyperledger/mchain/protos/gossip"
 	"github.com/op/go-logging"
 )
 

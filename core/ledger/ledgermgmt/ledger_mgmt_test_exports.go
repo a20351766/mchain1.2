@@ -19,9 +19,9 @@ package ledgermgmt
 import (
 	"os"
 
-	"github.com/hyperledger/fabric/core/ledger/customtx"
+	"github.com/hyperledger/mchain/core/ledger/customtx"
 
-	"github.com/hyperledger/fabric/core/ledger/ledgerconfig"
+	"github.com/hyperledger/mchain/core/ledger/ledgerconfig"
 
 	"fmt"
 )

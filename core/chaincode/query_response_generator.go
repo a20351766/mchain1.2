@@ -7,8 +7,8 @@ SPDX-License-Identifier: Apache-2.0
 package chaincode
 
 import (
-	commonledger "github.com/hyperledger/fabric/common/ledger"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	commonledger "github.com/hyperledger/mchain/common/ledger"
+	pb "github.com/hyperledger/mchain/protos/peer"
 )
 
 type QueryResponseGenerator struct {

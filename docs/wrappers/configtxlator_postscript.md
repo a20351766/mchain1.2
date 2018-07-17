@@ -2,17 +2,17 @@
 
 ### Decoding
 
-Decode a block named `fabric_block.pb` to JSON and print to stdout.
+Decode a block named `mchain_block.pb` to JSON and print to stdout.
 
 ```
-configtxlator proto_decode --input fabric_block.pb --type common.Block
+configtxlator proto_decode --input mchain_block.pb --type common.Block
 ```
 
 Alternatively, after starting the REST server, the following curl command
 performs the same operation through the REST API.
 
 ```
-curl -X POST --data-binary @fabric_block.pb "${CONFIGTXLATOR_URL}/protolator/decode/common.Block"
+curl -X POST --data-binary @mchain_block.pb "${CONFIGTXLATOR_URL}/protolator/decode/common.Block"
 ```
 
 ### Encoding

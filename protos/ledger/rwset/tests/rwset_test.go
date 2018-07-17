@@ -22,8 +22,8 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	"github.com/hyperledger/fabric/protos/ledger/rwset"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	"github.com/hyperledger/mchain/protos/ledger/rwset"
 )
 
 const (
@@ -44,7 +44,7 @@ func TestRWSetV1BackwardCompatible(t *testing.T) {
 }
 
 // testPrepareBinaryFileSampleRWSetV1 constructs a proto message for kvrwset and marshals its bytes to file 'rwsetV1ProtoBytes'.
-// this code should be run on fabric version 1.0 so as to produce a sample file of proto message declared in V1
+// this code should be run on mchain version 1.0 so as to produce a sample file of proto message declared in V1
 // In order to invoke this function on V1 code, copy this over on to V1 code, make the first letter as 'T', and finally invoke this function
 // using golang test framwork
 func testPrepareBinaryFileSampleRWSetV1(t *testing.T) {

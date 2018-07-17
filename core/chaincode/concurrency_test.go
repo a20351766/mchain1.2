@@ -21,9 +21,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	pb "github.com/hyperledger/mchain/protos/peer"
 
 	"golang.org/x/net/context"
 )
@@ -47,7 +47,7 @@ func TestExecuteConcurrentInvokes(t *testing.T) {
 
 	var ctxt = context.Background()
 
-	url := "github.com/hyperledger/fabric/examples/ccchecker/chaincodes/newkeyperinvoke"
+	url := "github.com/hyperledger/mchain/examples/ccchecker/chaincodes/newkeyperinvoke"
 
 	chaincodeID := &pb.ChaincodeID{Name: "nkpi", Path: url, Version: "0"}
 

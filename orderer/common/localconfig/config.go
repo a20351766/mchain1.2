@@ -9,10 +9,10 @@ import (
 	"strings"
 	"time"
 
-	bccsp "github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/viperutil"
-	coreconfig "github.com/hyperledger/fabric/core/config"
+	bccsp "github.com/hyperledger/mchain/bccsp/factory"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/common/viperutil"
+	coreconfig "github.com/hyperledger/mchain/core/config"
 
 	"github.com/Shopify/sarama"
 	"github.com/spf13/viper"
@@ -181,7 +181,7 @@ var Defaults = TopLevel{
 	},
 	FileLedger: FileLedger{
 		Location: "/var/hyperledger/production/orderer",
-		Prefix:   "hyperledger-fabric-ordererledger",
+		Prefix:   "hyperledger-mchain-ordererledger",
 	},
 	Kafka: Kafka{
 		Retry: Retry{

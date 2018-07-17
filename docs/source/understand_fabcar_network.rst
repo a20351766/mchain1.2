@@ -3,7 +3,7 @@ Understanding the Fabcar Network
 
 Fabcar was designed to leverage a network stripped down to only the components
 necessary to run an application. And even with that level of simplification,
-the ``./startFabric.sh`` script takes care of the installation and
+the ``./startMchain.sh`` script takes care of the installation and
 configuration not baked into the network itself.
 
 Obscuring the underpinnings of the network to that degree is fine for the
@@ -16,7 +16,7 @@ how they propose **queries** and **updates** on a more granular level, as well
 as point out the differences between a small scale test network like Fabcar and
 how apps will usually end up working in the real world.
 
-We'll also point you to where you can get detailed information about how Fabric
+We'll also point you to where you can get detailed information about how Mchain
 networks are created and how a transaction flow works beyond the scope of the
 role an application plays.
 
@@ -31,7 +31,7 @@ for executing commands.
 For detailed information on these components and what they do, refer to
 :doc:`build_network`.
 
-These components are bootstrapped by the ``./startFabric.sh`` script, which
+These components are bootstrapped by the ``./startMchain.sh`` script, which
 also:
 
 * creates a channel and joins the peer to the channel
@@ -40,8 +40,8 @@ also:
 
 These operations would typically be done by an organizational or peer admin.
 The script uses the CLI to execute these commands, however there is support in
-the SDK as well. Refer to the `Hyperledger Fabric Node SDK repo
-<https://github.com/hyperledger/fabric-sdk-node>`__ for example scripts.
+the SDK as well. Refer to the `Hyperledger Mchain Node SDK repo
+<https://github.com/hyperledger/mchain-sdk-node>`__ for example scripts.
 
 How an Application Interacts with the Network
 ---------------------------------------------
@@ -53,7 +53,7 @@ where the name is ``fabcar``, the version is ``1.0``, and the peer it is running
 against is ``dev-peer0.org1.example.com``.
 
 APIs are accessible with an SDK. For purposes of this exercise, we're using the
-`Hyperledger Fabric Node SDK <https://fabric-sdk-node.github.io/>`__ though
+`Hyperledger Mchain Node SDK <https://mchain-sdk-node.github.io/>`__ though
 there is also a Java SDK and CLI that can be used to drive transactions.
 SDKs encapsulate all access to the ledger by allowing an application to
 communicate with smart contracts, run queries, or receive ledger updates. These APIs use
@@ -72,7 +72,7 @@ Query
 
 Queries are the simplest kind of invocation: a call and response.  The most common query
 will interrogate the state database for the current value associated
-with a key (``GetState``).  However, the `chaincode shim interface <https://github.com/hyperledger/fabric/blob/master/core/chaincode/shim/interfaces_stable.go>`__
+with a key (``GetState``).  However, the `chaincode shim interface <https://github.com/hyperledger/mchain/blob/master/core/chaincode/shim/interfaces_stable.go>`__
 also allows for different types of ``Get`` calls (e.g. ``GetHistoryForKey`` or ``GetCreator``).
 
 In our example, the peer holds a hash chain of all transactions and maintains
@@ -118,7 +118,7 @@ To get started developing chaincode, read :doc:`chaincode4ade`.
 For more information on how endorsement policies work, check out
 :doc:`endorsement-policies`.
 
-For a deeper dive into the architecture of Hyperledger Fabric, check out
+For a deeper dive into the architecture of Hyperledger Mchain, check out
 :doc:`arch-deep-dive`.
 
 .. Licensed under Creative Commons Attribution 4.0 International License

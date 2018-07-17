@@ -9,7 +9,7 @@
 # Development on Power (ppc64le) systems is done outside of vagrant, on the
 # native OS. This script helps setup the dev env on ppc64le Ubuntu.
 #
-# See https://github.com/hyperledger/fabric/blob/master/docs/dev-setup/install.md#building-outside-of-vagrant-
+# See https://github.com/hyperledger/mchain/blob/master/docs/dev-setup/install.md#building-outside-of-vagrant-
 #
 # NOTE: This script assumes that
 #	- OS specific apt-sources / repositories are already set appropriately.
@@ -18,9 +18,9 @@
 # To get started on a fresh Ubuntu install:
 #	mkdir -p $GOPATH/src/github.com/hyperledger
 #	cd $GOPATH/src/github.com/hyperledger
-#	git clone http://gerrit.hyperledger.org/r/fabric
-#	sudo ./fabric/devenv/setupUbuntuOnPPC64el.sh
-#	cd $GOPATH/src/github.com/hyperledger/fabric
+#	git clone http://gerrit.hyperledger.org/r/mchain
+#	sudo ./mchain/devenv/setupUbuntuOnPPC64el.sh
+#	cd $GOPATH/src/github.com/hyperledger/mchain
 #	make dist-clean all
 
 if [ xroot != x$(whoami) ]
@@ -29,9 +29,9 @@ then
    exit
 fi
 
-if [ ! -d "$GOPATH/src/github.com/hyperledger/fabric" ]
+if [ ! -d "$GOPATH/src/github.com/hyperledger/mchain" ]
 then
-    echo "Ensure fabric code is under $GOPATH/src/github.com/hyperledger/fabric"
+    echo "Ensure mchain code is under $GOPATH/src/github.com/hyperledger/mchain"
     exit
 fi
 

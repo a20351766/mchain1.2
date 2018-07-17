@@ -418,7 +418,7 @@ peer:
     # endorsers:
     #   escc:
     #     name: DefaultESCC
-    #     library: /etc/hyperledger/fabric/plugin/escc.so
+    #     library: /etc/hyperledger/mchain/plugin/escc.so
     handlers:
         authFilters:
           -
@@ -437,7 +437,7 @@ peer:
             name: DefaultValidation
             library:
 
-    #    library: /etc/hyperledger/fabric/plugin/escc.so
+    #    library: /etc/hyperledger/mchain/plugin/escc.so
     # Number of goroutines that will execute transaction validation in parallel.
     # By default, the peer chooses the number of CPUs on the machine. Set this
     # variable to override that choice.
@@ -526,7 +526,7 @@ chaincode:
         name:
 
     # Generic builder environment, suitable for most chaincode types
-    builder: $(DOCKER_NS)/fabric-ccenv:latest
+    builder: $(DOCKER_NS)/mchain-ccenv:latest
 
     # Enables/disables force pulling of the base docker images (listed below)
     # during user chaincode instantiation.
@@ -535,7 +535,7 @@ chaincode:
 
     golang:
         # golang will never need more than baseos
-        runtime: $(BASE_DOCKER_NS)/fabric-baseos:$(ARCH)-$(BASE_VERSION)
+        runtime: docker.m-chain.com/$(BASE_DOCKER_NS)/mchain-baseos:$(ARCH)-$(BASE_VERSION)
 
         # whether or not golang chaincode should be linked dynamically
         dynamicLink: false
@@ -543,7 +543,7 @@ chaincode:
     car:
         # car may need more facilities (JVM, etc) in the future as the catalog
         # of platforms are expanded.  For now, we can just use baseos
-        runtime: $(BASE_DOCKER_NS)/fabric-baseos:$(ARCH)-$(BASE_VERSION)
+        runtime: docker.m-chain.com/$(BASE_DOCKER_NS)/mchain-baseos:$(ARCH)-$(BASE_VERSION)
 
     java:
         # This is an image based on java:openjdk-8 with addition compiler
@@ -551,12 +551,12 @@ chaincode:
         # This image is packed with shim layer libraries that are necessary
         # for Java chaincode runtime.
         Dockerfile:  |
-            from $(DOCKER_NS)/fabric-javaenv:$(ARCH)-1.1.0
+            from $(DOCKER_NS)/mchain-javaenv:$(ARCH)-1.1.0
 
     node:
         # need node.js engine at runtime, currently available in baseimage
         # but not in baseos
-        runtime: $(BASE_DOCKER_NS)/fabric-baseimage:$(ARCH)-$(BASE_VERSION)
+        runtime: docker.m-chain.com/$(BASE_DOCKER_NS)/mchain-baseimage:$(ARCH)-$(BASE_VERSION)
 
     # Timeout duration for starting up a container and waiting for Register
     # to come through. 1sec should be plenty for chaincode unit tests
@@ -595,7 +595,7 @@ chaincode:
         qscc: enable
 
     # System chaincode plugins: in addition to being imported and compiled
-    # into fabric through core/chaincode/importsysccs.go, system chaincodes
+    # into mchain through core/chaincode/importsysccs.go, system chaincodes
     # can also be loaded as shared objects compiled as Go plugins.
     # See examples/plugins/scc for an example.
     # Like regular system chaincodes, plugins must also be white listed in the

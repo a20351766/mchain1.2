@@ -12,12 +12,12 @@ import (
 	"strconv"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/flogging"
-	mspconstants "github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/discovery"
-	"github.com/hyperledger/fabric/protos/msp"
+	"github.com/hyperledger/mchain/common/channelconfig"
+	"github.com/hyperledger/mchain/common/flogging"
+	mspconstants "github.com/hyperledger/mchain/msp"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/discovery"
+	"github.com/hyperledger/mchain/protos/msp"
 	"github.com/pkg/errors"
 )
 
@@ -108,18 +108,18 @@ func computeOrdererEndpoints(ordererGrp map[string]*common.ConfigGroup, ordererA
 		if err := proto.Unmarshal(group.Values[channelconfig.MSPKey].Value, mspConfig); err != nil {
 			return nil, errors.Wrap(err, "failed parsing MSPConfig")
 		}
-		// Skip non fabric MSPs, as they don't carry useful information for service discovery.
+		// Skip non mchain MSPs, as they don't carry useful information for service discovery.
 		// An idemix MSP shouldn't appear inside an orderer group, but this isn't a fatal error
 		// for the discovery service and we can just ignore it.
 		if mspConfig.Type != int32(mspconstants.FABRIC) {
 			logger.Error("Orderer group", name, "is not a FABRIC MSP, but is of type", mspConfig.Type)
 			continue
 		}
-		fabricConfig := &msp.FabricMSPConfig{}
-		if err := proto.Unmarshal(mspConfig.Config, fabricConfig); err != nil {
+		mchainConfig := &msp.FabricMSPConfig{}
+		if err := proto.Unmarshal(mspConfig.Config, mchainConfig); err != nil {
 			return nil, errors.Wrap(err, "failed marshaling FabricMSPConfig")
 		}
-		res[fabricConfig.Name] = &discovery.Endpoints{}
+		res[mchainConfig.Name] = &discovery.Endpoints{}
 		for _, endpoint := range ordererAddresses.Addresses {
 			host, portStr, err := net.SplitHostPort(endpoint)
 			if err != nil {
@@ -129,7 +129,7 @@ func computeOrdererEndpoints(ordererGrp map[string]*common.ConfigGroup, ordererA
 			if err != nil {
 				return nil, errors.Errorf("%s is not a valid port number", portStr)
 			}
-			res[fabricConfig.Name].Endpoint = append(res[fabricConfig.Name].Endpoint, &discovery.Endpoint{
+			res[mchainConfig.Name].Endpoint = append(res[mchainConfig.Name].Endpoint, &discovery.Endpoint{
 				Host: host,
 				Port: uint32(port),
 			})
@@ -145,18 +145,18 @@ func appendMSPConfigs(ordererGrp, appGrp map[string]*common.ConfigGroup, output 
 			if err := proto.Unmarshal(grp.Values[channelconfig.MSPKey].Value, mspConfig); err != nil {
 				return errors.Wrap(err, "failed parsing MSPConfig")
 			}
-			// Skip non fabric MSPs, as they don't carry useful information for service discovery
+			// Skip non mchain MSPs, as they don't carry useful information for service discovery
 			if mspConfig.Type != int32(mspconstants.FABRIC) {
 				continue
 			}
-			fabricConfig := &msp.FabricMSPConfig{}
-			if err := proto.Unmarshal(mspConfig.Config, fabricConfig); err != nil {
+			mchainConfig := &msp.FabricMSPConfig{}
+			if err := proto.Unmarshal(mspConfig.Config, mchainConfig); err != nil {
 				return errors.Wrap(err, "failed marshaling FabricMSPConfig")
 			}
-			if _, exists := output[fabricConfig.Name]; exists {
+			if _, exists := output[mchainConfig.Name]; exists {
 				continue
 			}
-			output[fabricConfig.Name] = fabricConfig
+			output[mchainConfig.Name] = mchainConfig
 		}
 	}
 

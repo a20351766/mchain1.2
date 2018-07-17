@@ -2,7 +2,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-# hyperledger-fabricdocs documentation build configuration file, created by
+# hyperledger-mchaindocs documentation build configuration file, created by
 # sphinx-quickstart on Mon Feb 20 16:11:53 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -64,7 +64,7 @@ source_suffix = ['.rst', '.md']
 master_doc = 'index'
 
 # General information about the project.
-project = u'hyperledger-fabricdocs'
+project = u'hyperledger-mchaindocs'
 copyright = u'2017, hyperledger'
 author = u'hyperledger'
 
@@ -122,7 +122,7 @@ def setup(app):
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'hyperledger-fabricdocsdoc'
+htmlhelp_basename = 'hyperledger-mchaindocsdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -149,7 +149,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'hyperledger-fabricdocs.tex', u'hyperledger-fabricdocs Documentation',
+    (master_doc, 'hyperledger-mchaindocs.tex', u'hyperledger-mchaindocs Documentation',
      u'hyperledger', 'manual'),
 ]
 
@@ -159,7 +159,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'hyperledger-fabricdocs', u'hyperledger-fabricdocs Documentation',
+    (master_doc, 'hyperledger-mchaindocs', u'hyperledger-mchaindocs Documentation',
      [author], 1)
 ]
 
@@ -170,8 +170,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'hyperledger-fabricdocs', u'hyperledger-fabricdocs Documentation',
-     author, 'hyperledger-fabricdocs', 'One line description of project.',
+    (master_doc, 'hyperledger-mchaindocs', u'hyperledger-mchaindocs Documentation',
+     author, 'hyperledger-mchaindocs', 'One line description of project.',
      'Miscellaneous'),
 ]
 

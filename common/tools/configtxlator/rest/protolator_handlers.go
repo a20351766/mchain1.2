@@ -23,13 +23,13 @@ import (
 	"net/http"
 	"reflect"
 
-	"github.com/hyperledger/fabric/common/tools/protolator"
+	"github.com/hyperledger/mchain/common/tools/protolator"
 
 	// Import these to register the proto types
-	_ "github.com/hyperledger/fabric/protos/common"
-	_ "github.com/hyperledger/fabric/protos/msp"
-	_ "github.com/hyperledger/fabric/protos/orderer"
-	_ "github.com/hyperledger/fabric/protos/peer"
+	_ "github.com/hyperledger/mchain/protos/common"
+	_ "github.com/hyperledger/mchain/protos/msp"
+	_ "github.com/hyperledger/mchain/protos/orderer"
+	_ "github.com/hyperledger/mchain/protos/peer"
 
 	"github.com/golang/protobuf/proto"
 	"github.com/gorilla/mux"

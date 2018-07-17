@@ -31,7 +31,7 @@ the needed information dynamically and present it to the SDK in a consumable
 manner.
 
 
-How service discovery works in Fabric
+How service discovery works in Mchain
 -------------------------------------
 
 The application is bootstrapped knowing about a group of peers which are

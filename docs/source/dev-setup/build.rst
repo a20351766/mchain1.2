@@ -1,14 +1,14 @@
-Building Hyperledger Fabric
+Building Hyperledger Mchain
 ---------------------------
 
 The following instructions assume that you have already set up your
 :doc:`development environment <devenv>`.
 
-To build Hyperledger Fabric:
+To build Hyperledger Mchain:
 
 ::
 
-    cd $GOPATH/src/github.com/hyperledger/fabric
+    cd $GOPATH/src/github.com/hyperledger/mchain
     make dist-clean all
 
 Running the unit tests
@@ -18,7 +18,7 @@ Use the following sequence to run all unit tests
 
 ::
 
-    cd $GOPATH/src/github.com/hyperledger/fabric
+    cd $GOPATH/src/github.com/hyperledger/mchain
     make unit-test
 
 To run a subset of tests, set the TEST_PKGS environment variable.
@@ -26,7 +26,7 @@ Specify a list of packages (separated by space), for example:
 
 ::
 
-    export TEST_PKGS="github.com/hyperledger/fabric/core/ledger/..."
+    export TEST_PKGS="github.com/hyperledger/mchain/core/ledger/..."
     make unit-test
 
 To run a specific test use the ``-run RE`` flag where RE is a regular
@@ -47,23 +47,23 @@ Running Node.js Client SDK Unit Tests
 You must also run the Node.js unit tests to ensure that the Node.js
 client SDK is not broken by your changes. To run the Node.js unit tests,
 follow the instructions
-`here <https://github.com/hyperledger/fabric-sdk-node/blob/master/README.md>`__.
+`here <https://github.com/hyperledger/mchain-sdk-node/blob/master/README.md>`__.
 
 Building outside of Vagrant
 ---------------------------
 
 It is possible to build the project and run peers outside of Vagrant.
 Generally speaking, one has to 'translate' the vagrant `setup
-file <https://github.com/hyperledger/fabric/blob/master/devenv/setup.sh>`__
+file <https://github.com/hyperledger/mchain/blob/master/devenv/setup.sh>`__
 to the platform of your choice.
 
 Building on Z
 ~~~~~~~~~~~~~
 
 To make building on Z easier and faster, `this
-script <https://github.com/hyperledger/fabric/blob/master/devenv/setupRHELonZ.sh>`__
+script <https://github.com/hyperledger/mchain/blob/master/devenv/setupRHELonZ.sh>`__
 is provided (which is similar to the `setup
-file <https://github.com/hyperledger/fabric/blob/master/devenv/setup.sh>`__
+file <https://github.com/hyperledger/mchain/blob/master/devenv/setup.sh>`__
 provided for vagrant). This script has been tested only on RHEL 7.2 and
 has some assumptions one might want to re-visit (firewall settings,
 development as root user, etc.). It is however sufficient for
@@ -77,15 +77,15 @@ To get started, from a freshly installed OS:
     yum install git
     mkdir -p $HOME/git/src/github.com/hyperledger
     cd $HOME/git/src/github.com/hyperledger
-    git clone http://gerrit.hyperledger.org/r/fabric
-    source fabric/devenv/setupRHELonZ.sh
+    git clone http://gerrit.hyperledger.org/r/mchain
+    source mchain/devenv/setupRHELonZ.sh
 
 From this point, you can proceed as described above for the Vagrant
 development environment.
 
 ::
 
-    cd $GOPATH/src/github.com/hyperledger/fabric
+    cd $GOPATH/src/github.com/hyperledger/mchain
     make peer unit-test
 
 Building on Power Platform
@@ -94,7 +94,7 @@ Building on Power Platform
 Development and build on Power (ppc64le) systems is done outside of
 vagrant as outlined `here <#building-outside-of-vagrant>`__. For ease
 of setting up the dev environment on Ubuntu, invoke `this
-script <https://github.com/hyperledger/fabric/blob/master/devenv/setupUbuntuOnPPC64le.sh>`__
+script <https://github.com/hyperledger/mchain/blob/master/devenv/setupUbuntuOnPPC64le.sh>`__
 as root. This script has been validated on Ubuntu 16.04 and assumes
 certain things (like, development system has OS repositories in place,
 firewall setting etc) and in general can be improvised further.
@@ -102,15 +102,15 @@ firewall setting etc) and in general can be improvised further.
 To get started on Power server installed with Ubuntu, first ensure you
 have properly setup your Host's `GOPATH environment
 variable <https://github.com/golang/go/wiki/GOPATH>`__. Then, execute
-the following commands to build the fabric code:
+the following commands to build the mchain code:
 
 ::
 
     mkdir -p $GOPATH/src/github.com/hyperledger
     cd $GOPATH/src/github.com/hyperledger
-    git clone http://gerrit.hyperledger.org/r/fabric
-    sudo ./fabric/devenv/setupUbuntuOnPPC64le.sh
-    cd $GOPATH/src/github.com/hyperledger/fabric
+    git clone http://gerrit.hyperledger.org/r/mchain
+    sudo ./mchain/devenv/setupUbuntuOnPPC64le.sh
+    cd $GOPATH/src/github.com/hyperledger/mchain
     make dist-clean all
 
 Building on Centos 7
@@ -126,8 +126,8 @@ supporting artifacts.
 
    export GOPATH={directory of your choice}
    mkdir -p $GOPATH/src/github.com/hyperledger
-   FABRIC=$GOPATH/src/github.hyperledger/fabric
-   git clone https://github.com/hyperledger/fabric $FABRIC
+   FABRIC=$GOPATH/src/github.hyperledger/mchain
+   git clone https://github.com/hyperledger/mchain $FABRIC
    cd $FABRIC
    git checkout master # <-- only if you want the master branch
    export PATH=$GOPATH/bin:$PATH

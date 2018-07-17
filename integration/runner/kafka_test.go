@@ -14,8 +14,8 @@ import (
 	"time"
 
 	"github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/integration/helpers"
-	"github.com/hyperledger/fabric/integration/runner"
+	"github.com/hyperledger/mchain/integration/helpers"
+	"github.com/hyperledger/mchain/integration/runner"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
@@ -97,7 +97,7 @@ var _ = Describe("Kafka Runner", func() {
 		Expect(container.Name).To(Equal("/kafka0"))
 		Expect(container.State.Status).To(Equal("running"))
 		Expect(container.Config).NotTo(BeNil())
-		Expect(container.Config.Image).To(Equal("hyperledger/fabric-kafka:latest"))
+		Expect(container.Config.Image).To(Equal("hyperledger/mchain-kafka:latest"))
 		Expect(container.ID).To(Equal(kafka.ContainerID))
 		portBindings := container.NetworkSettings.Ports[docker.Port("9092/tcp")]
 		Expect(portBindings).To(HaveLen(1))

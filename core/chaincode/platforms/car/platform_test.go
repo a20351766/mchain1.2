@@ -21,9 +21,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/testutil"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/testutil"
+	pb "github.com/hyperledger/mchain/protos/peer"
 )
 
 func TestMain(m *testing.M) {

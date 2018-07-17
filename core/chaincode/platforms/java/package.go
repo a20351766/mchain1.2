@@ -14,8 +14,8 @@ import (
 
 	"path/filepath"
 
-	cutil "github.com/hyperledger/fabric/core/container/util"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	cutil "github.com/hyperledger/mchain/core/container/util"
+	pb "github.com/hyperledger/mchain/protos/peer"
 )
 
 //tw is expected to have the chaincode in it from GenerateHashcode.

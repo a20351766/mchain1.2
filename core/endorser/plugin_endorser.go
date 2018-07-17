@@ -10,12 +10,12 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/hyperledger/fabric/core/chaincode/shim"
-	"github.com/hyperledger/fabric/core/handlers/endorsement/api"
-	endorsement3 "github.com/hyperledger/fabric/core/handlers/endorsement/api/identities"
-	"github.com/hyperledger/fabric/core/transientstore"
-	pb "github.com/hyperledger/fabric/protos/peer"
-	putils "github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/core/chaincode/shim"
+	"github.com/hyperledger/mchain/core/handlers/endorsement/api"
+	endorsement3 "github.com/hyperledger/mchain/core/handlers/endorsement/api/identities"
+	"github.com/hyperledger/mchain/core/transientstore"
+	pb "github.com/hyperledger/mchain/protos/peer"
+	putils "github.com/hyperledger/mchain/protos/utils"
 	"github.com/pkg/errors"
 )
 

@@ -17,13 +17,13 @@ limitations under the License.
 package cauthdsl
 
 import (
-	cb "github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/msp"
+	cb "github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/msp"
 
 	"sort"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/protos/utils"
 )
 
 // AcceptAllPolicy always evaluates to true
@@ -96,7 +96,7 @@ func SignedByMspPeer(mspId string) *cb.SignaturePolicyEnvelope {
 }
 
 // SignedByFabricEntity creates a SignaturePolicyEnvelope
-// requiring 1 signature from any fabric entity, having the passed role, of the specified MSP
+// requiring 1 signature from any mchain entity, having the passed role, of the specified MSP
 func signedByFabricEntity(mspId string, role msp.MSPRole_MSPRoleType) *cb.SignaturePolicyEnvelope {
 	// specify the principal: it's a member of the msp we just found
 	principal := &msp.MSPPrincipal{

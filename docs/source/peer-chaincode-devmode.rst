@@ -12,7 +12,7 @@ single running instance can be accessed from multiple channels.
 
 - Note: Make sure peer is not using TLS when running in dev mode.
 
-All commands are executed from the ``fabric`` folder.
+All commands are executed from the ``mchain`` folder.
 
 Start the orderer
 -----------------
@@ -84,7 +84,7 @@ mode.
 
 ::
 
-    peer chaincode install -n mycc -v 0 -p github.com/hyperledger/fabric/examples/chaincode/go/example02/cmd
+    peer chaincode install -n mycc -v 0 -p github.com/hyperledger/mchain/examples/chaincode/go/example02/cmd
 
 Once installed, the chaincode is ready to be instantiated.
 

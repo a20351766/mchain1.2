@@ -15,10 +15,10 @@ import (
 	"io/ioutil"
 	"math/big"
 
-	"github.com/hyperledger/fabric/bccsp/utils"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/protos/msp"
-	proto_utils "github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/bccsp/utils"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/protos/msp"
+	proto_utils "github.com/hyperledger/mchain/protos/utils"
 	"github.com/pkg/errors"
 )
 

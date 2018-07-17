@@ -21,11 +21,11 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/sw"
-	"github.com/hyperledger/fabric/bccsp/utils"
-	"github.com/hyperledger/fabric/core/config/configtest"
-	"github.com/hyperledger/fabric/protos/msp"
+	"github.com/hyperledger/mchain/bccsp"
+	"github.com/hyperledger/mchain/bccsp/sw"
+	"github.com/hyperledger/mchain/bccsp/utils"
+	"github.com/hyperledger/mchain/core/config/configtest"
+	"github.com/hyperledger/mchain/protos/msp"
 	"github.com/stretchr/testify/assert"
 )
 

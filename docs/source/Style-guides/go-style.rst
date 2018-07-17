@@ -15,8 +15,8 @@ vet <https://golang.org/cmd/vet/>`__ -
 API Documentation
 ^^^^^^^^^^^^^^^^^
 
-The API documentation for Hyperledger Fabric's Golang APIs is available
-in `GoDoc <https://godoc.org/github.com/hyperledger/fabric>`_.
+The API documentation for Hyperledger Mchain's Golang APIs is available
+in `GoDoc <https://godoc.org/github.com/hyperledger/mchain>`_.
 
 
 Generating gRPC code
@@ -27,15 +27,15 @@ generate/update the respective ``.pb.go`` files.
 
 ::
 
-    cd $GOPATH/src/github.com/hyperledger/fabric
+    cd $GOPATH/src/github.com/hyperledger/mchain
     make protos
 
 Adding or updating Go packages
 ------------------------------
 
-Hyperledger Fabric uses Go Vendoring for package
+Hyperledger Mchain uses Go Vendoring for package
 management. This means that all required packages reside in the
-``$GOPATH/src/github.com/hyperledger/fabric/vendor`` folder. Go will use
+``$GOPATH/src/github.com/hyperledger/mchain/vendor`` folder. Go will use
 packages in this folder instead of the GOPATH when the ``go install`` or
 ``go build`` commands are executed. To manage the packages in the
 ``vendor`` folder, we use

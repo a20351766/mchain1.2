@@ -9,15 +9,15 @@
 # Development on Z is done on the native OS, not in Vagrant. This script can be
 # used to set things up in RHEL on Z, similar to devenv/setup.sh which does the
 # same for Vagrant.
-# See https://github.com/hyperledger/fabric/blob/master/docs/dev-setup/install.md
+# See https://github.com/hyperledger/mchain/blob/master/docs/dev-setup/install.md
 #
 # To get started:
 #       sudo su
 #       yum install git
 #       mkdir -p $HOME/git/src/github.com/hyperledger
 #       cd $HOME/git/src/github.com/hyperledger
-#       git clone http://gerrit.hyperledger.org/r/fabric
-#       source fabric/devenv/setupRHELonZ.sh
+#       git clone http://gerrit.hyperledger.org/r/mchain
+#       source mchain/devenv/setupRHELonZ.sh
 #       make peer unit-test
 
 if [ xroot != x$(whoami) ]
@@ -26,9 +26,9 @@ then
    exit
 fi
 
-if [ -n -d $HOME/git/src/github.com/hyperledger/fabric ]
+if [ -n -d $HOME/git/src/github.com/hyperledger/mchain ]
 then
-    echo "Script fabric code is under $HOME/git/src/github.com/hyperledger/fabric "
+    echo "Script mchain code is under $HOME/git/src/github.com/hyperledger/mchain "
     exit
 fi
 
@@ -112,5 +112,5 @@ HEREDOC
 source ~/.bashrc
 
 # Build the actual hyperledger peer
-cd $GOPATH/src/github.com/hyperledger/fabric
+cd $GOPATH/src/github.com/hyperledger/mchain
 make clean peer

@@ -3,7 +3,7 @@ Security Model
 
 [WIP]
 
-Hyperledger Fabric allows for different organizations and participants
+Hyperledger Mchain allows for different organizations and participants
 in a common network to utilize their own certificate authority, and as a
 byproduct, implement varying cryptographic algorithms for
 signing/verifying/identity attestation. This is done through an MSP

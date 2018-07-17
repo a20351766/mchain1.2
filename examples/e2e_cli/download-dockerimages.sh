@@ -9,7 +9,7 @@
 ##################################################
 # This script pulls docker images from hyperledger
 # docker hub repository and Tag it as
-# hyperledger/fabric-<image> latest tag
+# hyperledger/mchain-<image> latest tag
 ##################################################
 
 dockerFabricPull() {
@@ -17,8 +17,8 @@ dockerFabricPull() {
   for IMAGES in peer orderer couchdb ccenv javaenv kafka tools zookeeper; do
       echo "==> FABRIC IMAGE: $IMAGES"
       echo
-      docker pull hyperledger/fabric-$IMAGES:$FABRIC_TAG
-      docker tag hyperledger/fabric-$IMAGES:$FABRIC_TAG hyperledger/fabric-$IMAGES
+      docker pull hyperledger/mchain-$IMAGES:$FABRIC_TAG
+      docker tag hyperledger/mchain-$IMAGES:$FABRIC_TAG hyperledger/mchain-$IMAGES
   done
 }
 
@@ -33,19 +33,19 @@ usage() {
       echo "Description "
       echo
       echo "Pulls docker images from hyperledger dockerhub repository"
-      echo "tag as hyperledger/fabric-<image>:latest"
+      echo "tag as hyperledger/mchain-<image>:latest"
       echo
       echo "USAGE: "
       echo
-      echo "./download-dockerimages.sh [-c <fabric-ca tag>] [-f <fabric tag>]"
+      echo "./download-dockerimages.sh [-c <fabric-ca tag>] [-f <mchain tag>]"
       echo "      -c fabric-ca docker image tag"
-      echo "      -f fabric docker image tag"
+      echo "      -f mchain docker image tag"
       echo
       echo
       echo "EXAMPLE:"
       echo "./download-dockerimages.sh -c 1.1.1 -f 1.1.0"
       echo
-      echo "By default, pulls the 'latest' fabric-ca and fabric docker images"
+      echo "By default, pulls the 'latest' fabric-ca and mchain docker images"
       echo "from hyperledger dockerhub"
       exit 0
 }
@@ -68,10 +68,10 @@ done
 : ${CA_TAG:="latest"}
 : ${FABRIC_TAG:="latest"}
 
-echo "===> Pulling fabric Images"
+echo "===> Pulling mchain Images"
 dockerFabricPull ${FABRIC_TAG}
 
-echo "===> Pulling fabric ca Image"
+echo "===> Pulling mchain ca Image"
 dockerCaPull ${CA_TAG}
 echo
 echo "===> List out hyperledger docker images"

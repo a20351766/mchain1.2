@@ -23,12 +23,12 @@ import (
 	"bytes"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/common/crypto"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/bccsp"
+	"github.com/hyperledger/mchain/bccsp/factory"
+	"github.com/hyperledger/mchain/common/crypto"
+	"github.com/hyperledger/mchain/msp"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/peer"
 )
 
 // GetPayloads get's the underlying payload objects in a TransactionAction
@@ -390,11 +390,11 @@ func GetBytesProposalPayloadForTx(payload *peer.ChaincodeProposalPayload, visibi
 		return nil, errors.New("Failure while marshalling the ChaincodeProposalPayload!")
 	}
 
-	// currently the fabric only supports full visibility: this means that
+	// currently the mchain only supports full visibility: this means that
 	// there are no restrictions on which parts of the proposal payload will
 	// be visible in the final transaction; this default approach requires
 	// no additional instructions in the PayloadVisibility field; however
-	// the fabric may be extended to encode more elaborate visibility
+	// the mchain may be extended to encode more elaborate visibility
 	// mechanisms that shall be encoded in this field (and handled
 	// appropriately by the peer)
 

@@ -16,7 +16,7 @@ import (
 )
 
 const (
-	namespace string = "hyperledger_fabric"
+	namespace string = "hyperledger_mchain"
 
 	statsdReporterType = "statsd"
 	promReporterType   = "prom"

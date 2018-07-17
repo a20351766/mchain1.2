@@ -4,7 +4,7 @@
 #
 
 unit-tests:
-  image: hyperledger/fabric-testenv
+  image: hyperledger/mchain-testenv
   links:
     - couchdb
   environment:
@@ -17,12 +17,12 @@ unit-tests:
     - COUCHDB_ADDR=couchdb:5984
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
-    - ${GOPATH}/src/github.com/hyperledger/fabric:/opt/gopath/src/github.com/hyperledger/fabric
+    - ${GOPATH}/src/github.com/hyperledger/mchain:/opt/gopath/src/github.com/hyperledger/mchain
   command: ./unit-test/run.sh
 
 couchdb:
   container_name: couchdb
-  image: hyperledger/fabric-couchdb
+  image: hyperledger/mchain-couchdb
   log_driver: none
   ports:
     - "5984:5984"

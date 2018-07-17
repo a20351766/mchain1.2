@@ -20,14 +20,14 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hyperledger/fabric/common/crypto"
-	mmsp "github.com/hyperledger/fabric/common/mocks/msp"
-	"github.com/hyperledger/fabric/msp"
-	mspmgmt "github.com/hyperledger/fabric/msp/mgmt"
-	"github.com/hyperledger/fabric/msp/mgmt/testtools"
-	"github.com/hyperledger/fabric/protos/common"
-	pb "github.com/hyperledger/fabric/protos/peer"
-	putils "github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/common/crypto"
+	mmsp "github.com/hyperledger/mchain/common/mocks/msp"
+	"github.com/hyperledger/mchain/msp"
+	mspmgmt "github.com/hyperledger/mchain/msp/mgmt"
+	"github.com/hyperledger/mchain/msp/mgmt/testtools"
+	"github.com/hyperledger/mchain/protos/common"
+	pb "github.com/hyperledger/mchain/protos/peer"
+	putils "github.com/hyperledger/mchain/protos/utils"
 )
 
 var (

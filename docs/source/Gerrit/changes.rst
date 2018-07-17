@@ -2,7 +2,7 @@ Submitting a Change to Gerrit
 =============================
 
 Carefully review the following before submitting a change to the
-Hyperledger Fabric code base. These guidelines apply to developers that
+Hyperledger Mchain code base. These guidelines apply to developers that
 are new to open source, as well as to experienced open source developers.
 
 Change Requirements
@@ -12,7 +12,7 @@ This section contains guidelines for submitting code changes for review.
 For more information on how to submit a change using Gerrit, please see
 :doc:`Working with Gerrit <gerrit>`.
 
-All changes to Hyperledger Fabric are submitted as Git commits via Gerrit.
+All changes to Hyperledger Mchain are submitted as Git commits via Gerrit.
 Each commit must contain:
 
 -  a short and descriptive subject line that is 55 characters or fewer,
@@ -95,7 +95,7 @@ If you see nothing wrong with your CR, it might be that the CI process
 simply failed for some reason unrelated to your change. In that case
 you may want to restart the CI process by posting a reply to your CR
 with the simple content "reverify". Check the `CI management page
-<https://github.com/hyperledger/ci-management/blob/master/docs/fabric_ci_process.md>`__
+<https://github.com/hyperledger/ci-management/blob/master/docs/mchain_ci_process.md>`__
 for additional information and options on this.
 
 

@@ -4,8 +4,8 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/common/ledger/blockledger"
-	ab "github.com/hyperledger/fabric/protos/orderer"
+	"github.com/hyperledger/mchain/common/ledger/blockledger"
+	ab "github.com/hyperledger/mchain/protos/orderer"
 )
 
 type BlockReader struct {

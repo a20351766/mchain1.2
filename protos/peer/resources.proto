@@ -6,8 +6,8 @@ SPDX-License-Identifier: Apache-2.0
 
 syntax = "proto3";
 
-option java_package = "org.hyperledger.fabric.protos.peer";
-option go_package = "github.com/hyperledger/fabric/protos/peer";
+option java_package = "org.hyperledger.mchain.protos.peer";
+option go_package = "github.com/hyperledger/mchain/protos/peer";
 
 package protos;
 
@@ -22,7 +22,7 @@ message ChaincodeIdentifier {
 }
 
 // ChaincodeValidation instructs the peer how transactions for this chaincode should be
-// validated.  The only validation mechanism which ships with fabric today is the standard
+// validated.  The only validation mechanism which ships with mchain today is the standard
 // 'vscc' validation mechanism.  This built in validation method utilizes an endorsement policy
 // which checks that a sufficient number of signatures have been included.  The 'arguement'
 // field encodes any parameters required by the validation implementation.
@@ -39,7 +39,7 @@ message VSCCArgs {
 }
 
 // ChaincodeEndorsement instructs the peer how transactions should be endorsed.  The only
-// endorsement mechanism which ships with the fabric today is the standard 'escc' mechanism.
+// endorsement mechanism which ships with the mchain today is the standard 'escc' mechanism.
 // This code simply simulates the proposal to generate a RW set, then signs the result
 // using the peer's local signing identity.
 message ChaincodeEndorsement {

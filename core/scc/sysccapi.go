@@ -12,17 +12,17 @@ import (
 
 	"golang.org/x/net/context"
 
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/chaincode/shim"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/container/ccintf"
-	"github.com/hyperledger/fabric/core/container/inproccontroller"
-	"github.com/hyperledger/fabric/core/peer"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/chaincode/shim"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/core/container/ccintf"
+	"github.com/hyperledger/mchain/core/container/inproccontroller"
+	"github.com/hyperledger/mchain/core/peer"
 
 	"github.com/spf13/viper"
 
-	pb "github.com/hyperledger/fabric/protos/peer"
+	pb "github.com/hyperledger/mchain/protos/peer"
 )
 
 var sysccLogger = flogging.MustGetLogger("sccapi")
@@ -34,7 +34,7 @@ type Registrar interface {
 }
 
 // SystemChaincode defines the metadata needed to initialize system chaincode
-// when the fabric comes up. SystemChaincodes are installed by adding an
+// when the mchain comes up. SystemChaincodes are installed by adding an
 // entry in importsysccs.go
 type SystemChaincode struct {
 	//Unique name of the system chaincode

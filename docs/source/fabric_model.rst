@@ -1,7 +1,7 @@
-Hyperledger Fabric Model
+Hyperledger Mchain Model
 ========================
 
-This section outlines the key design features woven into Hyperledger Fabric that
+This section outlines the key design features woven into Hyperledger Mchain that
 fulfill its promise of a comprehensive, yet customizable, enterprise blockchain solution:
 
 * :ref:`Assets` --- Asset definitions enable the exchange of almost anything with
@@ -29,14 +29,14 @@ Assets
 ------
 
 Assets can range from the tangible (real estate and hardware) to the intangible
-(contracts and intellectual property).  Hyperledger Fabric provides the
+(contracts and intellectual property).  Hyperledger Mchain provides the
 ability to modify assets using chaincode transactions.
 
-Assets are represented in Hyperledger Fabric as a collection of
+Assets are represented in Hyperledger Mchain as a collection of
 key-value pairs, with state changes recorded as transactions on a :ref:`Channel`
 ledger.  Assets can be represented in binary and/or JSON form.
 
-You can easily define and use assets in your Hyperledger Fabric applications
+You can easily define and use assets in your Hyperledger Mchain applications
 using the `Hyperledger Composer <https://github.com/hyperledger/composer>`__ tool.
 
 .. _Chaincode:
@@ -56,16 +56,16 @@ the ledger on all peers.
 Ledger Features
 ---------------
 
-The ledger is the sequenced, tamper-resistant record of all state transitions in the fabric.  State
+The ledger is the sequenced, tamper-resistant record of all state transitions in the mchain.  State
 transitions are a result of chaincode invocations ('transactions') submitted by participating
 parties.  Each transaction results in a set of asset key-value pairs that are committed to the
 ledger as creates, updates, or deletes.
 
 The ledger is comprised of a blockchain ('chain') to store the immutable, sequenced record in
-blocks, as well as a state database to maintain current fabric state.  There is one ledger per
+blocks, as well as a state database to maintain current mchain state.  There is one ledger per
 channel. Each peer maintains a copy of the ledger for each channel of which they are a member.
 
-Some features of a Fabric ledger:
+Some features of a Mchain ledger:
 
 - Query and update ledger using key-based lookups, range queries, and composite key queries
 - Read-only queries using a rich query language (if using CouchDB as state database)
@@ -86,7 +86,7 @@ See the :doc:`ledger` topic for a deeper dive on the databases, storage structur
 Privacy
 -------
 
-Hyperledger Fabric employs an immutable ledger on a per-channel basis, as well as
+Hyperledger Mchain employs an immutable ledger on a per-channel basis, as well as
 chaincode that can manipulate and modify the current state of assets (i.e. update
 key-value pairs).  A ledger exists in the scope of a channel --- it can be shared
 across the entire network (assuming every participant is operating on one common
@@ -123,17 +123,17 @@ privacy on your blockchain network.
 Security & Membership Services
 ------------------------------
 
-Hyperledger Fabric underpins a transactional network where all participants have
+Hyperledger Mchain underpins a transactional network where all participants have
 known identities.  Public Key Infrastructure is used to generate cryptographic
 certificates which are tied to organizations, network components, and end users
 or client applications.  As a result, data access control can be manipulated and
 governed on the broader network and on channel levels.  This "permissioned" notion
-of Hyperledger Fabric, coupled with the existence and capabilities of channels,
+of Hyperledger Mchain, coupled with the existence and capabilities of channels,
 helps address scenarios where privacy and confidentiality are paramount concerns.
 
 See the :doc:`msp` topic to better understand cryptographic
 implementations, and the sign, verify, authenticate approach used in
-Hyperledger Fabric.
+Hyperledger Mchain.
 
 .. _Consensus:
 
@@ -143,7 +143,7 @@ Consensus
 In distributed ledger technology, consensus has recently become synonymous with
 a specific algorithm, within a single function. However, consensus encompasses more
 than simply agreeing upon the order of transactions, and this differentiation is
-highlighted in Hyperledger Fabric through its fundamental role in the entire
+highlighted in Hyperledger Mchain through its fundamental role in the entire
 transaction flow, from proposal and endorsement, to ordering, validation and commitment.
 In a nutshell, consensus is defined as the full-circle verification of the correctness of
 a set of transactions comprising a block.

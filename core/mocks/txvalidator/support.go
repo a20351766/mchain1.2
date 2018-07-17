@@ -17,12 +17,12 @@ limitations under the License.
 package support
 
 import (
-	"github.com/hyperledger/fabric/common/channelconfig"
-	mockpolicies "github.com/hyperledger/fabric/common/mocks/policies"
-	"github.com/hyperledger/fabric/common/policies"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/common/channelconfig"
+	mockpolicies "github.com/hyperledger/mchain/common/mocks/policies"
+	"github.com/hyperledger/mchain/common/policies"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/msp"
+	"github.com/hyperledger/mchain/protos/common"
 )
 
 type Support struct {

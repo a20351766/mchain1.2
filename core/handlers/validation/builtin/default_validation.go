@@ -10,13 +10,13 @@ import (
 	"fmt"
 	"reflect"
 
-	commonerrors "github.com/hyperledger/fabric/common/errors"
-	"github.com/hyperledger/fabric/core/handlers/validation/api"
-	. "github.com/hyperledger/fabric/core/handlers/validation/api/capabilities"
-	. "github.com/hyperledger/fabric/core/handlers/validation/api/identities"
-	. "github.com/hyperledger/fabric/core/handlers/validation/api/policies"
-	. "github.com/hyperledger/fabric/core/handlers/validation/api/state"
-	"github.com/hyperledger/fabric/protos/common"
+	commonerrors "github.com/hyperledger/mchain/common/errors"
+	"github.com/hyperledger/mchain/core/handlers/validation/api"
+	. "github.com/hyperledger/mchain/core/handlers/validation/api/capabilities"
+	. "github.com/hyperledger/mchain/core/handlers/validation/api/identities"
+	. "github.com/hyperledger/mchain/core/handlers/validation/api/policies"
+	. "github.com/hyperledger/mchain/core/handlers/validation/api/state"
+	"github.com/hyperledger/mchain/protos/common"
 	"github.com/pkg/errors"
 )
 

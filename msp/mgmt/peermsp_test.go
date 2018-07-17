@@ -9,7 +9,7 @@ package mgmt
 import (
 	"testing"
 
-	"github.com/hyperledger/fabric/core/config/configtest"
+	"github.com/hyperledger/mchain/core/config/configtest"
 )
 
 func TestLocalMSP(t *testing.T) {

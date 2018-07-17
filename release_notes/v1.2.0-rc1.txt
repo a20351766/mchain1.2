@@ -69,7 +69,7 @@ content restrictions.  Specifically, version v1.2 adds validation during
 chaincode execution to ensure that keys that will be written to CouchDB
 state database are UTF8 complaint, do not start with an underscore, and
 that there are no top-level JSON fields named '~version' or that start with
-underscores, as these fields are reserved for use by CouchDB (and Fabric).
+underscores, as these fields are reserved for use by CouchDB (and Mchain).
 If these conditions are found during chaincode execution, an error will
 be returned to the client in the proposal response.
 For the same reason, all peers on a channel must utilize the same state
@@ -96,4 +96,4 @@ from orderer nodes.
 Other improvements and fixes
 ----------------------------
 For the full list of improvements and fixes, refer to the release change log:
-https://github.com/hyperledger/fabric/blob/master/CHANGELOG.md#v120-rc1
+https://github.com/hyperledger/mchain/blob/master/CHANGELOG.md#v120-rc1

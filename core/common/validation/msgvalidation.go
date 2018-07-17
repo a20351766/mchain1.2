@@ -20,13 +20,13 @@ import (
 	"bytes"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/common/channelconfig"
-	"github.com/hyperledger/fabric/common/flogging"
-	mspmgmt "github.com/hyperledger/fabric/msp/mgmt"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/msp"
-	pb "github.com/hyperledger/fabric/protos/peer"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/common/channelconfig"
+	"github.com/hyperledger/mchain/common/flogging"
+	mspmgmt "github.com/hyperledger/mchain/msp/mgmt"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/msp"
+	pb "github.com/hyperledger/mchain/protos/peer"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/pkg/errors"
 )
 
@@ -56,11 +56,11 @@ func validateChaincodeProposalMessage(prop *pb.Proposal, hdr *common.Header) (*p
 	// TODO: should we even do this? If so, using which interface?
 
 	//    - ensure that the visibility field has some value we understand
-	// currently the fabric only supports full visibility: this means that
+	// currently the mchain only supports full visibility: this means that
 	// there are no restrictions on which parts of the proposal payload will
 	// be visible in the final transaction; this default approach requires
 	// no additional instructions in the PayloadVisibility field which is
-	// therefore expected to be nil; however the fabric may be extended to
+	// therefore expected to be nil; however the mchain may be extended to
 	// encode more elaborate visibility mechanisms that shall be encoded in
 	// this field (and handled appropriately by the peer)
 	if chaincodeHdrExt.PayloadVisibility != nil {

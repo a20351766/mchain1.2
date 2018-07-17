@@ -14,8 +14,8 @@ import (
 	"time"
 
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/integration/helpers"
-	"github.com/hyperledger/fabric/integration/runner"
+	"github.com/hyperledger/mchain/integration/helpers"
+	"github.com/hyperledger/mchain/integration/runner"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"github.com/onsi/gomega/gbytes"
@@ -120,7 +120,7 @@ var _ = Describe("Peer", func() {
 
 		// Remove chaincode image
 		filters = map[string][]string{}
-		filters["label"] = []string{"org.hyperledger.fabric.chaincode.id.name=mytest"}
+		filters["label"] = []string{"org.hyperledger.mchain.chaincode.id.name=mytest"}
 		images, _ := client.ListImages(docker.ListImagesOptions{
 			Filters: filters,
 		})
@@ -181,7 +181,7 @@ var _ = Describe("Peer", func() {
 		installCC.ConfigDir = tempDir
 		installCC.LogLevel = "debug"
 		installCC.MSPConfigPath = filepath.Join(cryptoDir, "peerOrganizations", "org1.example.com", "users", "Admin@org1.example.com", "msp")
-		installCC.InstallChaincode("mytest", "1.0", "github.com/hyperledger/fabric/integration/chaincode/simple/cmd")
+		installCC.InstallChaincode("mytest", "1.0", "github.com/hyperledger/mchain/integration/chaincode/simple/cmd")
 		Expect(peerRunner.Err()).To(gbytes.Say(`\QInstalled Chaincode [mytest] Version [1.0] to peer\E`))
 
 		By("list installed chaincode")

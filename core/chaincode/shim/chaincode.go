@@ -20,13 +20,13 @@ import (
 
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/timestamp"
-	"github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/common/flogging"
-	commonledger "github.com/hyperledger/fabric/common/ledger"
-	"github.com/hyperledger/fabric/core/comm"
-	"github.com/hyperledger/fabric/protos/ledger/queryresult"
-	pb "github.com/hyperledger/fabric/protos/peer"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/bccsp/factory"
+	"github.com/hyperledger/mchain/common/flogging"
+	commonledger "github.com/hyperledger/mchain/common/ledger"
+	"github.com/hyperledger/mchain/core/comm"
+	"github.com/hyperledger/mchain/protos/ledger/queryresult"
+	pb "github.com/hyperledger/mchain/protos/peer"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/op/go-logging"
 	"github.com/pkg/errors"
 	"github.com/spf13/viper"
@@ -329,7 +329,7 @@ func chatWithPeer(chaincodename string, stream PeerChaincodeStream, cc Chaincode
 				return
 			}
 
-			//keepalive messages are PONGs to the fabric's PINGs
+			//keepalive messages are PONGs to the mchain's PINGs
 			if in.Type == pb.ChaincodeMessage_KEEPALIVE {
 				chaincodeLogger.Debug("Sending KEEPALIVE response")
 				//ignore any errors, maybe next KEEPALIVE will work
@@ -826,7 +826,7 @@ func (stub *ChaincodeStub) SetEvent(name string, payload []byte) error {
 // As independent programs, Go language chaincodes can use any logging
 // methodology they choose, from simple fmt.Printf() to os.Stdout, to
 // decorated logs created by the author's favorite logging package. The
-// chaincode "shim" interface, however, is defined by the Hyperledger fabric
+// chaincode "shim" interface, however, is defined by the Hyperledger mchain
 // and implements its own logging methodology. This methodology currently
 // includes severity-based logging control and a standard way of decorating
 // the logs.
@@ -838,7 +838,7 @@ func (stub *ChaincodeStub) SetEvent(name string, payload []byte) error {
 // other package requirements. The lack of package requirements is especially
 // important because even if the chaincode happened to explicitly use the same
 // logging package as the shim, unless the chaincode is physically included as
-// part of the hyperledger fabric source code tree it could actually end up
+// part of the hyperledger mchain source code tree it could actually end up
 // using a distinct binary instance of the logging package, with different
 // formats and severity levels than the binary package used by the shim.
 //

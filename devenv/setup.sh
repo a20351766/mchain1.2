@@ -9,7 +9,7 @@
 set -e
 set -x
 
-DEVENV_REVISION=`(cd /hyperledger/fabric/devenv; git rev-parse --short HEAD)`
+DEVENV_REVISION=`(cd /hyperledger/mchain/devenv; git rev-parse --short HEAD)`
 
 # Install WARNING before we start provisioning so that it
 # will remain active.  We will remove the warning after
@@ -81,7 +81,7 @@ curl -sL $GO_URL | (cd $GOROOT && tar --strip-components 1 -xz)
 # ----------------------------------------------------------------
 # Install nvm and Node.js
 # ----------------------------------------------------------------
-runuser -l ubuntu -c '/hyperledger/fabric/devenv/install_nvm.sh'
+runuser -l ubuntu -c '/hyperledger/mchain/devenv/install_nvm.sh'
 
 # ----------------------------------------------------------------
 # Install Java
@@ -104,29 +104,29 @@ sudo chown -R ubuntu:ubuntu /var/hyperledger
 # the backing docker images (since we are, by definition, rebuilding the
 # filesystem) and then ensure we have a fresh set of our go-tools.
 # NOTE: This must be done before the chown below
-cd $GOPATH/src/github.com/hyperledger/fabric
+cd $GOPATH/src/github.com/hyperledger/mchain
 make clean gotools
 
 # Ensure permissions are set for GOPATH
 sudo chown -R ubuntu:ubuntu $GOPATH
 
 # Update limits.conf to increase nofiles for LevelDB and network connections
-sudo cp /hyperledger/fabric/devenv/limits.conf /etc/security/limits.conf
+sudo cp /hyperledger/mchain/devenv/limits.conf /etc/security/limits.conf
 
 # Configure vagrant specific environment
 cat <<EOF >/etc/profile.d/vagrant-devenv.sh
 # Expose the devenv/tools in the $PATH
-export PATH=\$PATH:/hyperledger/fabric/devenv/tools:/hyperledger/fabric/.build/bin
-export FABRIC_CFG_PATH=/hyperledger/fabric/sampleconfig/
+export PATH=\$PATH:/hyperledger/mchain/devenv/tools:/hyperledger/mchain/.build/bin
+export FABRIC_CFG_PATH=/hyperledger/mchain/sampleconfig/
 export VAGRANT=1
 export CGO_CFLAGS=" "
 EOF
 
 # Set our shell prompt to something less ugly than the default from packer
-# Also make it so that it cd's the user to the fabric dir upon logging in
+# Also make it so that it cd's the user to the mchain dir upon logging in
 cat <<EOF >> /home/ubuntu/.bashrc
 PS1="\u@hyperledger-devenv:$DEVENV_REVISION:\w$ "
-cd $GOPATH/src/github.com/hyperledger/fabric/
+cd $GOPATH/src/github.com/hyperledger/mchain/
 EOF
 
 # finally, remove our warning so the user knows this was successful

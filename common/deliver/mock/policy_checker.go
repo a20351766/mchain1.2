@@ -4,8 +4,8 @@ package mock
 import (
 	"sync"
 
-	"github.com/hyperledger/fabric/common/deliver"
-	cb "github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/common/deliver"
+	cb "github.com/hyperledger/mchain/protos/common"
 )
 
 type PolicyChecker struct {

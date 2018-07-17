@@ -42,7 +42,7 @@ General:
 
 FileLedger:
   Location: /var/hyperledger/production/orderer
-  Prefix: hyperledger-fabric-ordererledger
+  Prefix: hyperledger-mchain-ordererledger
 
 RAMLedger:
   HistorySize: 1000

@@ -9,14 +9,14 @@ package main
 import (
 	"os"
 
-	"github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/cmd/common"
-	"github.com/hyperledger/fabric/discovery/cmd"
+	"github.com/hyperledger/mchain/bccsp/factory"
+	"github.com/hyperledger/mchain/cmd/common"
+	"github.com/hyperledger/mchain/discovery/cmd"
 )
 
 func main() {
 	factory.InitFactories(nil)
-	cli := common.NewCLI("discover", "Command line client for fabric discovery service")
+	cli := common.NewCLI("discover", "Command line client for mchain discovery service")
 	discovery.AddCommands(cli)
 	cli.Run(os.Args[1:])
 }

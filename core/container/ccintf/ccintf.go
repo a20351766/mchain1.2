@@ -13,7 +13,7 @@ package ccintf
 import (
 	"fmt"
 
-	pb "github.com/hyperledger/fabric/protos/peer"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"golang.org/x/net/context"
 )
 

@@ -26,7 +26,7 @@ import (
 
 	"crypto/elliptic"
 
-	"github.com/hyperledger/fabric/bccsp"
+	"github.com/hyperledger/mchain/bccsp"
 )
 
 type ecdsaPrivateKey struct {

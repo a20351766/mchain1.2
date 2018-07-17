@@ -9,7 +9,7 @@ package peer
 import (
 	"fmt"
 
-	"github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/protos/common"
 
 	"github.com/golang/protobuf/proto"
 )

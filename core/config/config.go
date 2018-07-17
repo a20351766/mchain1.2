@@ -61,11 +61,11 @@ func TranslatePathInPlace(base string, p *string) {
 //----------------------------------------------------------------------------------
 // GetPath allows configuration strings that specify a (config-file) relative path
 //
-// For example: Assume our config is located in /etc/hyperledger/fabric/core.yaml with
+// For example: Assume our config is located in /etc/hyperledger/mchain/core.yaml with
 // a key "msp.configPath" = "msp/config.yaml".
 //
 // This function will return:
-//      GetPath("msp.configPath") -> /etc/hyperledger/fabric/msp/config.yaml
+//      GetPath("msp.configPath") -> /etc/hyperledger/mchain/msp/config.yaml
 //
 //----------------------------------------------------------------------------------
 func GetPath(key string) string {
@@ -77,7 +77,7 @@ func GetPath(key string) string {
 	return TranslatePath(filepath.Dir(viper.ConfigFileUsed()), p)
 }
 
-const OfficialPath = "/etc/hyperledger/fabric"
+const OfficialPath = "/etc/hyperledger/mchain"
 
 //----------------------------------------------------------------------------------
 // InitViper()
@@ -102,7 +102,7 @@ func InitViper(v *viper.Viper, configName string) error {
 		// If we get here, we should use the default paths in priority order:
 		//
 		// *) CWD
-		// *) /etc/hyperledger/fabric
+		// *) /etc/hyperledger/mchain
 
 		// CWD
 		AddConfigPath(v, "./")

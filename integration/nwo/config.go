@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package nwo
 
 // Config holds the basic information needed to generate
-// fabric configuration files.
+// mchain configuration files.
 type Config struct {
 	Organizations []*Organization `yaml:"organizations,omitempty"`
 	Consortiums   []*Consortium   `yaml:"consortiums,omitempty"`

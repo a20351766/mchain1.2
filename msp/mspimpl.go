@@ -15,10 +15,10 @@ import (
 	"fmt"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/hyperledger/fabric/bccsp"
-	"github.com/hyperledger/fabric/bccsp/factory"
-	"github.com/hyperledger/fabric/bccsp/signer"
-	m "github.com/hyperledger/fabric/protos/msp"
+	"github.com/hyperledger/mchain/bccsp"
+	"github.com/hyperledger/mchain/bccsp/factory"
+	"github.com/hyperledger/mchain/bccsp/signer"
+	m "github.com/hyperledger/mchain/protos/msp"
 	"github.com/pkg/errors"
 )
 
@@ -210,11 +210,11 @@ func (msp *bccspmsp) Setup(conf1 *m.MSPConfig) error {
 		return errors.New("Setup error: nil conf reference")
 	}
 
-	// given that it's an msp of type fabric, extract the MSPConfig instance
+	// given that it's an msp of type mchain, extract the MSPConfig instance
 	conf := &m.FabricMSPConfig{}
 	err := proto.Unmarshal(conf1.Config, conf)
 	if err != nil {
-		return errors.Wrap(err, "failed unmarshalling fabric msp config")
+		return errors.Wrap(err, "failed unmarshalling mchain msp config")
 	}
 
 	// set the name for this msp

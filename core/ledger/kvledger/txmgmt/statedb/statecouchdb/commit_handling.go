@@ -9,9 +9,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/statedb"
-	"github.com/hyperledger/fabric/core/ledger/ledgerconfig"
-	"github.com/hyperledger/fabric/core/ledger/util/couchdb"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/statedb"
+	"github.com/hyperledger/mchain/core/ledger/ledgerconfig"
+	"github.com/hyperledger/mchain/core/ledger/util/couchdb"
 )
 
 // nsCommittersBuilder implements `batch` interface. Each batch operates on a specific namespace in the updates and

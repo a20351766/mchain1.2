@@ -12,31 +12,31 @@ import (
 	"os"
 	"testing"
 
-	"github.com/hyperledger/fabric/common/cauthdsl"
-	ctxt "github.com/hyperledger/fabric/common/configtx/test"
-	commonerrors "github.com/hyperledger/fabric/common/errors"
-	ledger2 "github.com/hyperledger/fabric/common/ledger"
-	"github.com/hyperledger/fabric/common/ledger/testutil"
-	mockconfig "github.com/hyperledger/fabric/common/mocks/config"
-	"github.com/hyperledger/fabric/common/mocks/scc"
-	"github.com/hyperledger/fabric/common/util"
-	"github.com/hyperledger/fabric/core/committer/txvalidator"
-	"github.com/hyperledger/fabric/core/committer/txvalidator/mocks"
-	"github.com/hyperledger/fabric/core/committer/txvalidator/testdata"
-	ccp "github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/handlers/validation/api"
-	"github.com/hyperledger/fabric/core/ledger"
-	"github.com/hyperledger/fabric/core/ledger/kvledger/txmgmt/rwsetutil"
-	"github.com/hyperledger/fabric/core/ledger/ledgermgmt"
-	lutils "github.com/hyperledger/fabric/core/ledger/util"
-	mocktxvalidator "github.com/hyperledger/fabric/core/mocks/txvalidator"
-	mocks2 "github.com/hyperledger/fabric/discovery/support/mocks"
-	"github.com/hyperledger/fabric/msp"
-	"github.com/hyperledger/fabric/msp/mgmt"
-	"github.com/hyperledger/fabric/msp/mgmt/testtools"
-	"github.com/hyperledger/fabric/protos/common"
-	"github.com/hyperledger/fabric/protos/peer"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/common/cauthdsl"
+	ctxt "github.com/hyperledger/mchain/common/configtx/test"
+	commonerrors "github.com/hyperledger/mchain/common/errors"
+	ledger2 "github.com/hyperledger/mchain/common/ledger"
+	"github.com/hyperledger/mchain/common/ledger/testutil"
+	mockconfig "github.com/hyperledger/mchain/common/mocks/config"
+	"github.com/hyperledger/mchain/common/mocks/scc"
+	"github.com/hyperledger/mchain/common/util"
+	"github.com/hyperledger/mchain/core/committer/txvalidator"
+	"github.com/hyperledger/mchain/core/committer/txvalidator/mocks"
+	"github.com/hyperledger/mchain/core/committer/txvalidator/testdata"
+	ccp "github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/core/handlers/validation/api"
+	"github.com/hyperledger/mchain/core/ledger"
+	"github.com/hyperledger/mchain/core/ledger/kvledger/txmgmt/rwsetutil"
+	"github.com/hyperledger/mchain/core/ledger/ledgermgmt"
+	lutils "github.com/hyperledger/mchain/core/ledger/util"
+	mocktxvalidator "github.com/hyperledger/mchain/core/mocks/txvalidator"
+	mocks2 "github.com/hyperledger/mchain/discovery/support/mocks"
+	"github.com/hyperledger/mchain/msp"
+	"github.com/hyperledger/mchain/msp/mgmt"
+	"github.com/hyperledger/mchain/msp/mgmt/testtools"
+	"github.com/hyperledger/mchain/protos/common"
+	"github.com/hyperledger/mchain/protos/peer"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/spf13/viper"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
@@ -56,7 +56,7 @@ func setupLedgerAndValidator(t *testing.T) (ledger.PeerLedger, txvalidator.Valid
 }
 
 func setupLedgerAndValidatorExplicit(t *testing.T, cpb *mockconfig.MockApplicationCapabilities, plugin *mocks.Plugin) (ledger.PeerLedger, txvalidator.Validator) {
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/validatortest")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/validatortest")
 	ledgermgmt.InitializeTestEnv()
 	gb, err := ctxt.MakeGenesisBlock("TestLedger")
 	assert.NoError(t, err)
@@ -753,7 +753,7 @@ func (exec *mockQueryExecutor) GetPrivateDataMetadata(namespace, collection, key
 }
 
 func createCustomSupportAndLedger(t *testing.T) (*mocktxvalidator.Support, ledger.PeerLedger) {
-	viper.Set("peer.fileSystemPath", "/tmp/fabric/validatortest")
+	viper.Set("peer.fileSystemPath", "/tmp/mchain/validatortest")
 	ledgermgmt.InitializeTestEnv()
 	gb, err := ctxt.MakeGenesisBlock("TestLedger")
 	assert.NoError(t, err)

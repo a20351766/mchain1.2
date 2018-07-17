@@ -1,7 +1,7 @@
 Securing Communication With Transport Layer Security (TLS)
 ==========================================================
 
-Fabric supports for secure communication between nodes using TLS.  TLS communication
+Mchain supports for secure communication between nodes using TLS.  TLS communication
 can use both one-way (server only) and two-way (server and client) authentication.
 
 Configuring TLS for peers nodes
@@ -136,7 +136,7 @@ not trust. Make sure the client is sending its certificate and that it has been 
 of the CA certificates trusted by the peer or orderer node.
 
 If you see the error message ``remote error: tls: bad certificate`` in your chaincode logs,
-ensure that your chaincode has been built using the chaincode shim provided with Fabric v1.1
+ensure that your chaincode has been built using the chaincode shim provided with Mchain v1.1
 or newer. If your chaincode does not contain a vendored copy of the shim, deleting the
 chaincode container and restarting its peer will rebuild the chaincode container using the
 current shim version.

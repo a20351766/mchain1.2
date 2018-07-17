@@ -2,7 +2,7 @@ Using Jira to understand current work items
 ===========================================
 
 This document has been created to give further insight into the work in
-progress towards the Hyperledger Fabric v1 architecture based on the
+progress towards the Hyperledger Mchain v1 architecture based on the
 community roadmap. The requirements for the roadmap are being tracked in
 `Jira <https://jira.hyperledger.org/>`__.
 

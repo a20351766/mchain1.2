@@ -4,7 +4,7 @@ Prerequisites
 Before we begin, if you haven't already done so, you may wish to check that
 you have all the prerequisites below installed on the platform(s)
 on which you'll be developing blockchain applications and/or operating
-Hyperledger Fabric.
+Hyperledger Mchain.
 
 Install cURL
 ------------
@@ -21,7 +21,7 @@ Docker and Docker Compose
 -------------------------
 
 You will need the following installed on the platform on which you will be
-operating, or developing on (or for), Hyperledger Fabric:
+operating, or developing on (or for), Hyperledger Mchain:
 
   - MacOSX, \*nix, or Windows 10: `Docker <https://www.docker.com/get-docker>`__
     Docker version 17.06.2-ce or greater is required.
@@ -54,7 +54,7 @@ following command from a terminal prompt:
 Go Programming Language
 -----------------------
 
-Hyperledger Fabric uses the Go Programming Language for many of its
+Hyperledger Mchain uses the Go Programming Language for many of its
 components.
 
   - `Go <https://golang.org/dl/>`__ version 1.10.x is required.
@@ -66,7 +66,7 @@ as your personal ``~/.bashrc`` file if you are using the ``bash`` shell
 under Linux.
 
 First, you must set the environment variable ``GOPATH`` to point at the
-Go workspace containing the downloaded Fabric code base, with something like:
+Go workspace containing the downloaded Mchain code base, with something like:
 
 .. code:: bash
 
@@ -76,7 +76,7 @@ Go workspace containing the downloaded Fabric code base, with something like:
 
   Even though, in Linux, Go's ``GOPATH`` variable can be a colon-separated list
   of directories, and will use a default value of ``$HOME/go`` if it is unset,
-  the current Fabric build framework still requires you to set and export that
+  the current Mchain build framework still requires you to set and export that
   variable, and it must contain **only** the single directory name for your Go
   workspace. (This restriction might be removed in a future release.)
 
@@ -89,15 +89,15 @@ example for ``bash`` under Linux:
   export PATH=$PATH:$GOPATH/bin
 
 While this directory may not exist in a new Go workspace installation, it is
-populated later by the Fabric build system with a small number of Go executables
+populated later by the Mchain build system with a small number of Go executables
 used by other parts of the build system. So even if you currently have no such
 directory yet, extend your shell search path as above.
 
 Node.js Runtime and NPM
 -----------------------
 
-If you will be developing applications for Hyperledger Fabric leveraging the
-Hyperledger Fabric SDK for Node.js, you will need to have version 8.9.x of Node.js
+If you will be developing applications for Hyperledger Mchain leveraging the
+Hyperledger Mchain SDK for Node.js, you will need to have version 8.9.x of Node.js
 installed.
 
 .. note:: Node.js version 9.x is not supported at this time.
@@ -118,7 +118,7 @@ Python
 .. note:: The following applies to Ubuntu 16.04 users only.
 
 By default Ubuntu 16.04 comes with Python 3.5.1 installed as the ``python3`` binary.
-The Fabric Node.js SDK requires an iteration of Python 2.7 in order for ``npm install``
+The Mchain Node.js SDK requires an iteration of Python 2.7 in order for ``npm install``
 operations to complete successfully.  Retrieve the 2.7 version with the following command:
 
 .. code:: bash

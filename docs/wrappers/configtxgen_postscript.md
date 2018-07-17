@@ -82,7 +82,7 @@ instead simply omit the profile specifics and use the `CONFIGTX` prefix
 followed by the elements relative to the profile name such as
 `CONFIGTX_ORDERER_ORDERERTYPE`.
 
-Refer to the sample `configtx.yaml` shipped with Fabric for all possible
+Refer to the sample `configtx.yaml` shipped with Mchain for all possible
 configuration options.  You may find this file in the `config` directory of
 the release artifacts tar, or you may find it under the `sampleconfig` folder
 if you are building from source.

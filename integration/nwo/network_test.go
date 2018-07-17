@@ -19,8 +19,8 @@ import (
 	"github.com/onsi/gomega/gexec"
 
 	docker "github.com/fsouza/go-dockerclient"
-	"github.com/hyperledger/fabric/integration/nwo"
-	"github.com/hyperledger/fabric/integration/nwo/commands"
+	"github.com/hyperledger/mchain/integration/nwo"
+	"github.com/hyperledger/mchain/integration/nwo/commands"
 	"github.com/tedsuo/ifrit"
 	yaml "gopkg.in/yaml.v2"
 )
@@ -61,7 +61,7 @@ var _ = Describe("Network", func() {
 			network.GenerateConfigTree()
 			network.Bootstrap()
 
-			// Start all of the fabric processes
+			// Start all of the mchain processes
 			networkRunner := network.NetworkGroupRunner()
 			process = ifrit.Invoke(networkRunner)
 			Eventually(process.Ready()).Should(BeClosed())
@@ -81,7 +81,7 @@ var _ = Describe("Network", func() {
 			chaincode := nwo.Chaincode{
 				Name:    "mycc",
 				Version: "0.0",
-				Path:    "github.com/hyperledger/fabric/integration/chaincode/simple/cmd",
+				Path:    "github.com/hyperledger/mchain/integration/chaincode/simple/cmd",
 				Ctor:    `{"Args":["init","a","100","b","200"]}`,
 				Policy:  `AND ('Org1ExampleCom.member','Org2ExampleCom.member')`,
 			}
@@ -170,7 +170,7 @@ var _ = Describe("Network", func() {
 				commands.ChaincodeInstall{
 					Name:    "mycc",
 					Version: "0.0",
-					Path:    "github.com/hyperledger/fabric/integration/chaincode/simple/cmd",
+					Path:    "github.com/hyperledger/mchain/integration/chaincode/simple/cmd",
 				},
 			)
 

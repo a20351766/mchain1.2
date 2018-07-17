@@ -391,8 +391,8 @@ func TestMetricsByStatsdReporter(t *testing.T) {
 	result := string(buffer[:n])
 
 	expected := []string{
-		`hyperledger_fabric.peer.success_total.component-committer.env-test:1|c`,
-		`hyperledger_fabric.peer.channel_total.component-committer.env-test:4|g`,
+		`hyperledger_mchain.peer.success_total.component-committer.env-test:1|c`,
+		`hyperledger_mchain.peer.channel_total.component-committer.env-test:4|g`,
 	}
 
 	for i, res := range strings.Split(result, "\n") {
@@ -427,12 +427,12 @@ func TestMetricsByPrometheusReporter(t *testing.T) {
 	time.Sleep(2 * time.Second)
 
 	expected := []string{
-		`# HELP hyperledger_fabric_peer_channel_total hyperledger_fabric_peer_channel_total gauge`,
-		`# TYPE hyperledger_fabric_peer_channel_total gauge`,
-		`hyperledger_fabric_peer_channel_total{component="committer",env="test"} 4`,
-		`# HELP hyperledger_fabric_peer_success_total hyperledger_fabric_peer_success_total counter`,
-		`# TYPE hyperledger_fabric_peer_success_total counter`,
-		`hyperledger_fabric_peer_success_total{component="committer",env="test"} 1`,
+		`# HELP hyperledger_mchain_peer_channel_total hyperledger_mchain_peer_channel_total gauge`,
+		`# TYPE hyperledger_mchain_peer_channel_total gauge`,
+		`hyperledger_mchain_peer_channel_total{component="committer",env="test"} 4`,
+		`# HELP hyperledger_mchain_peer_success_total hyperledger_mchain_peer_success_total counter`,
+		`# TYPE hyperledger_mchain_peer_success_total counter`,
+		`hyperledger_mchain_peer_success_total{component="committer",env="test"} 1`,
 		``,
 	}
 

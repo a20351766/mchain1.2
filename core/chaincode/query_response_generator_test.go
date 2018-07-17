@@ -11,9 +11,9 @@ import (
 	"math"
 	"testing"
 
-	"github.com/hyperledger/fabric/core/chaincode"
-	"github.com/hyperledger/fabric/core/chaincode/mock"
-	"github.com/hyperledger/fabric/protos/ledger/queryresult"
+	"github.com/hyperledger/mchain/core/chaincode"
+	"github.com/hyperledger/mchain/core/chaincode/mock"
+	"github.com/hyperledger/mchain/protos/ledger/queryresult"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 )

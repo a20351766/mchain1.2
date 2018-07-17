@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/hyperledger/fabric/common/metadata"
+	"github.com/hyperledger/mchain/common/metadata"
 	"github.com/spf13/cobra"
 )
 
@@ -24,8 +24,8 @@ func Cmd() *cobra.Command {
 
 var cobraCommand = &cobra.Command{
 	Use:   "version",
-	Short: "Print fabric peer version.",
-	Long:  `Print current version of the fabric peer server.`,
+	Short: "Print mchain peer version.",
+	Long:  `Print current version of the mchain peer server.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Print(GetInfo())
 	},

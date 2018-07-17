@@ -11,9 +11,9 @@ import (
 	"sync"
 
 	"github.com/golang/groupcache/lru"
-	"github.com/hyperledger/fabric/common/flogging"
-	"github.com/hyperledger/fabric/msp"
-	pmsp "github.com/hyperledger/fabric/protos/msp"
+	"github.com/hyperledger/mchain/common/flogging"
+	"github.com/hyperledger/mchain/msp"
+	pmsp "github.com/hyperledger/mchain/protos/msp"
 )
 
 const (

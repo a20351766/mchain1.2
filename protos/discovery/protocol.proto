@@ -8,11 +8,11 @@ import "gossip/message.proto";
 import "msp/msp_config.proto";
 import "msp/identities.proto";
 
-option go_package = "github.com/hyperledger/fabric/protos/discovery" ;
+option go_package = "github.com/hyperledger/mchain/protos/discovery" ;
 
 package discovery;
 
-// Discovery defines a service that serves information about the fabric network
+// Discovery defines a service that serves information about the mchain network
 // like which peers, orderers, chaincodes, etc.
 service Discovery {
     // Discover receives a signed request, and returns a response.

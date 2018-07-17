@@ -34,7 +34,7 @@ type testEnv struct {
 func newTestEnv(t testing.TB) *testEnv {
 	path := filepath.Join(
 		os.TempDir(),
-		"fabric",
+		"mchain",
 		"ledgertests",
 		"kvledger",
 		strconv.Itoa(rand.Int()))

@@ -12,13 +12,13 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hyperledger/fabric/core/chaincode/accesscontrol"
-	"github.com/hyperledger/fabric/core/common/ccprovider"
-	"github.com/hyperledger/fabric/core/container"
-	"github.com/hyperledger/fabric/core/container/ccintf"
-	"github.com/hyperledger/fabric/core/container/dockercontroller"
-	"github.com/hyperledger/fabric/core/container/inproccontroller"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/core/chaincode/accesscontrol"
+	"github.com/hyperledger/mchain/core/common/ccprovider"
+	"github.com/hyperledger/mchain/core/container"
+	"github.com/hyperledger/mchain/core/container/ccintf"
+	"github.com/hyperledger/mchain/core/container/dockercontroller"
+	"github.com/hyperledger/mchain/core/container/inproccontroller"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	"github.com/pkg/errors"
 	"golang.org/x/net/context"
 )
@@ -106,9 +106,9 @@ func getVMType(cds *pb.ChaincodeDeploymentSpec) string {
 
 const (
 	// Mutual TLS auth client key and cert paths in the chaincode container
-	TLSClientKeyPath      string = "/etc/hyperledger/fabric/client.key"
-	TLSClientCertPath     string = "/etc/hyperledger/fabric/client.crt"
-	TLSClientRootCertPath string = "/etc/hyperledger/fabric/peer.crt"
+	TLSClientKeyPath      string = "/etc/hyperledger/mchain/client.key"
+	TLSClientCertPath     string = "/etc/hyperledger/mchain/client.crt"
+	TLSClientRootCertPath string = "/etc/hyperledger/mchain/peer.crt"
 )
 
 func (c *ContainerRuntime) getTLSFiles(keyPair *accesscontrol.CertAndPrivKeyPair) map[string][]byte {

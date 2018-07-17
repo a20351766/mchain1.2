@@ -2,14 +2,14 @@ Submitting your first change request (CR)
 -----------------------------------------
 
 We are using
-`Gerrit <https://gerrit.hyperledger.org/r/#/admin/projects/fabric>`__ to
+`Gerrit <https://gerrit.hyperledger.org/r/#/admin/projects/mchain>`__ to
 manage code contributions and reviews. If you are unfamiliar with Gerrit,
 please review this :doc:`document <Gerrit/gerrit>` before proceeding.
 
 .. note:: Gerrit has a reputation of having a clunky user experience. However,
           the Google team has been working on improving this, and they have
           added a "New UI" option that will allow you to work with their new
-          and much improved UX. See the link at the bottom of the Fabric
+          and much improved UX. See the link at the bottom of the Mchain
           Gerrit page, linked above.
 
           .. image:: images/NewGerritUI.png
@@ -119,7 +119,7 @@ Now let's commit that change.
 This will open up an editing session using your favorite command-line editor
 where you will fill in a commit message. Add a commit message.
 
-.. note:: Note that for the Hyperledger Fabric project(s) we would have a
+.. note:: Note that for the Hyperledger Mchain project(s) we would have a
           title line that includes the JIRA number of the issue to which the
           change request applies. Please review the
           :doc:`guidelines <Gerrit/changes>` for change requests.
@@ -215,7 +215,7 @@ If you see nothing wrong with your CR it might be that the CI process
 simply failed for some reason unrelated to your change. In that case
 you may want to restart the CI process by posting a reply to your CR
 with the simple content "reverify".  Check the `CI management page
-<https://github.com/hyperledger/ci-management/blob/master/docs/fabric_ci_process.md>`__
+<https://github.com/hyperledger/ci-management/blob/master/docs/mchain_ci_process.md>`__
 for additional information and options on this.
 
 Modifying your change request

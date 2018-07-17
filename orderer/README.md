@@ -1,16 +1,16 @@
-# Hyperledger Fabric Ordering Service
+# Hyperledger Mchain Ordering Service
 
-The Hyperledger Fabric ordering service provides an atomic broadcast ordering service for consumption by the peers. This means that many clients can submit messages to the ordering service, and the same sequence of ordered batches will be delivered to all clients in response.
+The Hyperledger Mchain ordering service provides an atomic broadcast ordering service for consumption by the peers. This means that many clients can submit messages to the ordering service, and the same sequence of ordered batches will be delivered to all clients in response.
 
 ## Protocol definition
 
-The atomic broadcast ordering protocol for Hyperledger Fabric is described in `hyperledger/fabric/protos/orderer/ab.proto`. There are two services: the `Broadcast` service for injecting messages into the system and the `Deliver` service for receiving ordered batches from the service.
+The atomic broadcast ordering protocol for Hyperledger Mchain is described in `hyperledger/mchain/protos/orderer/ab.proto`. There are two services: the `Broadcast` service for injecting messages into the system and the `Deliver` service for receiving ordered batches from the service.
 
 ## Service types
 
 * Solo ordering service (testing): The solo ordering service is intended to be an extremely easy to deploy, non-production ordering service. It consists of a single process which serves all clients, so consensus is not required as there is a single central authority.  There is correspondingly no high availability or scalability. This makes solo ideal for development and testing, but not for deployment.
 * Kafka-based ordering service (production): The Kafka-based ordering service leverages the Kafka pub/sub system to perform the ordering, but wraps this in the familiar `ab.proto` definition so that the peer orderer client code does not to be written specifically for Kafka. Kafka is currently the preferred choice for production deployments which demand high throughput and high availability, but do not require byzantine fault tolerance.
-* PBFT ordering service (pending): The PBFT ordering service will use the Hyperledger Fabric PBFT implementation (currently under development) to order messages in a byzantine fault tolerant way.
+* PBFT ordering service (pending): The PBFT ordering service will use the Hyperledger Mchain PBFT implementation (currently under development) to order messages in a byzantine fault tolerant way.
 
 ### Choosing a service type
 
@@ -22,7 +22,7 @@ For details on the configuration structure of channels, refer to the [Channel Co
 
 `configtxgen` is a tool that allows for the creation of a genesis block using profiles, or grouped configuration parameters — refer to the [Configuring using the connfigtxgen tool](../docs/source/configtxgen.rst) guide for more.
 
-The location of this block can be set using the `ORDERER_GENERAL_GENESISFILE` environment variable. As is the case with all the configuration paths for Fabric binaries, this location is relative to the path set via the `FABRIC_CFG_PATH` environment variable.
+The location of this block can be set using the `ORDERER_GENERAL_GENESISFILE` environment variable. As is the case with all the configuration paths for Mchain binaries, this location is relative to the path set via the `FABRIC_CFG_PATH` environment variable.
 
 ## Ledger types
 
@@ -38,9 +38,9 @@ This can be set by setting the `ORDERER_GENERAL_LEDGERTYPE` environment variable
 
 ## Experimenting with the orderer service
 
-To experiment with the orderer service you may build the orderer binary by simply typing `go build` in the `hyperledger/fabric/orderer` directory. You may then invoke the orderer binary with no parameters, or you can override the bind address, port, and backing ledger by setting the environment variables `ORDERER_GENERAL_LISTENADDRESS`, `ORDERER_GENERAL_ LISTENPORT` and `ORDERER_GENERAL_LEDGER_TYPE` respectively.
+To experiment with the orderer service you may build the orderer binary by simply typing `go build` in the `hyperledger/mchain/orderer` directory. You may then invoke the orderer binary with no parameters, or you can override the bind address, port, and backing ledger by setting the environment variables `ORDERER_GENERAL_LISTENADDRESS`, `ORDERER_GENERAL_ LISTENPORT` and `ORDERER_GENERAL_LEDGER_TYPE` respectively.
 
-There are sample clients in the `fabric/orderer/sample_clients` directory.
+There are sample clients in the `mchain/orderer/sample_clients` directory.
 
 * The `broadcast_timestamp` client sends a message containing the timestamp to the `Broadcast` service.
 * The `deliver_stdout` client prints received batches to stdout from the `Deliver` interface.

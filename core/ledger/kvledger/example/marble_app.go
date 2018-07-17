@@ -22,10 +22,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/hyperledger/fabric/common/util"
-	ledger "github.com/hyperledger/fabric/core/ledger"
+	"github.com/hyperledger/mchain/common/util"
+	ledger "github.com/hyperledger/mchain/core/ledger"
 
-	"github.com/hyperledger/fabric/protos/common"
+	"github.com/hyperledger/mchain/protos/common"
 	logging "github.com/op/go-logging"
 )
 

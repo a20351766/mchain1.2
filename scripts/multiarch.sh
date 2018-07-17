@@ -46,7 +46,7 @@ if [ "$?" -ne 0 ]; then
   exit 1
 fi
 
-IMAGES="fabric-peer fabric-orderer fabric-ccenv fabric-tools"
+IMAGES="mchain-peer mchain-orderer mchain-ccenv mchain-tools"
 
 # check that all images have been published
 for image in ${IMAGES}; do

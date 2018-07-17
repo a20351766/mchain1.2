@@ -13,9 +13,9 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/hyperledger/fabric/core/chaincode/platforms/ccmetadata"
-	cutil "github.com/hyperledger/fabric/core/container/util"
-	pb "github.com/hyperledger/fabric/protos/peer"
+	"github.com/hyperledger/mchain/core/chaincode/platforms/ccmetadata"
+	cutil "github.com/hyperledger/mchain/core/container/util"
+	pb "github.com/hyperledger/mchain/protos/peer"
 	//	"path/filepath"
 )
 

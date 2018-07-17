@@ -23,13 +23,13 @@ import (
 	"os"
 	"strings"
 
-	"github.com/hyperledger/fabric/core/ledger/util"
-	"github.com/hyperledger/fabric/events/consumer"
-	"github.com/hyperledger/fabric/msp/mgmt"
-	"github.com/hyperledger/fabric/msp/mgmt/testtools"
-	"github.com/hyperledger/fabric/protos/common"
-	pb "github.com/hyperledger/fabric/protos/peer"
-	"github.com/hyperledger/fabric/protos/utils"
+	"github.com/hyperledger/mchain/core/ledger/util"
+	"github.com/hyperledger/mchain/events/consumer"
+	"github.com/hyperledger/mchain/msp/mgmt"
+	"github.com/hyperledger/mchain/msp/mgmt/testtools"
+	"github.com/hyperledger/mchain/protos/common"
+	pb "github.com/hyperledger/mchain/protos/peer"
+	"github.com/hyperledger/mchain/protos/utils"
 	"github.com/spf13/viper"
 )
 
@@ -153,7 +153,7 @@ func main() {
 	flag.StringVar(&mspId, "events-mspid", "", "set up the mspid")
 	flag.Parse()
 
-	//if no msp info provided, we use the default MSP under fabric/sampleconfig
+	//if no msp info provided, we use the default MSP under mchain/sampleconfig
 	if mspDir == "" {
 		err := msptesttools.LoadMSPSetupForTesting()
 		if err != nil {

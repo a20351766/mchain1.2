@@ -14,22 +14,22 @@ Because the :doc:`build_network` (BYFN) tutorial defaults to the “latest” bi
 if you have run it since the release of v1.2, your machine will have v1.2 binaries
 and tools installed on it and you will not be able to upgrade them.
 
-As a result, this tutorial will provide a network based on Hyperledger Fabric
+As a result, this tutorial will provide a network based on Hyperledger Mchain
 v1.1 binaries as well as the v1.2 binaries you will be upgrading to. In addition,
 we will show how to update channel configurations to the new v1.2 capability that
 will allows peers to properly handle `private data <private-data/private-data.html>`_
 and :doc:`access_control`. For more information about capabilities, check out our
 :doc:`capability_requirements` documentation.
 
-.. note:: If your network is not yet at Fabric v1.1, follow the instructions for
-          `Upgrading Your Network to v1.1 <http://hyperledger-fabric.readthedocs.io/en/release-1.1/upgrading_your_network_tutorial.html>`_.
+.. note:: If your network is not yet at Mchain v1.1, follow the instructions for
+          `Upgrading Your Network to v1.1 <http://hyperledger-mchain.readthedocs.io/en/release-1.1/upgrading_your_network_tutorial.html>`_.
           The instructions in this documentation only cover moving from v1.1 to
           v1.2, not from any other version to v1.2.
 
 Because BYFN does not support the following components, our script for upgrading
 BYFN will not cover them:
 
-* **Fabric CA**
+* **Mchain CA**
 * **Kafka**
 * **CouchDB**
 * **SDK**
@@ -40,8 +40,8 @@ a section following the tutorial.
 At a high level, our upgrade tutorial will perform the following steps:
 
 1. Back up the ledger and MSPs.
-2. Upgrade the orderer binaries to Fabric v1.2.
-3. Upgrade the peer binaries to Fabric v1.2.
+2. Upgrade the orderer binaries to Mchain v1.2.
+3. Upgrade the peer binaries to Mchain v1.2.
 4. Enable the new v1.2 capability.
 
 .. note:: In production environments, the orderers and peers can simultaneously
@@ -69,12 +69,12 @@ machine as described in :doc:`prereqs`.
 Launch a v1.1 network
 ---------------------
 
-To begin, we will provision a basic network running Fabric v1.1 images. This
+To begin, we will provision a basic network running Mchain v1.1 images. This
 network will consist of two organizations, each maintaining two peer nodes, and
 a “solo” ordering service.
 
 We will be operating from the ``first-network`` subdirectory within your local clone
-of ``fabric-samples``. Change into that directory now. You will also want to open a
+of ``mchain-samples``. Change into that directory now. You will also want to open a
 few extra terminals for ease of use.
 
 Clean up
@@ -113,7 +113,7 @@ If BYFN has launched properly, you will see:
 
   ===================== All GOOD, BYFN execution completed =====================
 
-We are now ready to upgrade our network to Hyperledger Fabric v1.2.
+We are now ready to upgrade our network to Hyperledger Mchain v1.2.
 
 Get the newest samples
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -217,7 +217,7 @@ Once the orderer is down, you'll want to **backup its ledger and MSP**:
 In a production network this process would be repeated for each of the Kafka-based
 orderers in a rolling fashion.
 
-Now **download and restart the orderer** with our new fabric image:
+Now **download and restart the orderer** with our new mchain image:
 
 .. code:: bash
 
@@ -231,7 +231,7 @@ after restarting the orderer to verify that it has caught up to the other ordere
 Upgrade the peer containers
 ---------------------------
 
-Next, let's look at how to upgrade peer containers to Fabric v1.2. Peer containers should,
+Next, let's look at how to upgrade peer containers to Mchain v1.2. Peer containers should,
 like the orderers, be upgraded in a rolling fashion (one at a time). As mentioned
 during the orderer upgrade, orderers and peers may be upgraded in parallel, but for
 the purposes of this tutorial we’ve separated the processes out. At a high level,
@@ -317,7 +317,7 @@ move ``10`` from ``a`` to ``b`` using these commands:
 
   docker exec -it cli bash
 
-  peer chaincode invoke -o orderer.example.com:7050  --tls --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem  -C mychannel -n mycc -c '{"Args":["invoke","a","b","10"]}'
+  peer chaincode invoke -o orderer.example.com:7050  --tls --cafile /opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem  -C mychannel -n mycc -c '{"Args":["invoke","a","b","10"]}'
 
 Our query earlier revealed a to have a value of ``90`` and we have just removed
 ``10`` with our invoke. Therefore, a query against ``a`` should reveal ``80``.
@@ -348,7 +348,7 @@ do this by repeating the process above with a different peer name exported.
 Enable the new v1.2 capability
 ------------------------------
 
-Although Fabric binaries can and should be upgraded in a rolling fashion, it is
+Although Mchain binaries can and should be upgraded in a rolling fashion, it is
 important to finish upgrading binaries before enabling capabilities. Any peers
 not upgraded to v1.2 before the new capability is enabled may intentionally crash
 to indicate a potential misconfiguration which might result in a state forl. If
@@ -391,10 +391,10 @@ variables as Org1:
 .. code:: bash
 
   export CORE_PEER_LOCALMSPID="Org1MSP"
-  export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
-  export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+  export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
   export CORE_PEER_ADDRESS=peer0.org1.example.com:7051
-  export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+  export ORDERER_CA=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
   export CH_NAME="mychannel"
 
 Next, get the latest channel config:
@@ -448,9 +448,9 @@ Set the environment variables as Org2:
 
   export CORE_PEER_LOCALMSPID="Org2MSP"
 
-  export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+  export CORE_PEER_TLS_ROOTCERT_FILE=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
 
-  export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+  export CORE_PEER_MSPCONFIGPATH=/opt/gopath/src/github.com/hyperledger/mchain/peer/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
 
   export CORE_PEER_ADDRESS=peer0.org2.example.com:7051
 
@@ -498,37 +498,37 @@ Although this is the end of our update tutorial, there are other components that
 exist in production networks that are not supported by the BYFN sample. In this
 section, we’ll talk through the process of updating them.
 
-Fabric CA container
+Mchain CA container
 ~~~~~~~~~~~~~~~~~~~
 
-To learn how to upgrade your Fabric CA server, click over to the `CA documentation. <http://hyperledger-fabric-ca.readthedocs.io/en/latest/users-guide.html#upgrading-the-server>`_
+To learn how to upgrade your Mchain CA server, click over to the `CA documentation. <http://hyperledger-mchain-ca.readthedocs.io/en/latest/users-guide.html#upgrading-the-server>`_
 
 Upgrade Node SDK clients
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: Upgrade Fabric CA before upgrading Node SDK clients.
+.. note:: Upgrade Mchain CA before upgrading Node SDK clients.
 
 Use NPM to upgrade any ``Node.js`` client by executing these commands in the
 root directory of your application:
 
 ..  code:: bash
 
-  npm install fabric-client@1.2
+  npm install mchain-client@1.2
 
-  npm install fabric-ca-client@1.2
+  npm install mchain-ca-client@1.2
 
-These commands install the new version of both the Fabric client and Fabric-CA
+These commands install the new version of both the Mchain client and Mchain-CA
 client and write the new versions ``package.json``.
 
 Upgrading the Kafka cluster
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 It is not required, but it is recommended that the Kafka cluster be upgraded and
-kept up to date along with the rest of Fabric. Newer versions of Kafka support
+kept up to date along with the rest of Mchain. Newer versions of Kafka support
 older protocol versions, so you may upgrade Kafka before or after the rest of
-Fabric.
+Mchain.
 
-If you followed the `Upgrading Your Network to v1.1 tutorial <http://hyperledger-fabric.readthedocs.io/en/release-1.1/upgrading_your_network_tutorial.html>`_,
+If you followed the `Upgrading Your Network to v1.1 tutorial <http://hyperledger-mchain.readthedocs.io/en/release-1.1/upgrading_your_network_tutorial.html>`_,
 your Kafka cluster should be at v1.0.0. If it isn't, refer to the official Apache
 Kafka documentation on `upgrading Kafka from previous versions`__ to upgrade the
 Kafka cluster brokers.

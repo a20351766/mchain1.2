@@ -10,8 +10,8 @@ import (
 	"crypto/tls"
 	"fmt"
 
-	"github.com/hyperledger/fabric/core/comm"
-	ab "github.com/hyperledger/fabric/protos/orderer"
+	"github.com/hyperledger/mchain/core/comm"
+	ab "github.com/hyperledger/mchain/protos/orderer"
 	"github.com/pkg/errors"
 )
 
